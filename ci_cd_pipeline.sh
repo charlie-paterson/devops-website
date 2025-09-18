@@ -12,18 +12,9 @@ DEPLOYMENT="devops-website"
 
 echo "Starting full devops pipeline..."
 
-#Step 1: Build Docker image
-echo -e "${GREEN}Project files:${RESET}"
-docker build -t devops-website .
-
-echo -e "${GREEN}Docker image built successfully${RESET}"
-echo
-#Step 2: Tag Docker image to Docker Hub
-docker tag devops-website westbrom1968/devops-website:latest
-
-#Step 3: Push Docker image to Docker Hub
-echo -e "${GREEN}Pushing image to Docker Hub...${RESET}"
-docker push westbrom1968/devops-website:latest
+#Step 3: Pull Docker image to Docker Hub
+echo -e "${GREEN}Pulling latest Docker image...${RESET}"
+docker pull westbrom1968/devops-website:latest
 echo
 
 #Step 4: Update Kubernetes deployment
