@@ -29,12 +29,6 @@ jobs:
       - name: Push Docker image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/devops-website:latest
 
-      # Step 5: Set up kubectl
-      - name: Set up kubectl
-        uses: azure/setup-kubectl@v3
-        with:
-          version: 'v1.26.0'
-
       # Step 6: Deploy to Kubernetes
       - name: Deploy to Kubernetes
         run: |
