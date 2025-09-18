@@ -1,137 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cool All-in-One Docker Site</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to right, #1e3c72, #2a5298);
-            color: #fff;
-            text-align: center;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Epic Docker Website</title>
+  <style>
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        nav {
-            background-color: rgba(0,0,0,0.6);
-            padding: 15px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      min-height: 100vh;
+    }
 
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 8px 15px;
-            border-radius: 5px;
-            transition: background 0.3s;
-            cursor: pointer;
-        }
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-        nav a:hover {
-            background-color: rgba(255,255,255,0.2);
-        }
+    nav {
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+    }
 
-        h1 {
-            margin-top: 50px;
-            font-size: 3em;
-        }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
 
-        button {
-            padding: 15px 30px;
-            font-size: 1.2em;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            background-color: #ff6a00;
-            color: #fff;
-            margin-top: 20px;
-            transition: transform 0.2s, background-color 0.2s;
-        }
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.1);
+    }
 
-        button:hover {
-            background-color: #ff8c42;
-            transform: scale(1.1);
-        }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
 
-        p {
-            font-size: 1.2em;
-            margin-top: 20px;
-        }
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease;
+    }
 
-        .container {
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-        }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-        .hidden {
-            display: none;
-        }
-    </style>
+    /* Hide pages */
+    .hidden { display: none; }
+
+    /* Cards on Home */
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.1);
+      width: 200px;
+      height: 250px;
+      perspective: 1000px;
+      border-radius: 12px;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
+
+    .card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2em;
+      padding: 20px;
+    }
+
+    .card-front {
+      background: rgba(0,0,0,0.4);
+    }
+
+    .card-back {
+      background: rgba(255,255,255,0.2);
+      transform: rotateY(180deg);
+    }
+
+    /* Contact form */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    input, textarea {
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      outline: none;
+      font-size: 1em;
+    }
+
+    button {
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      background: #ff6a00;
+      color: #fff;
+      font-size: 1em;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    button:hover {
+      background: #ff8c42;
+      transform: scale(1.05);
+    }
+
+    #formMessage {
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+  </style>
 </head>
 <body>
-    <nav>
-        <a onclick="showPage('home')">Home</a>
-        <a onclick="showPage('about')">About</a>
-        <a onclick="showPage('contact')">Contact</a>
-    </nav>
+  <!-- Navigation -->
+  <nav>
+    <a onclick="showPage('home')">Home</a>
+    <a onclick="showPage('about')">About</a>
+    <a onclick="showPage('contact')">Contact</a>
+  </nav>
 
-    <div class="container">
-        <!-- Home Page -->
-        <div id="home">
-            <h1>Welcome to My Cool Docker Site!</h1>
-            <button id="clickBtnHome">Click Me!</button>
-            <p id="messageHome"></p>
+  <div class="container">
+    <!-- Home Page -->
+    <div id="home">
+      <h1>🌟 Welcome to the Epic Docker Website 🌟</h1>
+      <p>Everything you see here is inside a single HTML file!</p>
+      <div class="cards">
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">Hover me 🚀</div>
+            <div class="card-back">I'm a flipping card!</div>
+          </div>
         </div>
-
-        <!-- About Page -->
-        <div id="about" class="hidden">
-            <h1>About This Website</h1>
-            <p>This website runs entirely in Docker and uses one HTML file for all pages.</p>
-            <p>It is interactive, modern, and lightweight!</p>
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">Docker ❤️</div>
+            <div class="card-back">Portable & Powerful</div>
+          </div>
         </div>
-
-        <!-- Contact Page -->
-        <div id="contact" class="hidden">
-            <h1>Contact Me</h1>
-            <p>Click the button below to interact:</p>
-            <button id="clickBtnContact">Click Me!</button>
-            <p id="messageContact"></p>
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">Click Fun</div>
+            <div class="card-back">
+              <button id="clickBtn">Click Me!</button>
+              <p id="clickMessage"></p>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
 
-    <script>
-        // Navigation function
-        function showPage(page) {
-            const pages = ['home', 'about', 'contact'];
-            pages.forEach(p => {
-                document.getElementById(p).classList.add('hidden');
-            });
-            document.getElementById(page).classList.remove('hidden');
-        }
+    <!-- About Page -->
+    <div id="about" class="hidden">
+      <h1>About This Project</h1>
+      <p>This site demonstrates HTML, CSS, and JavaScript combined in a single file.</p>
+      <p>It’s fully containerized with Docker and ready to deploy anywhere.</p>
+    </div>
 
-        // Interactivity for Home button
-        let countHome = 0;
-        const btnHome = document.getElementById('clickBtnHome');
-        const msgHome = document.getElementById('messageHome');
-        btnHome.addEventListener('click', () => {
-            countHome++;
-            msgHome.textContent = `Home clicked ${countHome} time${countHome > 1 ? 's' : ''}! 🎉`;
-        });
+    <!-- Contact Page -->
+    <div id="contact" class="hidden">
+      <h1>Contact Us</h1>
+      <form id="contactForm">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit">Send Message</button>
+        <p id="formMessage"></p>
+      </form>
+    </div>
+  </div>
 
-        // Interactivity for Contact button
-        let countContact = 0;
-        const btnContact = document.getElementById('clickBtnContact');
-        const msgContact = document.getElementById('messageContact');
-        btnContact.addEventListener('click', () => {
-            countContact++;
-            msgContact.textContent = `Contact clicked ${countContact} time${countContact > 1 ? 's' : ''}! 🎉`;
-        });
-    </script>
+  <script>
+    // Navigation
+    function showPage(page) {
+      ['home','about','contact'].forEach(p => {
+        document.getElementById(p).classList.add('hidden');
+      });
+      document.getElementById(page).classList.remove('hidden');
+    }
+
+    // Click counter on card
+    let count = 0;
+    const btn = document.getElementById('clickBtn');
+    const msg = document.getElementById('clickMessage');
+    btn.addEventListener('click', () => {
+      count++;
+      msg.textContent = `Clicked ${count} time${count>1?'s':''}! 🎉`;
+    });
+
+    // Fake form submission
+    const form = document.getElementById('contactForm');
+    const formMsg = document.getElementById('formMessage');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      formMsg.textContent = "✅ Message sent (simulation)!";
+      formMsg.style.color = "lightgreen";
+    });
+  </script>
 </body>
 </html>
