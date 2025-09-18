@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cool Website</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #fff;
+      text-align: center;
+    }
+
+    header {
+      padding: 4rem 1rem;
+      background: rgba(0,0,0,0.4);
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+
+    /* Card Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 3rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.1);
+      padding: 2rem;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      background: rgba(255,255,255,0.2);
+    }
+
+    .card h2 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .card p {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    /* Footer */
+    footer {
+      padding: 2rem;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🚀 Welcome to My Cool Website</h1>
+    <p>Sleek design, smooth animations, and a modern vibe</p>
+  </header>
+
+  <section class="grid">
+    <div class="card">
+      <h2>💡 Inspiration</h2>
+      <p>Fresh ideas that spark creativity and innovation.</p>
+    </div>
+    <div class="card">
+      <h2>🌍 Community</h2>
+      <p>Connecting people, sharing knowledge, building futures.</p>
+    </div>
+    <div class="card">
+      <h2>⚡ Technology</h2>
+      <p>Cutting-edge tools that empower and transform.</p>
+    </div>
+    <div class="card">
+      <h2>🎨 Design</h2>
+      <p>Beautiful, functional, and user-friendly experiences.</p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 My Cool Website | Made with ❤️ and CSS magic
+  </footer>
+</body>
+</html>

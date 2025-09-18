@@ -1,0 +1,17 @@
+#Ignore Docker images and build files
+*.tar
+*.img
+dist/
+build/
+
+#Node modules
+node_modules/
+
+#Logs
+*.log
+
+#OS Files
+.DS_Store
+
+#Minikube files
+.minikube/
