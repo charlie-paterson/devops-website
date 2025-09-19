@@ -64,6 +64,14 @@
     }
     h1 { font-size: 2em; margin-bottom: 15px; }
 
+    .driver-photo {
+    width: 80px;          /* adjust size to fit card */
+    height: 80px;
+    border-radius: 50%;   /* circular photo */
+    margin-bottom: 8px;   /* space between photo and name */
+    object-fit: cover;    /* ensures photo fills circle */
+    }
+
     .cards {
       display: flex;
       flex-wrap: wrap;
@@ -169,21 +177,36 @@
       <p>Founded in 1950, F1 has become a worldwide phenomenon, blending technology, strategy, and adrenaline.</p>
     </div>
 
-    <!-- Drivers -->
-    <div id="drivers" class="hidden">
-      <h1>2025 Formula 1 Drivers</h1>
-      <div class="cards">
-        <div class="card"><div class="card-inner">
-          <div class="card-front">Max Verstappen</div>
-          <div class="card-back" style="background:#0600EF;">Red Bull Racing 🇳🇱</div>
-        </div></div>
-        <div class="card"><div class="card-inner">
-          <div class="card-front">Lewis Hamilton</div>
-          <div class="card-back" style="background:#00D2BE;">Mercedes 🇬🇧</div>
-        </div></div>
+<div id="drivers" class="hidden">
+  <h1>2025 Formula 1 Drivers</h1>
+  <div class="cards">
+    <!-- Max Verstappen -->
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="images/max.png" alt="Max Verstappen" class="driver-photo">
+          <span>Max Verstappen</span>
+        </div>
+        <div class="card-back" style="background:#0600EF;">
+          Red Bull Racing 🇳🇱
+        </div>
       </div>
     </div>
 
+    <!-- Lewis Hamilton -->
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="images/lewis.png" alt="Lewis Hamilton" class="driver-photo">
+          <span>Lewis Hamilton</span>
+        </div>
+        <div class="card-back" style="background:#00D2BE;">
+          Mercedes 🇬🇧
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
     <!-- Schedule -->
     <div id="schedule" class="hidden">
       <h1>Upcoming Races</h1>
