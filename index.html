@@ -56,6 +56,69 @@
       font-size: 0.9em;
     }
     nav a:hover { background: red; transform: scale(1.1); }
+    .home-section {
+  text-align: center;
+  padding: 40px 20px;
+  animation: fadeIn 2s ease;
+}
+
+.hero h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  color: #FFD700;
+  text-shadow: 0px 0px 8px rgba(255,0,0,0.8);
+}
+
+.tagline {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.next-race {
+  margin-top: 40px;
+  padding: 20px;
+  background: rgba(0,0,0,0.7);
+  border-radius: 10px;
+}
+
+.next-race h2 {
+  color: #00FFCC;
+  margin-bottom: 5px;
+}
+
+.countdown {
+  display: block;
+  margin-top: 8px;
+  font-weight: bold;
+  color: #FFD700;
+}
+
+.highlights {
+  margin-top: 40px;
+  padding: 20px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+}
+
+.highlights h2 {
+  margin-bottom: 15px;
+  color: #FF4444;
+}
+
+.highlights ul {
+  list-style: none;
+  padding: 0;
+}
+
+.highlights li {
+  margin: 8px 0;
+  font-size: 1.1em;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
     .container {
       max-width: 1000px;
@@ -193,18 +256,34 @@
     <a onclick="showPage('home')">Home</a>
     <a onclick="showPage('about')">About</a>
     <a onclick="showPage('drivers')">Drivers</a>
+    <a onclick="showPage('standings')">Standings</a>
     <a onclick="showPage('schedule')">Schedule</a>
     <a onclick="showPage('contact')">Contact</a>
   </nav>
 
-  <div class="container">
-    <!-- Home -->
-    <div id="home">
-      <h1>🏎️ Formula 1 Fan Hub 🏎️</h1>
-      <p>Welcome to the ultimate hub for F1 fans. Stay updated with drivers, races, and more!</p>
-      <button id="clickBtn">Cheer for F1!</button>
-      <p id="clickMessage"></p>
-    </div>
+  <div id="home" class="home-section">
+  <div class="hero">
+    <h1>🏁 Welcome to the Formula 1 Fan Hub 🏁</h1>
+    <p class="tagline">Your one-stop pit lane for drivers, races, and live F1 excitement.</p>
+  </div>
+
+  <!-- Next Race Banner -->
+  <div class="next-race">
+    <h2>Next Race: 🇦🇺 Australian GP</h2>
+    <p>March 16, 2025 — Melbourne Grand Prix Circuit</p>
+    <span class="countdown">⏳ Countdown: 178 days left</span>
+  </div>
+
+  <!-- Highlight Section -->
+  <div class="highlights">
+    <h2>✨ Season Highlights ✨</h2>
+    <ul>
+      <li>New rookie <strong>Kimi Antonelli</strong> joins Mercedes 🏎️</li>
+      <li><strong>Red Bull</strong> chasing a fifth straight constructors’ title 🏆</li>
+      <li><strong>Ferrari</strong> pushing hard for Monza glory 🇮🇹</li>
+    </ul>
+  </div>
+</div>
 
     <!-- About -->
     <div id="about" class="hidden">
