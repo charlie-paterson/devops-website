@@ -379,6 +379,12 @@
       if (section === 'driver' && driverTable) driverTable.classList.remove('hidden');
     }
 
+    function toggleDropdown() {
+  const dropdown = document.getElementById("driverDropdown");
+  dropdown.style.display =
+    dropdown.style.display === "flex" ? "none" : "flex";
+}
+
     let count = 0;
     const btn = document.getElementById('clickBtn');
     const msg = document.getElementById('clickMessage');
