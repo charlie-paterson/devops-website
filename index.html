@@ -1,1 +1,375 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Formula 1 Fan Hub</title> <!-- PWA manifest --> <link rel="manifest" href="/manifest.json"> <!-- Favicon / fallback --> <link rel="icon" href="/images/icon-192.png"> <!-- iOS PWA support --> <link rel="apple-touch-icon" href="/images/icon-192.png"> <meta name="apple-mobile-web-app-capable" content="yes"> <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> <!-- Theme color --> <meta name="theme-color" content="#E10600"> <style> * { box-sizing: border-box; margin: 0; padding: 0; } body { font-family: 'Segoe UI', sans-serif; color: #fff; background: linear-gradient(-45deg, #ff0000, #111, #222, #ff0000); background-size: 400% 400%; animation: gradient 15s ease infinite; min-height: 100vh; } @keyframes gradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } } nav { background: rgba(0,0,0,0.85); display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 10px; position: sticky; top: 0; z-index: 10; } nav a { color: #fff; text-decoration: none; font-weight: bold; padding: 8px 12px; border-radius: 6px; transition: all 0.3s; cursor: pointer; font-size: 0.9em; } nav a:hover { background: red; transform: scale(1.1); } .container { max-width: 1000px; margin: auto; padding: 20px; text-align: center; } h1 { font-size: 2em; margin-bottom: 15px; } .driver-photo { width: 80px; /* adjust size to fit card */ height: 80px; border-radius: 50%; /* circular photo */ margin-bottom: 8px; /* space between photo and name */ object-fit: cover; /* ensures photo fills circle */ } .cards { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 20px; } .card { width: 150px; height: 200px; perspective: 1000px; border-radius: 12px; } .card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.8s; transform-style: preserve-3d; cursor: pointer; } .card:hover .card-inner { transform: rotateY(180deg); } .card-front, .card-back { position: absolute; width: 100%; height: 100%; border-radius: 12px; backface-visibility: hidden; display: flex; align-items: center; justify-content: center; font-size: 0.9em; padding: 10px; flex-direction: column; } .card-front { background: rgba(0,0,0,0.7); } .card-back { transform: rotateY(180deg); color: #fff; } .schedule-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-family: 'Segoe UI', sans-serif; color: #fff; background: rgba(0,0,0,0.6); border-radius: 12px; overflow: hidden; } .schedule-table th, .schedule-table td { padding: 12px 10px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.2); } .schedule-table th { background: rgba(255,0,0,0.8); font-size: 1em; text-transform: uppercase; letter-spacing: 1px; } .schedule-table tr:nth-child(even) { background: rgba(255,255,255,0.05); } .schedule-table tr:hover { background: rgba(255,255,255,0.1); } @media (max-width: 600px) { .schedule-table th, .schedule-table td { padding: 8px 5px; font-size: 0.8em; } } table { width: 100%; margin-top: 15px; border-collapse: collapse; background: rgba(255,255,255,0.1); font-size: 0.9em; } th, td { padding: 8px; border: 1px solid rgba(255,255,255,0.3); } th { background: rgba(255,0,0,0.7); } form { display: flex; flex-direction: column; gap: 10px; max-width: 100%; margin: auto; } input, textarea { padding: 10px; border: none; border-radius: 6px; outline: none; font-size: 0.9em; width: 100%; } button { padding: 10px; border: none; border-radius: 6px; background: red; color: #fff; font-size: 1em; cursor: pointer; transition: transform 0.2s, background 0.2s; } button:hover { background: darkred; transform: scale(1.05); } #formMessage { margin-top: 10px; font-weight: bold; font-size: 1em; } .hidden { display: none; } @media (max-width: 600px) { h1 { font-size: 1.5em; } .card { width: 120px; height: 170px; font-size: 0.8em; } nav a { padding: 6px 10px; font-size: 0.8em; } table { font-size: 0.8em; } } </style> </head> <body> <nav> <a onclick="showPage('home')">Home</a> <a onclick="showPage('about')">About</a> <a onclick="showPage('drivers')">Drivers</a> <a onclick="showPage('schedule')">Schedule</a> <a onclick="showPage('contact')">Contact</a> </nav> <div class="container"> <!-- Home --> <div id="home"> <h1>🏎️ Formula 1 Fan Hub 🏎️</h1> <p>Welcome to the ultimate hub for F1 fans. Stay updated with drivers, races, and more!</p> <button id="clickBtn">Cheer for F1!</button> <p id="clickMessage"></p> </div> <!-- About --> <div id="about" class="hidden"> <h1>About Formula 1</h1> <p>Formula 1 is the pinnacle of motorsport, with high-speed cars, legendary drivers, and global races.</p> <p>Founded in 1950, F1 has become a worldwide phenomenon, blending technology, strategy, and adrenaline.</p> </div> <div id="drivers" class="hidden"> <h1>2025 Formula 1 Drivers</h1> <!-- Mclaren --> <div class="team"> <div class="cards"> <!-- Lando Norris --> <div class="card"> <div class="card-inner"> <div class="card-front"> <img src="images/lando.png" alt="Lando Norris" class="driver-photo"> <span>Lando Norris</span> </div> <div class="card-back" style="background:#FF8700;"> Mclaren 🇬🇧 </div> </div> </div> <!-- Oscar Piastri --> <div class="card"> <div class="card-inner"> <div class="card-front"> <img src="images/oscar.png" alt="Oscar Piastri" class="driver-photo"> <span>Oscar Piastri</span> </div> <div class="card-back" style="background:#FF8700;"> Mclaren 🇦🇺 </div> </div> </div> </div> <p class="team-name">Mclaren</p> </div> <!-- Red Bull --> <div class="team"> <div class="cards"> <!-- Max Verstappen --> <div class="card"> <div class="card-inner"> <div class="card-front"> <img src="images/max.png" alt="Max Verstappen" class="driver-photo"> <span>Max Verstappen</span> </div> <div class="card-back" style="background:#0600EF;"> Red Bull Racing 🇳🇱 </div> </div> </div> <!-- Yuki Tsnoda --> <div class="card"> <div class="card-inner"> <div class="card-front"> <img src="images/yuki.png" alt="Yuki Tsunoda" class="driver-photo"> <span>Yuki Tsunoda</span> </div> <div class="card-back" style="background:#0600EF;"> Red Bull Racing 🇲🇽 </div> </div> </div> </div> <p class="team-name">Red Bull Racing</p> </div> <!-- Mercedes --> <div class="team"> <div class="cards"> <!-- George Russell --> <div class="card"> <div class="card-inner"> <div class="card-front"> <img src="images/george.png" alt="George Russell" class="driver-photo"> <span>George Russell</span> </div> <div class="card-back" style="background:#00D2BE;"> Mercedes 🇬🇧 </div> </div> </div> <!-- Kimi Antonelli --> <div class="card"> <div class="card-inner"> <div class="card-front"> <img src="images/kimi.png" alt="Kimi Antonelli" class="driver-photo"> <span>Kimi Antonelli</span> </div> <div class="card-back" style="background:#00D2BE;"> Mercedes 🇮🇹 </div> </div> </div> </div> <p class="team-name">Mercedes</p> </div> </div> <!-- Schedule --> <div id="schedule" class="hidden"> <h1>Upcoming Races</h1> <table class="schedule-table"> <tr><th>Race</th><th>Date</th><th>Location</th></tr> <tr><td>Australian GP 🇦🇺</td><td>March 16, 2025</td><td>Melbourne</td></tr> <tr><td>Chinese GP 🇨🇳</td><td>March 23, 2025</td><td>Shanghai</td></tr> <tr><td>Japanese GP 🇯🇵</td><td>April 6, 2025</td><td>Suzuka</td></tr> <tr><td>Bahrain GP 🇧🇭</td><td>April 13, 2025</td><td>Sakhir</td></tr> <tr><td>Saudi Arabian GP 🇸🇦</td><td>April 20, 2025</td><td>Jeddah</td></tr> <tr><td>Miami GP 🇺🇸</td><td>May 4, 2025</td><td>Miami</td></tr> <tr><td>Emilia-Romagna GP 🇮🇹</td><td>May 18, 2025</td><td>Imola</td></tr> <tr><td>Monaco GP 🇲🇨</td><td>May 25, 2025</td><td>Monte Carlo</td></tr> <tr><td>Spanish GP 🇪🇸</td><td>June 1, 2025</td><td>Barcelona</td></tr> <tr><td>Canadian GP 🇨🇦</td><td>June 15, 2025</td><td>Montreal</td></tr> <tr><td>Austria GP 🇦🇹</td><td>June 29, 2025</td><td>Spielberg</td></tr> <tr><td>British GP 🇬🇧</td><td>July 6, 2025</td><td>Silverstone</td></tr> <tr><td>Belgian GP 🇧🇪</td><td>July 20, 2025</td><td>Spa-Francorchamps</td></tr> <tr><td>Hungarian GP 🇭🇺</td><td>July 27, 2025</td><td>Budapest</td></tr> <tr><td>Netherlands GP 🇳🇱</td><td>August 10, 2025</td><td>Zandvoort</td></tr> <tr><td>Italian GP 🇮🇹</td><td>August 24, 2025</td><td>Monza</td></tr> <tr><td>Azerbaijan GP 🇦🇿</td><td>September 7, 2025</td><td>Baku</td></tr> <tr><td>Singapore GP 🇸🇬</td><td>September 21, 2025</td><td>Singapore</td></tr> <tr><td>United States GP 🇺🇸</td><td>October 5, 2025</td><td>Austin</td></tr> <tr><td>Mexico GP 🇲🇽</td><td>October 19, 2025</td><td>Mexico City</td></tr> <tr><td>Brazilian GP 🇧🇷</td><td>November 2, 2025</td><td>São Paulo</td></tr> <tr><td>Las Vegas GP 🇺🇸</td><td>November 16, 2025</td><td>Las Vegas</td></tr> <tr><td>Qatar GP 🇶🇦</td><td>November 30, 2025</td><td>Doha</td></tr> <tr><td>Abu Dhabi GP 🇦🇪</td><td>December 7, 2025</td><td>Abu Dhabi</td></tr> </table> </div> <!-- Contact --> <div id="contact" class="hidden"> <h1>Contact Us</h1> <form id="contactForm"> <input type="text" placeholder="Your Name" required> <input type="email" placeholder="Your Email" required> <textarea placeholder="Your Message" rows="4" required></textarea> <button type="submit">Send Message</button> <p id="formMessage"></p> </form> </div> </div> <script> // Navigation function showPage(page) { ['home','about','drivers','schedule','contact'].forEach(p => { document.getElementById(p).classList.add('hidden'); }); document.getElementById(page).classList.remove('hidden'); } // Click counter let count = 0; const btn = document.getElementById('clickBtn'); const msg = document.getElementById('clickMessage'); btn.addEventListener('click', () => { count++; msg.textContent = F1 Fan cheers ${count} time${count>1?'s':''}! 🎉; }); // Fake form submission const form = document.getElementById('contactForm'); const formMsg = document.getElementById('formMessage'); form.addEventListener('submit', e => { e.preventDefault(); formMsg.textContent = "✅ Message sent to the pit crew!"; formMsg.style.color = "lightgreen"; }); // Register Service Worker if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/service-worker.js', {scope: '/'}) .then(() => console.log('Service Worker registered')) .catch(err => console.log('SW registration failed', err)); } </script> </body> </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formula 1 Fan Hub</title>
+
+  <!-- PWA manifest -->
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- Favicon / fallback -->
+  <link rel="icon" href="/images/icon-192.png">
+
+  <!-- iOS PWA support -->
+  <link rel="apple-touch-icon" href="/images/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <!-- Theme color -->
+  <meta name="theme-color" content="#E10600">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      background: linear-gradient(-45deg, #ff0000, #111, #222, #ff0000);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      min-height: 100vh;
+    }
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    nav {
+      background: rgba(0,0,0,0.85);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: all 0.3s;
+      cursor: pointer;
+      font-size: 0.9em;
+    }
+    nav a:hover { background: red; transform: scale(1.1); }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 { font-size: 2em; margin-bottom: 15px; }
+
+    .driver-photo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 8px;
+      object-fit: cover;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .card {
+      width: 150px;
+      height: 200px;
+      perspective: 1000px;
+      border-radius: 12px;
+    }
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
+    .card:hover .card-inner { transform: rotateY(180deg); }
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9em;
+      padding: 10px;
+      flex-direction: column;
+    }
+    .card-front { background: rgba(0,0,0,0.7); }
+    .card-back { transform: rotateY(180deg); color: #fff; }
+
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      background: rgba(0,0,0,0.6);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .schedule-table th, .schedule-table td {
+      padding: 12px 10px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .schedule-table th {
+      background: rgba(255,0,0,0.8);
+      font-size: 1em;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .schedule-table tr:nth-child(even) {
+      background: rgba(255,255,255,0.05);
+    }
+    .schedule-table tr:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    table {
+      width: 100%;
+      margin-top: 15px;
+      border-collapse: collapse;
+      background: rgba(255,255,255,0.1);
+      font-size: 0.9em;
+    }
+    th, td { padding: 8px; border: 1px solid rgba(255,255,255,0.3); }
+    th { background: rgba(255,0,0,0.7); }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 100%;
+      margin: auto;
+    }
+    input, textarea {
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      outline: none;
+      font-size: 0.9em;
+      width: 100%;
+    }
+    button {
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      background: red;
+      color: #fff;
+      font-size: 1em;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+    button:hover { background: darkred; transform: scale(1.05); }
+
+    #formMessage { margin-top: 10px; font-weight: bold; font-size: 1em; }
+
+    .hidden { display: none; }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.5em; }
+      .card { width: 120px; height: 170px; font-size: 0.8em; }
+      nav a { padding: 6px 10px; font-size: 0.8em; }
+      table { font-size: 0.8em; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a onclick="showPage('home')">Home</a>
+    <a onclick="showPage('about')">About</a>
+    <a onclick="showPage('drivers')">Drivers</a>
+    <a onclick="showPage('schedule')">Schedule</a>
+    <a onclick="showPage('contact')">Contact</a>
+  </nav>
+
+  <div class="container">
+    <!-- Home -->
+    <div id="home">
+      <h1>🏎️ Formula 1 Fan Hub 🏎️</h1>
+      <p>Welcome to the ultimate hub for F1 fans. Stay updated with drivers, races, and more!</p>
+      <button id="clickBtn">Cheer for F1!</button>
+      <p id="clickMessage"></p>
+    </div>
+
+    <!-- About -->
+    <div id="about" class="hidden">
+      <h1>About Formula 1</h1>
+      <p>Formula 1 is the pinnacle of motorsport, with high-speed cars, legendary drivers, and global races.</p>
+      <p>Founded in 1950, F1 has become a worldwide phenomenon, blending technology, strategy, and adrenaline.</p>
+    </div>
+
+    <!-- Drivers -->
+    <div id="drivers" class="hidden">
+      <h1>2025 Formula 1 Drivers</h1>
+      <!-- McLaren -->
+      <div class="team">
+        <div class="cards">
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="images/lando.png" alt="Lando Norris" class="driver-photo">
+                <span>Lando Norris</span>
+              </div>
+              <div class="card-back" style="background:#FF8700;">Mclaren 🇬🇧</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="images/oscar.png" alt="Oscar Piastri" class="driver-photo">
+                <span>Oscar Piastri</span>
+              </div>
+              <div class="card-back" style="background:#FF8700;">Mclaren 🇦🇺</div>
+            </div>
+          </div>
+        </div>
+        <p class="team-name">Mclaren</p>
+      </div>
+
+      <!-- Red Bull -->
+      <div class="team">
+        <div class="cards">
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="images/max.png" alt="Max Verstappen" class="driver-photo">
+                <span>Max Verstappen</span>
+              </div>
+              <div class="card-back" style="background:#0600EF;">Red Bull Racing 🇳🇱</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="images/yuki.png" alt="Yuki Tsunoda" class="driver-photo">
+                <span>Yuki Tsunoda</span>
+              </div>
+              <div class="card-back" style="background:#0600EF;">Red Bull Racing 🇲🇽</div>
+            </div>
+          </div>
+        </div>
+        <p class="team-name">Red Bull Racing</p>
+      </div>
+
+      <!-- Mercedes -->
+      <div class="team">
+        <div class="cards">
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="images/george.png" alt="George Russell" class="driver-photo">
+                <span>George Russell</span>
+              </div>
+              <div class="card-back" style="background:#00D2BE;">Mercedes 🇬🇧</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="images/kimi.png" alt="Kimi Antonelli" class="driver-photo">
+                <span>Kimi Antonelli</span>
+              </div>
+              <div class="card-back" style="background:#00D2BE;">Mercedes 🇮🇹</div>
+            </div>
+          </div>
+        </div>
+        <p class="team-name">Mercedes</p>
+      </div>
+    </div>
+
+    <!-- Schedule -->
+    <div id="schedule" class="hidden">
+      <h1>Upcoming Races</h1>
+      <table class="schedule-table">
+        <tr><th>Race</th><th>Date</th><th>Location</th></tr>
+        <tr><td>Australian GP 🇦🇺</td><td>March 16, 2025</td><td>Melbourne</td></tr>
+        <tr><td>Chinese GP 🇨🇳</td><td>March 23, 2025</td><td>Shanghai</td></tr>
+        <tr><td>Japanese GP 🇯🇵</td><td>April 6, 2025</td><td>Suzuka</td></tr>
+        <tr><td>Bahrain GP 🇧🇭</td><td>April 13, 2025</td><td>Sakhir</td></tr>
+        <tr><td>Saudi Arabian GP 🇸🇦</td><td>April 20, 2025</td><td>Jeddah</td></tr>
+        <tr><td>Miami GP 🇺🇸</td><td>May 4, 2025</td><td>Miami</td></tr>
+        <tr><td>Emilia-Romagna GP 🇮🇹</td><td>May 18, 2025</td><td>Imola</td></tr>
+        <tr><td>Monaco GP 🇲🇨</td><td>May 25, 2025</td><td>Monte Carlo</td></tr>
+        <tr><td>Spanish GP 🇪🇸</td><td>June 1, 2025</td><td>Barcelona</td></tr>
+        <tr><td>Canadian GP 🇨🇦</td><td>June 15, 2025</td><td>Montreal</td></tr>
+        <tr><td>Austria GP 🇦🇹</td><td>June 29, 2025</td><td>Spielberg</td></tr>
+        <tr><td>British GP 🇬🇧</td><td>July 6, 2025</td><td>Silverstone</td></tr>
+        <tr><td>Belgian GP 🇧🇪</td><td>July 20, 2025</td><td>Spa-Francorchamps</td></tr>
+        <tr><td>Hungarian GP 🇭🇺</td><td>July 27, 2025</td><td>Budapest</td></tr>
+        <tr><td>Netherlands GP 🇳🇱</td><td>August 10, 2025</td><td>Zandvoort</td></tr>
+        <tr><td>Italian GP 🇮🇹</td><td>August 24, 2025</td><td>Monza</td></tr>
+        <tr><td>Azerbaijan GP 🇦🇿</td><td>September 7, 2025</td><td>Baku</td></tr>
+        <tr><td>Singapore GP 🇸🇬</td><td>September 21, 2025</td><td>Singapore</td></tr>
+        <tr><td>United States GP 🇺🇸</td><td>October 5, 2025</td><td>Austin</td></tr>
+        <tr><td>Mexico GP 🇲🇽</td><td>October 19, 2025</td><td>Mexico City</td></tr>
+        <tr><td>Brazilian GP 🇧🇷</td><td>November 2, 2025</td><td>São Paulo</td></tr>
+        <tr><td>Las Vegas GP 🇺🇸</td><td>November 16, 2025</td><td>Las Vegas</td></tr>
+        <tr><td>Qatar GP 🇶🇦</td><td>November 30, 2025</td><td>Doha</td></tr>
+        <tr><td>Abu Dhabi GP 🇦🇪</td><td>December 7, 2025</td><td>Abu Dhabi</td></tr>
+      </table>
+    </div>
+
+    <!-- Contact -->
+    <div id="contact" class="hidden">
+      <h1>Contact Us</h1>
+      <form id="contactForm">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit">Send Message</button>
+        <p id="formMessage"></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Navigation function
+    function showPage(page) {
+      ['home','about','drivers','schedule','contact'].forEach(p => {
+        document.getElementById(p).classList.add('hidden');
+      });
+      document.getElementById(page).classList.remove('hidden');
+    }
+
+    // Click counter
+    let count = 0;
+    const btn = document.getElementById('clickBtn');
+    const msg = document.getElementById('clickMessage');
+    btn.addEventListener('click', () => {
+      count++;
+      msg.textContent = `F1 Fan cheers ${count} time${count>1?'s':''}! 🎉`;
+    });
+
+    // Fake form submission
+    const form = document.getElementById('contactForm');
+    const formMsg = document.getElementById('formMessage');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      formMsg.textContent = "✅ Message sent to the pit crew!";
+      formMsg.style.color = "lightgreen";
+    });
+
+    // Register Service Worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js', {scope: '/'})
+        .then(() => console.log('Service Worker registered'))
+        .catch(err => console.log('SW registration failed', err));
+    }
+  </script>
+</body>
+</html>
