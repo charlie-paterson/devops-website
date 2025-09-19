@@ -4,7 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formula 1 Fan Hub</title>
+
+  <!-- PWA theme color -->
+  <meta name="theme-color" content="#E10600">
+  <link rel="manifest" href="manifest.json">
+
   <style>
+    /* Basic reset */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       font-family: 'Segoe UI', sans-serif;
       color: #fff;
@@ -12,66 +20,129 @@
       background-size: 400% 400%;
       animation: gradient 15s ease infinite;
       min-height: 100vh;
-      margin: 0;
     }
     @keyframes gradient {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
+
+    /* Navigation */
     nav {
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0,0,0,0.85);
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
-      padding: 15px;
+      gap: 10px;
+      padding: 10px;
       position: sticky;
       top: 0;
+      z-index: 10;
     }
     nav a {
       color: #fff;
       text-decoration: none;
       font-weight: bold;
-      padding: 8px 16px;
+      padding: 8px 12px;
       border-radius: 6px;
       transition: all 0.3s;
       cursor: pointer;
+      font-size: 0.9em;
     }
     nav a:hover { background: red; transform: scale(1.1); }
-    .container { max-width: 1000px; margin: auto; padding: 40px 20px; text-align: center; }
-    h1 { font-size: 3em; margin-bottom: 20px; }
-    .hidden { display: none; }
+
+    /* Container */
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 { font-size: 2em; margin-bottom: 15px; }
+
+    /* Cards */
     .cards {
-      display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 20px;
     }
     .card {
-      width: 200px; height: 250px; perspective: 1000px; border-radius: 12px;
+      width: 150px;
+      height: 200px;
+      perspective: 1000px;
+      border-radius: 12px;
     }
     .card-inner {
-      position: relative; width: 100%; height: 100%; transition: transform 0.8s; transform-style: preserve-3d; cursor: pointer;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+      cursor: pointer;
     }
     .card:hover .card-inner { transform: rotateY(180deg); }
     .card-front, .card-back {
-      position: absolute; width: 100%; height: 100%; border-radius: 12px; backface-visibility: hidden;
-      display: flex; align-items: center; justify-content: center; font-size: 1em; padding: 20px; flex-direction: column;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9em;
+      padding: 10px;
+      flex-direction: column;
     }
     .card-front { background: rgba(0,0,0,0.7); }
     .card-back { transform: rotateY(180deg); color: #fff; }
+
+    /* Table responsive */
     table {
-      width: 100%; margin-top: 20px; border-collapse: collapse; background: rgba(255,255,255,0.1);
+      width: 100%;
+      margin-top: 15px;
+      border-collapse: collapse;
+      background: rgba(255,255,255,0.1);
+      font-size: 0.9em;
     }
-    th, td { padding: 12px; border: 1px solid rgba(255,255,255,0.3); }
+    th, td { padding: 8px; border: 1px solid rgba(255,255,255,0.3); }
     th { background: rgba(255,0,0,0.7); }
-    form { display: flex; flex-direction: column; gap: 15px; max-width: 400px; margin: auto; }
+
+    /* Form responsive */
+    form { display: flex; flex-direction: column; gap: 10px; max-width: 100%; margin: auto; }
     input, textarea {
-      padding: 12px; border: none; border-radius: 6px; outline: none; font-size: 1em;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      outline: none;
+      font-size: 0.9em;
+      width: 100%;
     }
     button {
-      padding: 12px; border: none; border-radius: 6px; background: red; color: #fff; font-size: 1em;
-      cursor: pointer; transition: transform 0.2s, background 0.2s;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      background: red;
+      color: #fff;
+      font-size: 1em;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
     }
     button:hover { background: darkred; transform: scale(1.05); }
-    #formMessage { margin-top: 15px; font-weight: bold; font-size: 1.1em; }
+    #formMessage { margin-top: 10px; font-weight: bold; font-size: 1em; }
+
+    /* Hide sections */
+    .hidden { display: none; }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      h1 { font-size: 1.5em; }
+      .card { width: 120px; height: 170px; font-size: 0.8em; }
+      nav a { padding: 6px 10px; font-size: 0.8em; }
+      table { font-size: 0.8em; }
+    }
   </style>
 </head>
 <body>
@@ -103,44 +174,14 @@
     <div id="drivers" class="hidden">
       <h1>2025 Formula 1 Drivers</h1>
       <div class="cards">
-        <!-- Red Bull -->
+        <!-- Example cards (adjust colors if needed) -->
         <div class="card"><div class="card-inner">
           <div class="card-front">Max Verstappen</div>
           <div class="card-back" style="background:#0600EF;">Red Bull Racing 🇳🇱</div>
         </div></div>
         <div class="card"><div class="card-inner">
-          <div class="card-front">Sergio Pérez</div>
-          <div class="card-back" style="background:#0600EF;">Red Bull Racing 🇲🇽</div>
-        </div></div>
-
-        <!-- Mercedes -->
-        <div class="card"><div class="card-inner">
           <div class="card-front">Lewis Hamilton</div>
           <div class="card-back" style="background:#00D2BE;">Mercedes 🇬🇧</div>
-        </div></div>
-        <div class="card"><div class="card-inner">
-          <div class="card-front">George Russell</div>
-          <div class="card-back" style="background:#00D2BE;">Mercedes 🇬🇧</div>
-        </div></div>
-
-        <!-- Ferrari -->
-        <div class="card"><div class="card-inner">
-          <div class="card-front">Charles Leclerc</div>
-          <div class="card-back" style="background:#DC0000;">Ferrari 🇲🇨</div>
-        </div></div>
-        <div class="card"><div class="card-inner">
-          <div class="card-front">Carlos Sainz</div>
-          <div class="card-back" style="background:#DC0000;">Ferrari 🇪🇸</div>
-        </div></div>
-
-        <!-- McLaren -->
-        <div class="card"><div class="card-inner">
-          <div class="card-front">Lando Norris</div>
-          <div class="card-back" style="background:#FF8700;">McLaren 🇬🇧</div>
-        </div></div>
-        <div class="card"><div class="card-inner">
-          <div class="card-front">Oscar Piastri</div>
-          <div class="card-back" style="background:#FF8700;">McLaren 🇦🇺</div>
         </div></div>
       </div>
     </div>
