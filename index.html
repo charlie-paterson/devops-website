@@ -5,14 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formula 1 Fan Hub</title>
 
-  <!-- PWA theme color -->
+  <!-- PWA manifest -->
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- Favicon / fallback -->
+  <link rel="icon" href="/images/icon-192.png">
+
+  <!-- iOS PWA support -->
+  <link rel="apple-touch-icon" href="/images/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <!-- Theme color -->
   <meta name="theme-color" content="#E10600">
-  <link rel="manifest" href="manifest.json">
 
   <style>
-    /* Basic reset */
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
       font-family: 'Segoe UI', sans-serif;
       color: #fff;
@@ -26,8 +34,6 @@
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-
-    /* Navigation */
     nav {
       background: rgba(0,0,0,0.85);
       display: flex;
@@ -50,8 +56,6 @@
       font-size: 0.9em;
     }
     nav a:hover { background: red; transform: scale(1.1); }
-
-    /* Container */
     .container {
       max-width: 1000px;
       margin: auto;
@@ -60,7 +64,6 @@
     }
     h1 { font-size: 2em; margin-bottom: 15px; }
 
-    /* Cards */
     .cards {
       display: flex;
       flex-wrap: wrap;
@@ -99,7 +102,6 @@
     .card-front { background: rgba(0,0,0,0.7); }
     .card-back { transform: rotateY(180deg); color: #fff; }
 
-    /* Table responsive */
     table {
       width: 100%;
       margin-top: 15px;
@@ -110,7 +112,6 @@
     th, td { padding: 8px; border: 1px solid rgba(255,255,255,0.3); }
     th { background: rgba(255,0,0,0.7); }
 
-    /* Form responsive */
     form { display: flex; flex-direction: column; gap: 10px; max-width: 100%; margin: auto; }
     input, textarea {
       padding: 10px;
@@ -133,10 +134,8 @@
     button:hover { background: darkred; transform: scale(1.05); }
     #formMessage { margin-top: 10px; font-weight: bold; font-size: 1em; }
 
-    /* Hide sections */
     .hidden { display: none; }
 
-    /* Responsive adjustments */
     @media (max-width: 600px) {
       h1 { font-size: 1.5em; }
       .card { width: 120px; height: 170px; font-size: 0.8em; }
@@ -174,7 +173,6 @@
     <div id="drivers" class="hidden">
       <h1>2025 Formula 1 Drivers</h1>
       <div class="cards">
-        <!-- Example cards (adjust colors if needed) -->
         <div class="card"><div class="card-inner">
           <div class="card-front">Max Verstappen</div>
           <div class="card-back" style="background:#0600EF;">Red Bull Racing 🇳🇱</div>
@@ -237,14 +235,13 @@
       formMsg.textContent = "✅ Message sent to the pit crew!";
       formMsg.style.color = "lightgreen";
     });
-  </script>
-<script>
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/service-worker.js')
-    .then(() => console.log('Service Worker registered successfully'))
-    .catch(err => console.log('Service Worker registration failed:', err));
-}
-</script>
 
+    // Register Service Worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js', {scope: '/'})
+        .then(() => console.log('Service Worker registered'))
+        .catch(err => console.log('SW registration failed', err));
+    }
+  </script>
 </body>
 </html>
