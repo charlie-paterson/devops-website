@@ -45,7 +45,7 @@
       display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 30px;
     }
     .card {
-      background: rgba(255,255,255,0.1); width: 200px; height: 250px; perspective: 1000px; border-radius: 12px;
+      width: 200px; height: 250px; perspective: 1000px; border-radius: 12px;
     }
     .card-inner {
       position: relative; width: 100%; height: 100%; transition: transform 0.8s; transform-style: preserve-3d; cursor: pointer;
@@ -53,10 +53,10 @@
     .card:hover .card-inner { transform: rotateY(180deg); }
     .card-front, .card-back {
       position: absolute; width: 100%; height: 100%; border-radius: 12px; backface-visibility: hidden;
-      display: flex; align-items: center; justify-content: center; font-size: 1.1em; padding: 20px;
+      display: flex; align-items: center; justify-content: center; font-size: 1em; padding: 20px; flex-direction: column;
     }
     .card-front { background: rgba(0,0,0,0.7); }
-    .card-back { background: rgba(255,0,0,0.6); transform: rotateY(180deg); }
+    .card-back { transform: rotateY(180deg); color: #fff; }
     table {
       width: 100%; margin-top: 20px; border-collapse: collapse; background: rgba(255,255,255,0.1);
     }
@@ -101,19 +101,46 @@
 
     <!-- Drivers -->
     <div id="drivers" class="hidden">
-      <h1>Famous Drivers</h1>
+      <h1>2025 Formula 1 Drivers</h1>
       <div class="cards">
-        <div class="card"><div class="card-inner">
-          <div class="card-front">Lewis Hamilton</div>
-          <div class="card-back">7× World Champion 🇬🇧</div>
-        </div></div>
+        <!-- Red Bull -->
         <div class="card"><div class="card-inner">
           <div class="card-front">Max Verstappen</div>
-          <div class="card-back">Red Bull Star 🇳🇱</div>
+          <div class="card-back" style="background:#0600EF;">Red Bull Racing 🇳🇱</div>
         </div></div>
         <div class="card"><div class="card-inner">
-          <div class="card-front">Michael Schumacher</div>
-          <div class="card-back">F1 Legend 🇩🇪</div>
+          <div class="card-front">Sergio Pérez</div>
+          <div class="card-back" style="background:#0600EF;">Red Bull Racing 🇲🇽</div>
+        </div></div>
+
+        <!-- Mercedes -->
+        <div class="card"><div class="card-inner">
+          <div class="card-front">Lewis Hamilton</div>
+          <div class="card-back" style="background:#00D2BE;">Mercedes 🇬🇧</div>
+        </div></div>
+        <div class="card"><div class="card-inner">
+          <div class="card-front">George Russell</div>
+          <div class="card-back" style="background:#00D2BE;">Mercedes 🇬🇧</div>
+        </div></div>
+
+        <!-- Ferrari -->
+        <div class="card"><div class="card-inner">
+          <div class="card-front">Charles Leclerc</div>
+          <div class="card-back" style="background:#DC0000;">Ferrari 🇲🇨</div>
+        </div></div>
+        <div class="card"><div class="card-inner">
+          <div class="card-front">Carlos Sainz</div>
+          <div class="card-back" style="background:#DC0000;">Ferrari 🇪🇸</div>
+        </div></div>
+
+        <!-- McLaren -->
+        <div class="card"><div class="card-inner">
+          <div class="card-front">Lando Norris</div>
+          <div class="card-back" style="background:#FF8700;">McLaren 🇬🇧</div>
+        </div></div>
+        <div class="card"><div class="card-inner">
+          <div class="card-front">Oscar Piastri</div>
+          <div class="card-back" style="background:#FF8700;">McLaren 🇦🇺</div>
         </div></div>
       </div>
     </div>
