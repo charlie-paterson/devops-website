@@ -34,6 +34,7 @@
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
+
     nav {
       background: rgba(0,0,0,0.85);
       display: flex;
@@ -56,198 +57,56 @@
       font-size: 0.9em;
     }
     nav a:hover { background: red; transform: scale(1.1); }
+
     .home-section {
-  text-align: center;
-  padding: 40px 20px;
-  animation: fadeIn 2s ease;
-}
+      text-align: center;
+      padding: 40px 20px;
+      animation: fadeIn 2s ease;
+    }
 
-.hero h1 {
-  font-size: 2.5em;
-  margin-bottom: 10px;
-  color: #FFD700;
-  text-shadow: 0px 0px 8px rgba(255,0,0,0.8);
-}
+    .hero h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #FFD700;
+      text-shadow: 0px 0px 8px rgba(255,0,0,0.8);
+    }
 
-.tagline {
-  font-size: 1.2em;
-  margin-bottom: 20px;
-}
+    .tagline {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
 
-.next-race {
-  margin-top: 40px;
-  padding: 20px;
-  background: rgba(0,0,0,0.7);
-  border-radius: 10px;
-}
-
-.next-race h2 {
-  color: #00FFCC;
-  margin-bottom: 5px;
-}
-
-.countdown {
-  display: block;
-  margin-top: 8px;
-  font-weight: bold;
-  color: #FFD700;
-}
-
-.highlights {
-  margin-top: 40px;
-  padding: 20px;
-  background: rgba(255,255,255,0.05);
-  border-radius: 10px;
-}
-
-.highlights h2 {
-  margin-bottom: 15px;
-  color: #FF4444;
-}
-
-.highlights ul {
-  list-style: none;
-  padding: 0;
-}
-
-.highlights li {
-  margin: 8px 0;
-  font-size: 1.1em;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-    .container {
-      max-width: 1000px;
-      margin: auto;
+    .next-race {
+      margin-top: 40px;
       padding: 20px;
-      text-align: center;
-    }
-    h1 { font-size: 2em; margin-bottom: 15px; }
-
-    .driver-photo {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      margin-bottom: 8px;
-      object-fit: cover;
+      background: rgba(0,0,0,0.7);
+      border-radius: 10px;
     }
 
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      justify-content: center;
-      margin-top: 20px;
-    }
-    .card {
-      width: 150px;
-      height: 200px;
-      perspective: 1000px;
-      border-radius: 12px;
-    }
-    .card-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.8s;
-      transform-style: preserve-3d;
-      cursor: pointer;
-    }
-    .card:hover .card-inner { transform: rotateY(180deg); }
-    .card-front, .card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 12px;
-      backface-visibility: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.9em;
-      padding: 10px;
-      flex-direction: column;
-    }
-    .card-front { background: rgba(0,0,0,0.7); }
-    .card-back { transform: rotateY(180deg); color: #fff; }
+    .next-race h2 { color: #00FFCC; margin-bottom: 5px; }
+    .countdown { display: block; margin-top: 8px; font-weight: bold; color: #FFD700; }
 
-    .schedule-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-      font-family: 'Segoe UI', sans-serif;
-      color: #fff;
-      background: rgba(0,0,0,0.6);
-      border-radius: 12px;
-      overflow: hidden;
-    }
-    .schedule-table th, .schedule-table td {
-      padding: 12px 10px;
-      text-align: center;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
-    }
-    .schedule-table th {
-      background: rgba(255,0,0,0.8);
-      font-size: 1em;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .schedule-table tr:nth-child(even) {
+    .highlights {
+      margin-top: 40px;
+      padding: 20px;
       background: rgba(255,255,255,0.05);
+      border-radius: 10px;
     }
-    .schedule-table tr:hover {
-      background: rgba(255,255,255,0.1);
-    }
+    .highlights h2 { margin-bottom: 15px; color: #FF4444; }
+    .highlights ul { list-style: none; padding: 0; }
+    .highlights li { margin: 8px 0; font-size: 1.1em; }
 
-    table {
-      width: 100%;
-      margin-top: 15px;
-      border-collapse: collapse;
-      background: rgba(255,255,255,0.1);
-      font-size: 0.9em;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    th, td { padding: 8px; border: 1px solid rgba(255,255,255,0.3); }
-    th { background: rgba(255,0,0,0.7); }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      max-width: 100%;
-      margin: auto;
-    }
-    input, textarea {
-      padding: 10px;
-      border: none;
-      border-radius: 6px;
-      outline: none;
-      font-size: 0.9em;
-      width: 100%;
-    }
-    button {
-      padding: 10px;
-      border: none;
-      border-radius: 6px;
-      background: red;
-      color: #fff;
-      font-size: 1em;
-      cursor: pointer;
-      transition: transform 0.2s, background 0.2s;
-    }
-    button:hover { background: darkred; transform: scale(1.05); }
-
-    #formMessage { margin-top: 10px; font-weight: bold; font-size: 1em; }
 
     .hidden { display: none; }
 
+    /* Responsive */
     @media (max-width: 600px) {
-      h1 { font-size: 1.5em; }
-      .card { width: 120px; height: 170px; font-size: 0.8em; }
-      nav a { padding: 6px 10px; font-size: 0.8em; }
-      table { font-size: 0.8em; }
+      .hero h1 { font-size: 1.8em; }
+      .highlights li { font-size: 1em; }
     }
   </style>
 </head>
@@ -256,43 +115,41 @@
     <a onclick="showPage('home')">Home</a>
     <a onclick="showPage('about')">About</a>
     <a onclick="showPage('drivers')">Drivers</a>
-    <a onclick="showPage('standings')">Standings</a>
     <a onclick="showPage('schedule')">Schedule</a>
     <a onclick="showPage('contact')">Contact</a>
   </nav>
 
+  <!-- Home Section -->
   <div id="home" class="home-section">
-  <div class="hero">
-    <h1>🏁 Welcome to the Formula 1 Fan Hub 🏁</h1>
-    <p class="tagline">Your one-stop pit lane for drivers, races, and live F1 excitement.</p>
-  </div>
-
-  <!-- Next Race Banner -->
-  <div class="next-race">
-    <h2>Next Race: 🇦🇺 Australian GP</h2>
-    <p>March 16, 2025 — Melbourne Grand Prix Circuit</p>
-    <span class="countdown">⏳ Countdown: 178 days left</span>
-  </div>
-
-  <!-- Highlight Section -->
-  <div class="highlights">
-    <h2>✨ Season Highlights ✨</h2>
-    <ul>
-      <li>New rookie <strong>Kimi Antonelli</strong> joins Mercedes 🏎️</li>
-      <li><strong>Red Bull</strong> chasing a fifth straight constructors’ title 🏆</li>
-      <li><strong>Ferrari</strong> pushing hard for Monza glory 🇮🇹</li>
-    </ul>
-  </div>
-</div>
-
-    <!-- About -->
-    <div id="about" class="hidden">
-      <h1>About Formula 1</h1>
-      <p>Formula 1 is the pinnacle of motorsport, with high-speed cars, legendary drivers, and global races.</p>
-      <p>Founded in 1950, F1 has become a worldwide phenomenon, blending technology, strategy, and adrenaline.</p>
+    <div class="hero">
+      <h1>🏁 Welcome to the Formula 1 Fan Hub 🏁</h1>
+      <p class="tagline">Your one-stop pit lane for drivers, races, and live F1 excitement.</p>
     </div>
 
-    <!-- Drivers -->
+    <div class="next-race">
+      <h2>Next Race: 🇦🇺 Australian GP</h2>
+      <p>March 16, 2025 — Melbourne Grand Prix Circuit</p>
+      <span class="countdown" id="countdown">⏳ Countdown: calculating...</span>
+    </div>
+
+    <div class="highlights">
+      <h2>✨ Season Highlights ✨</h2>
+      <ul>
+        <li>New rookie <strong>Kimi Antonelli</strong> joins Mercedes 🏎️</li>
+        <li><strong>Red Bull</strong> chasing a fifth straight constructors’ title 🏆</li>
+        <li><strong>Ferrari</strong> pushing hard for Monza glory 🇮🇹</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- About -->
+  <div id="about" class="hidden home-section">
+    <h1>About Formula 1</h1>
+    <p>Formula 1 is the pinnacle of motorsport, with high-speed cars, legendary drivers, and global races.</p>
+    <p>Founded in 1950, F1 has become a worldwide phenomenon, blending technology, strategy, and adrenaline.</p>
+  </div>
+
+      <!-- Drivers -->
     <div id="drivers" class="hidden">
       <h1>2025 Formula 1 Drivers</h1>
       <!-- McLaren -->
@@ -371,10 +228,10 @@
       </div>
     </div>
 
-    <!-- Schedule -->
-    <div id="schedule" class="hidden">
-      <h1>Upcoming Races</h1>
-      <table class="schedule-table">
+  <!-- Schedule -->
+  <div id="schedule" class="hidden home-section">
+    <h1>Upcoming Races</h1>
+          <table class="schedule-table">
         <tr><th>Race</th><th>Date</th><th>Location</th></tr>
         <tr><td>Australian GP 🇦🇺</td><td>March 16, 2025</td><td>Melbourne</td></tr>
         <tr><td>Chinese GP 🇨🇳</td><td>March 23, 2025</td><td>Shanghai</td></tr>
@@ -401,40 +258,32 @@
         <tr><td>Qatar GP 🇶🇦</td><td>November 30, 2025</td><td>Doha</td></tr>
         <tr><td>Abu Dhabi GP 🇦🇪</td><td>December 7, 2025</td><td>Abu Dhabi</td></tr>
       </table>
-    </div>
+  </div>
 
-    <!-- Contact -->
-    <div id="contact" class="hidden">
-      <h1>Contact Us</h1>
-      <form id="contactForm">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea placeholder="Your Message" rows="4" required></textarea>
-        <button type="submit">Send Message</button>
-        <p id="formMessage"></p>
-      </form>
-    </div>
+  <!-- Contact -->
+  <div id="contact" class="hidden home-section">
+    <h1>Contact Us</h1>
+    <form id="contactForm">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" rows="4" required></textarea>
+      <button type="submit">Send Message</button>
+      <p id="formMessage"></p>
+    </form>
   </div>
 
   <script>
-    // Navigation function
+    // Page navigation
     function showPage(page) {
       ['home','about','drivers','schedule','contact'].forEach(p => {
-        document.getElementById(p).classList.add('hidden');
+        const el = document.getElementById(p);
+        if (el) el.classList.add('hidden');
       });
-      document.getElementById(page).classList.remove('hidden');
+      const el = document.getElementById(page);
+      if (el) el.classList.remove('hidden');
     }
 
-    // Click counter
-    let count = 0;
-    const btn = document.getElementById('clickBtn');
-    const msg = document.getElementById('clickMessage');
-    btn.addEventListener('click', () => {
-      count++;
-      msg.textContent = `F1 Fan cheers ${count} time${count>1?'s':''}! 🎉`;
-    });
-
-    // Fake form submission
+    // Contact form submission
     const form = document.getElementById('contactForm');
     const formMsg = document.getElementById('formMessage');
     form.addEventListener('submit', e => {
@@ -443,7 +292,24 @@
       formMsg.style.color = "lightgreen";
     });
 
-    // Register Service Worker
+    // Countdown timer
+    function updateCountdown() {
+      const raceDate = new Date('2025-03-16T00:00:00');
+      const now = new Date();
+      const diff = raceDate - now;
+      if(diff > 0) {
+        const days = Math.floor(diff / (1000*60*60*24));
+        const hours = Math.floor((diff/(1000*60*60)) % 24);
+        const minutes = Math.floor((diff/(1000*60)) % 60);
+        document.getElementById('countdown').textContent = `⏳ Countdown: ${days}d ${hours}h ${minutes}m left`;
+      } else {
+        document.getElementById('countdown').textContent = "🏁 The race is happening now!";
+      }
+    }
+    setInterval(updateCountdown, 60000);
+    updateCountdown();
+
+    // Service Worker
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/service-worker.js', {scope: '/'})
         .then(() => console.log('Service Worker registered'))
