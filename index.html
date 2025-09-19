@@ -56,6 +56,41 @@
       font-size: 0.9em;
     }
     nav a:hover { background: red; transform: scale(1.1); }
+
+    /* Dropdown */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropbtn {
+      cursor: pointer;
+      font-weight: bold;
+      padding: 8px 12px;
+      color: #fff;
+      border-radius: 6px;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: rgba(0,0,0,0.9);
+      min-width: 180px;
+      z-index: 100;
+      border-radius: 6px;
+      flex-direction: column;
+    }
+    .dropdown-content a {
+      color: #fff;
+      padding: 10px 12px;
+      text-decoration: none;
+      display: block;
+    }
+    .dropdown-content a:hover {
+      background-color: red;
+    }
+    .dropdown:hover .dropdown-content {
+      display: flex;
+    }
+
     .container {
       max-width: 1000px;
       margin: auto;
@@ -65,11 +100,11 @@
     h1 { font-size: 2em; margin-bottom: 15px; }
 
     .driver-photo {
-    width: 80px;          /* adjust size to fit card */
-    height: 80px;
-    border-radius: 50%;   /* circular photo */
-    margin-bottom: 8px;   /* space between photo and name */
-    object-fit: cover;    /* ensures photo fills circle */
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 8px;
+      object-fit: cover;
     }
 
     .cards {
@@ -111,45 +146,33 @@
     .card-back { transform: rotateY(180deg); color: #fff; }
 
     .schedule-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-  font-family: 'Segoe UI', sans-serif;
-  color: #fff;
-  background: rgba(0,0,0,0.6);
-  border-radius: 12px;
-  overflow: hidden;
-}
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      background: rgba(0,0,0,0.6);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .schedule-table th, .schedule-table td {
+      padding: 12px 10px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .schedule-table th {
+      background: rgba(255,0,0,0.8);
+      font-size: 1em;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .schedule-table tr:nth-child(even) {
+      background: rgba(255,255,255,0.05);
+    }
+    .schedule-table tr:hover {
+      background: rgba(255,255,255,0.1);
+    }
 
-.schedule-table th, .schedule-table td {
-  padding: 12px 10px;
-  text-align: center;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
-}
-
-.schedule-table th {
-  background: rgba(255,0,0,0.8);
-  font-size: 1em;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.schedule-table tr:nth-child(even) {
-  background: rgba(255,255,255,0.05);
-}
-
-.schedule-table tr:hover {
-  background: rgba(255,255,255,0.1);
-}
-
-@media (max-width: 600px) {
-  .schedule-table th, .schedule-table td {
-    padding: 8px 5px;
-    font-size: 0.8em;
-  }
-}
-
-    
     table {
       width: 100%;
       margin-top: 15px;
@@ -159,28 +182,6 @@
     }
     th, td { padding: 8px; border: 1px solid rgba(255,255,255,0.3); }
     th { background: rgba(255,0,0,0.7); }
-
-    form { display: flex; flex-direction: column; gap: 10px; max-width: 100%; margin: auto; }
-    input, textarea {
-      padding: 10px;
-      border: none;
-      border-radius: 6px;
-      outline: none;
-      font-size: 0.9em;
-      width: 100%;
-    }
-    button {
-      padding: 10px;
-      border: none;
-      border-radius: 6px;
-      background: red;
-      color: #fff;
-      font-size: 1em;
-      cursor: pointer;
-      transition: transform 0.2s, background 0.2s;
-    }
-    button:hover { background: darkred; transform: scale(1.05); }
-    #formMessage { margin-top: 10px; font-weight: bold; font-size: 1em; }
 
     .hidden { display: none; }
 
@@ -196,7 +197,17 @@
   <nav>
     <a onclick="showPage('home')">Home</a>
     <a onclick="showPage('about')">About</a>
-    <a onclick="showPage('drivers')">Drivers</a>
+
+    <!-- Dropdown -->
+    <div class="dropdown">
+      <a class="dropbtn">Drivers ▼</a>
+      <div class="dropdown-content">
+        <a onclick="showDriversSection('cards')">Drivers of 2025</a>
+        <a onclick="showDriversSection('constructor')">Constructor Standings</a>
+        <a onclick="showDriversSection('driver')">Driver Standings</a>
+      </div>
+    </div>
+
     <a onclick="showPage('schedule')">Schedule</a>
     <a onclick="showPage('contact')">Contact</a>
   </nav>
@@ -217,150 +228,114 @@
       <p>Founded in 1950, F1 has become a worldwide phenomenon, blending technology, strategy, and adrenaline.</p>
     </div>
 
-<div id="drivers" class="hidden">
-  <h1>2025 Formula 1 Drivers</h1>
+    <!-- Drivers -->
+    <div id="drivers" class="hidden">
+      <h1>Drivers & Standings</h1>
 
-    <!-- Mclaren -->
-  <div class="team">
-    <div class="cards">
-      <!-- Mclaren -->
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-front">
-            <img src="images/mclaren.png" alt="Mclaren" class="driver-photo">
-            <span>Mclaren</span>
+      <!-- Driver Cards -->
+      <div id="driverCards">
+        <div class="team">
+          <div class="cards">
+            <div class="card">
+              <div class="card-inner">
+                <div class="card-front">
+                  <img src="images/lando.png" alt="Lando Norris" class="driver-photo">
+                  <span>Lando Norris</span>
+                </div>
+                <div class="card-back" style="background:#FF8700;">Mclaren 🇬🇧</div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-inner">
+                <div class="card-front">
+                  <img src="images/oscar.png" alt="Oscar Piastri" class="driver-photo">
+                  <span>Oscar Piastri</span>
+                </div>
+                <div class="card-back" style="background:#FF8700;">Mclaren 🇦🇺</div>
+              </div>
+            </div>
           </div>
-          <div class="card-back" style="background:#FF8700;">
-            🇬🇧
-          </div>
+          <p class="team-name">Mclaren</p>
         </div>
-      </div>
-      
-      <!-- Lando Norris -->
+
       <div class="card">
-        <div class="card-inner">
-          <div class="card-front">
-            <img src="images/lando.png" alt="Lando Norris" class="driver-photo">
-            <span>Lando Norris</span>
+              <div class="card-inner">
+                <div class="card-front">
+                  <img src="images/max.png" alt="Max Verstappen" class="driver-photo">
+                  <span>Max Verstappen</span>
+                </div>
+                <div class="card-back" style="background:#0600EF;">Red Bull Racing NL</div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-inner">
+                <div class="card-front">
+                  <img src="images/yuki.png" alt="Yuki Tsunoda" class="driver-photo">
+                  <span>Yuki Tsunoda</span>
+                </div>
+                <div class="card-back" style="background:#0600EF;">Red Bull Racing JP</div>
+              </div>
+            </div>
           </div>
-          <div class="card-back" style="background:#FF8700;">
-            Mclaren 🇬🇧
-          </div>
+          <p class="team-name">Red Bull Racing</p>
         </div>
+
+      <div class="card">
+              <div class="card-inner">
+                <div class="card-front">
+                  <img src="images/george.png" alt="George Russell" class="driver-photo">
+                  <span>George Russell</span>
+                </div>
+                <div class="card-back" style="background:#00D2BE;">Mercedes 🇬🇧</div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-inner">
+                <div class="card-front">
+                  <img src="images/kimi.png" alt="Kimi Antonelli" class="driver-photo">
+                  <span>Kimi Antonelli</span>
+                </div>
+                <div class="card-back" style="background:#00D2BE;">Mercedes IT</div>
+              </div>
+            </div>
+          </div>
+          <p class="team-name">Mercedes</p>
+        </div>
+        
       </div>
 
-      <!-- Oscar Piastri -->
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-front">
-            <img src="images/oscar.png" alt="Oscar Piastri" class="driver-photo">
-            <span>Oscar Piastri</span>
-          </div>
-          <div class="card-back" style="background:#FF8700;">
-            Mclaren 🇦🇺
-          </div>
-        </div>
+      <!-- Constructor Standings -->
+      <div id="constructorStandings" class="hidden">
+        <h2>Constructor Standings 2025</h2>
+        <table>
+          <tr><th>Position</th><th>Team</th><th>Points</th></tr>
+          <tr><td>1</td><td>Red Bull</td><td>---</td></tr>
+          <tr><td>2</td><td>Mercedes</td><td>---</td></tr>
+          <tr><td>3</td><td>Ferrari</td><td>---</td></tr>
+        </table>
+      </div>
+
+      <!-- Driver Standings -->
+      <div id="driverStandings" class="hidden">
+        <h2>Driver Standings 2025</h2>
+        <table>
+          <tr><th>Position</th><th>Driver</th><th>Points</th></tr>
+          <tr><td>1</td><td>Max Verstappen</td><td>---</td></tr>
+          <tr><td>2</td><td>Lando Norris</td><td>---</td></tr>
+          <tr><td>3</td><td>Charles Leclerc</td><td>---</td></tr>
+        </table>
       </div>
     </div>
-    <p class="team-name">Mclaren</p>
-  </div>
-  
-  <!-- Red Bull -->
-  <div class="team">
-    <div class="cards">
-      <!-- Max Verstappen -->
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-front">
-            <img src="images/max.png" alt="Max Verstappen" class="driver-photo">
-            <span>Max Verstappen</span>
-          </div>
-          <div class="card-back" style="background:#0600EF;">
-            Red Bull Racing 🇳🇱
-          </div>
-        </div>
-      </div>
 
-      <!-- Yuki Tsnoda -->
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-front">
-            <img src="images/yuki.png" alt="Yuki Tsunoda" class="driver-photo">
-            <span>Yuki Tsunoda</span>
-          </div>
-          <div class="card-back" style="background:#0600EF;">
-            Red Bull Racing 🇲🇽
-          </div>
-        </div>
-      </div>
-    </div>
-    <p class="team-name">Red Bull Racing</p>
-  </div>
-
-  <!-- Mercedes -->
-  <div class="team">
-    <div class="cards">
-      <!-- George Russell -->
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-front">
-            <img src="images/george.png" alt="George Russell" class="driver-photo">
-            <span>George Russell</span>
-          </div>
-          <div class="card-back" style="background:#00D2BE;">
-            Mercedes 🇬🇧
-          </div>
-        </div>
-      </div>
-
-      <!-- Kimi Antonelli -->
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-front">
-            <img src="images/kimi.png" alt="Kimi Antonelli" class="driver-photo">
-            <span>Kimi Antonelli</span>
-          </div>
-          <div class="card-back" style="background:#00D2BE;">
-            Mercedes 🇮🇹
-          </div>
-        </div>
-      </div>
-    </div>
-    <p class="team-name">Mercedes</p>
-  </div>
-</div>
     <!-- Schedule -->
-<div id="schedule" class="hidden">
-  <h1>Upcoming Races</h1>
-  <table class="schedule-table">
-    <tr><th>Race</th><th>Date</th><th>Location</th></tr>
-    <tr><td>Australian GP 🇦🇺</td><td>March 16, 2025</td><td>Melbourne</td></tr>
-    <tr><td>Chinese GP 🇨🇳</td><td>March 23, 2025</td><td>Shanghai</td></tr>
-    <tr><td>Japanese GP 🇯🇵</td><td>April 6, 2025</td><td>Suzuka</td></tr>
-    <tr><td>Bahrain GP 🇧🇭</td><td>April 13, 2025</td><td>Sakhir</td></tr>
-    <tr><td>Saudi Arabian GP 🇸🇦</td><td>April 20, 2025</td><td>Jeddah</td></tr>
-    <tr><td>Miami GP 🇺🇸</td><td>May 4, 2025</td><td>Miami</td></tr>
-    <tr><td>Emilia-Romagna GP 🇮🇹</td><td>May 18, 2025</td><td>Imola</td></tr>
-    <tr><td>Monaco GP 🇲🇨</td><td>May 25, 2025</td><td>Monte Carlo</td></tr>
-    <tr><td>Spanish GP 🇪🇸</td><td>June 1, 2025</td><td>Barcelona</td></tr>
-    <tr><td>Canadian GP 🇨🇦</td><td>June 15, 2025</td><td>Montreal</td></tr>
-    <tr><td>Austria GP 🇦🇹</td><td>June 29, 2025</td><td>Spielberg</td></tr>
-    <tr><td>British GP 🇬🇧</td><td>July 6, 2025</td><td>Silverstone</td></tr>
-    <tr><td>Belgian GP 🇧🇪</td><td>July 20, 2025</td><td>Spa-Francorchamps</td></tr>
-    <tr><td>Hungarian GP 🇭🇺</td><td>July 27, 2025</td><td>Budapest</td></tr>
-    <tr><td>Netherlands GP 🇳🇱</td><td>August 10, 2025</td><td>Zandvoort</td></tr>
-    <tr><td>Italian GP 🇮🇹</td><td>August 24, 2025</td><td>Monza</td></tr>
-    <tr><td>Azerbaijan GP 🇦🇿</td><td>September 7, 2025</td><td>Baku</td></tr>
-    <tr><td>Singapore GP 🇸🇬</td><td>September 21, 2025</td><td>Singapore</td></tr>
-    <tr><td>United States GP 🇺🇸</td><td>October 5, 2025</td><td>Austin</td></tr>
-    <tr><td>Mexico GP 🇲🇽</td><td>October 19, 2025</td><td>Mexico City</td></tr>
-    <tr><td>Brazilian GP 🇧🇷</td><td>November 2, 2025</td><td>São Paulo</td></tr>
-    <tr><td>Las Vegas GP 🇺🇸</td><td>November 16, 2025</td><td>Las Vegas</td></tr>
-    <tr><td>Qatar GP 🇶🇦</td><td>November 30, 2025</td><td>Doha</td></tr>
-    <tr><td>Abu Dhabi GP 🇦🇪</td><td>December 7, 2025</td><td>Abu Dhabi</td></tr>
-  </table>
-</div>
-
+    <div id="schedule" class="hidden">
+      <h1>Upcoming Races</h1>
+      <table class="schedule-table">
+        <tr><th>Race</th><th>Date</th><th>Location</th></tr>
+        <tr><td>Australian GP 🇦🇺</td><td>March 16, 2025</td><td>Melbourne</td></tr>
+        <tr><td>Chinese GP 🇨🇳</td><td>March 23, 2025</td><td>Shanghai</td></tr>
+      </table>
+    </div>
 
     <!-- Contact -->
     <div id="contact" class="hidden">
@@ -376,7 +351,6 @@
   </div>
 
   <script>
-    // Navigation
     function showPage(page) {
       ['home','about','drivers','schedule','contact'].forEach(p => {
         document.getElementById(p).classList.add('hidden');
@@ -384,7 +358,19 @@
       document.getElementById(page).classList.remove('hidden');
     }
 
-    // Click counter
+    function showDriversSection(section) {
+      showPage('drivers');
+      const cards = document.getElementById('driverCards');
+      const constructorTable = document.getElementById('constructorStandings');
+      const driverTable = document.getElementById('driverStandings');
+      if (cards) cards.classList.add('hidden');
+      if (constructorTable) constructorTable.classList.add('hidden');
+      if (driverTable) driverTable.classList.add('hidden');
+      if (section === 'cards' && cards) cards.classList.remove('hidden');
+      if (section === 'constructor' && constructorTable) constructorTable.classList.remove('hidden');
+      if (section === 'driver' && driverTable) driverTable.classList.remove('hidden');
+    }
+
     let count = 0;
     const btn = document.getElementById('clickBtn');
     const msg = document.getElementById('clickMessage');
@@ -393,7 +379,6 @@
       msg.textContent = `F1 Fan cheers ${count} time${count>1?'s':''}! 🎉`;
     });
 
-    // Fake form submission
     const form = document.getElementById('contactForm');
     const formMsg = document.getElementById('formMessage');
     form.addEventListener('submit', e => {
@@ -402,7 +387,6 @@
       formMsg.style.color = "lightgreen";
     });
 
-    // Register Service Worker
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/service-worker.js', {scope: '/'})
         .then(() => console.log('Service Worker registered'))
@@ -411,3 +395,4 @@
   </script>
 </body>
 </html>
+
