@@ -110,6 +110,46 @@
     .card-front { background: rgba(0,0,0,0.7); }
     .card-back { transform: rotateY(180deg); color: #fff; }
 
+    .schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+  background: rgba(0,0,0,0.6);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.schedule-table th, .schedule-table td {
+  padding: 12px 10px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.schedule-table th {
+  background: rgba(255,0,0,0.8);
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.schedule-table tr:nth-child(even) {
+  background: rgba(255,255,255,0.05);
+}
+
+.schedule-table tr:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+@media (max-width: 600px) {
+  .schedule-table th, .schedule-table td {
+    padding: 8px 5px;
+    font-size: 0.8em;
+  }
+}
+
+    
     table {
       width: 100%;
       margin-top: 15px;
@@ -279,7 +319,7 @@
     <!-- Schedule -->
 <div id="schedule" class="hidden">
   <h1>Upcoming Races</h1>
-  <table>
+  <table class="schedule-table">
     <tr><th>Race</th><th>Date</th><th>Location</th></tr>
     <tr><td>Australian GP 🇦🇺</td><td>March 16, 2025</td><td>Melbourne</td></tr>
     <tr><td>Chinese GP 🇨🇳</td><td>March 23, 2025</td><td>Shanghai</td></tr>
