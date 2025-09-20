@@ -20,6 +20,35 @@
   <meta name="theme-color" content="#E10600">
 
   <style>
+
+    #preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000; /* background while loading */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loader {
+  border: 6px solid rgba(255, 255, 255, 0.2);
+  border-top: 6px solid #E10600; /* Ferrari red spinner */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -282,6 +311,10 @@
   </style>
 </head>
 <body>
+  <div id="preloader">
+  <div class="loader"></div>
+  <p>🏎️ Starting Engines... Formula 1 Fan Hub</p>
+</div>
   <nav>
     <a onclick="showPage('home')">Home</a>
     <a onclick="showPage('standings')">Standings</a>
@@ -494,6 +527,13 @@
   </div>
 
   <script>
+      window.addEventListener("load", () => {
+    const preloader = document.getElementById("preloader");
+    preloader.style.opacity = "0";
+    setTimeout(() => {
+      preloader.style.display = "none";
+    }, 500); // fade out
+  });
     // Page navigation
     function showPage(page) {
       ['home','standings','drivers','schedule','more'].forEach(p => {
