@@ -449,7 +449,7 @@
                 <img src="images/yuki.png" alt="Yuki Tsunoda" class="driver-photo">
                 <span>Yuki Tsunoda</span>
               </div>
-              <div class="card-back" style="background:#0600EF;">Red Bull Racing 🇲🇽</div>
+              <div class="card-back" style="background:#0600EF;">Red Bull Racing 🇯🇵</div>
             </div>
           </div>
         </div>
@@ -482,6 +482,32 @@
       </div>
     </div>
 
+  <!-- Aston Martin -->
+      <div class="team">
+        <div class="cards">
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="images/fernando.png" alt="Fernando Alonso" class="driver-photo">
+                <span>Fernando Alonso</span>
+              </div>
+              <div class="card-back" style="background:#294643;">Aston Martin 🇪🇸</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="images/lance.png" alt="Lance Stroll" class="driver-photo">
+                <span>Lance Stroll</span>
+              </div>
+              <div class="card-back" style="background:#294643;">Aston Martin 🇨🇦</div>
+            </div>
+          </div>
+        </div>
+        <p class="team-name">Mercedes</p>
+      </div>
+    </div>
+
   <!-- Schedule -->
   <div id="schedule" class="hidden home-section">
     <h1>Upcoming Races</h1>
@@ -499,16 +525,16 @@
         <tr><td>Canadian GP 🇨🇦</td><td>June 15, 2025</td><td>Montreal</td></tr>
         <tr><td>Austria GP 🇦🇹</td><td>June 29, 2025</td><td>Spielberg</td></tr>
         <tr><td>British GP 🇬🇧</td><td>July 6, 2025</td><td>Silverstone</td></tr>
-        <tr><td>Belgian GP 🇧🇪</td><td>July 20, 2025</td><td>Spa-Francorchamps</td></tr>
-        <tr><td>Hungarian GP 🇭🇺</td><td>July 27, 2025</td><td>Budapest</td></tr>
-        <tr><td>Netherlands GP 🇳🇱</td><td>August 10, 2025</td><td>Zandvoort</td></tr>
-        <tr><td>Italian GP 🇮🇹</td><td>August 24, 2025</td><td>Monza</td></tr>
-        <tr><td>Azerbaijan GP 🇦🇿</td><td>September 7, 2025</td><td>Baku</td></tr>
-        <tr><td>Singapore GP 🇸🇬</td><td>September 21, 2025</td><td>Singapore</td></tr>
-        <tr><td>United States GP 🇺🇸</td><td>October 5, 2025</td><td>Austin</td></tr>
-        <tr><td>Mexico GP 🇲🇽</td><td>October 19, 2025</td><td>Mexico City</td></tr>
-        <tr><td>Brazilian GP 🇧🇷</td><td>November 2, 2025</td><td>São Paulo</td></tr>
-        <tr><td>Las Vegas GP 🇺🇸</td><td>November 16, 2025</td><td>Las Vegas</td></tr>
+        <tr><td>Belgian GP 🇧🇪</td><td>July 27, 2025</td><td>Spa-Francorchamps</td></tr>
+        <tr><td>Hungarian GP 🇭🇺</td><td>August 3, 2025</td><td>Budapest</td></tr>
+        <tr><td>Netherlands GP 🇳🇱</td><td>August 31, 2025</td><td>Zandvoort</td></tr>
+        <tr><td>Italian GP 🇮🇹</td><td>September 7, 2025</td><td>Monza</td></tr>
+        <tr><td>Azerbaijan GP 🇦🇿</td><td>September 21, 2025</td><td>Baku</td></tr>
+        <tr><td>Singapore GP 🇸🇬</td><td>October 5, 2025</td><td>Singapore</td></tr>
+        <tr><td>United States GP 🇺🇸</td><td>October 19, 2025</td><td>Austin</td></tr>
+        <tr><td>Mexico GP 🇲🇽</td><td>October 26, 2025</td><td>Mexico City</td></tr>
+        <tr><td>Brazilian GP 🇧🇷</td><td>November 9, 2025</td><td>São Paulo</td></tr>
+        <tr><td>Las Vegas GP 🇺🇸</td><td>November 23, 2025</td><td>Las Vegas</td></tr>
         <tr><td>Qatar GP 🇶🇦</td><td>November 30, 2025</td><td>Doha</td></tr>
         <tr><td>Abu Dhabi GP 🇦🇪</td><td>December 7, 2025</td><td>Abu Dhabi</td></tr>
       </table>
@@ -565,7 +591,7 @@
 
     // Countdown timer
     function updateCountdown() {
-      const raceDate = new Date('2025-09-20 T00:00:00');
+      const raceDate = new Date('2025-10-05T00:00:00');
       const now = new Date();
       const diff = raceDate - now;
       if(diff > 0) {
