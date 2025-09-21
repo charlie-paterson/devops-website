@@ -195,16 +195,27 @@
 }
 
 .driver-icon {
-  width: 60px;       /* bigger for mobile */
+  width: 60px;        /* bigger for mobile */
   height: 60px;
   border-radius: 50%;
   object-fit: cover;
   margin-right: 10px;
 }
 
+.driver-text {
+  display: flex;
+  flex-direction: column; /* stack name and team vertically */
+}
+
 .driver-name {
   font-weight: bold;
-  font-size: 1em;     /* adjust for readability on phones */
+  font-size: 1em;
+}
+
+.driver-team {
+  font-size: 0.8em;   /* slightly smaller */
+  color: #999999;     /* faded black/grey */
+  line-height: 1;     /* tight spacing */
 }
     
     .driver-photo {
@@ -433,7 +444,15 @@
   <div id="driver-standings" class="standings-table">
     <table>
       <tr><th>Pos</th><th>Driver</th><th>Points</th></tr>
-      <td>1</td><td class="driver-cell"><img src="images/max.png" alt="Max Verstappen" class="driver-icon"><div>Max Verstappen</div> <div class="driver-team">Red Bull</div></td><td>200</td>
+      <td>1</td>
+                <td class="driver-cell">
+                <img src="images/max.png" alt="Max Verstappen" class="driver-icon">
+                <div class="driver-text">
+                <div class="driver-name">Max Verstappen</div>
+                <div class="driver-team">Red Bull</div>
+                </div>
+                </td>
+      <td>200</td>
     </table>
   </div>
 
