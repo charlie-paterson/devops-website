@@ -169,6 +169,10 @@
   transform: scale(1.05);
 }
 
+.standings-table {
+  display: none;
+}
+
 .standings-table table {
   width: 100%;
   border-collapse: collapse;
@@ -548,6 +552,31 @@
         </div>
         <p class="team-name">Aston Martin</p>
       </div>
+
+      <!-- Alpine -->
+      <div class="team alpine">
+        <div class="cards">
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="images/pierre.png" alt="Pierre Gasly" class="driver-photo">
+                <span>Pierre Gasly</span>
+              </div>
+              <div class="card-back" style="background:#294643;">Pierre Gasly 🇫🇷</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="images/franco.png" alt="Franco Colapinto" class="driver-photo">
+                <span>Franco Colapinto</span>
+              </div>
+              <div class="card-back" style="background:#294643;">Alpine 🇦🇷</div>
+            </div>
+          </div>
+        </div>
+        <p class="team-name">Aston Martin</p>
+      </div>
     </div>
 
   <!-- Schedule -->
@@ -612,13 +641,15 @@
       if (el) el.classList.remove('hidden');
     }
     function showStandings(type) {
-  document.getElementById('driver-standings').classList.add('hidden');
-  document.getElementById('constructor-standings').classList.add('hidden');
+  // hide both
+  document.getElementById("driver-standings").style.display = "none";
+  document.getElementById("constructor-standings").style.display = "none";
 
-  if (type === 'drivers') {
-    document.getElementById('driver-standings').classList.remove('hidden');
-  } else {
-    document.getElementById('constructor-standings').classList.remove('hidden');
+  // show the one clicked
+  if (type === "drivers") {
+    document.getElementById("driver-standings").style.display = "block";
+  } else if (type === "constructors") {
+    document.getElementById("constructor-standings").style.display = "block";
   }
 }
 
