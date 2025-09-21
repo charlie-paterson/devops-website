@@ -229,6 +229,26 @@
       padding: 10px;
       flex-direction: column;
     }
+    .team {
+  border: 3px solid #FF8700;   /* team color */
+  border-radius: 12px;
+  padding: 20px;
+  margin: 30px auto;
+  position: relative;
+  text-align: center;
+  max-width: 400px; /* optional, so it’s not too wide */
+}
+
+.team-name {
+  position: absolute;
+  top: -14px; /* pull text into the border */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff; /* matches page background so it “cuts through” the border */
+  padding: 0 10px;
+  font-weight: bold;
+  color: #FF8700; /* team color */
+}
     .card-front { background: rgba(0,0,0,0.7); }
     .card-back { transform: rotateY(180deg); color: #fff; }
 
