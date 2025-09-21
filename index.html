@@ -230,24 +230,47 @@
       flex-direction: column;
     }
     .team {
-  border: 3px solid #FF8700;   /* team color */
+  border: 3px solid var(--team-color);
   border-radius: 12px;
   padding: 20px;
   margin: 30px auto;
   position: relative;
   text-align: center;
-  max-width: 400px; /* optional, so it’s not too wide */
+  max-width: 400px;
 }
 
+/* Team name “cut out” style */
 .team-name {
   position: absolute;
-  top: -14px; /* pull text into the border */
+  top: -14px;
   left: 50%;
   transform: translateX(-50%);
-  background: #fff; /* matches page background so it “cuts through” the border */
+  background: #fff;  /* page background */
   padding: 0 10px;
   font-weight: bold;
-  color: #FF8700; /* team color */
+  color: var(--team-color);
+}
+
+/* Card back uses team color */
+.team .card-back {
+  background: var(--team-color);
+}
+
+/* --- TEAM COLORS --- */
+.mclaren {
+  --team-color: #FF8700;
+}
+.ferrari {
+  --team-color: #DC0000;
+}
+.redbull {
+  --team-color: #1E41FF;
+}
+.mercedes {
+  --team-color: #00D2BE;
+}
+.astonmartin {
+  --team-color: #006F62;
 }
     .card-front { background: rgba(0,0,0,0.7); }
     .card-back { transform: rotateY(180deg); color: #fff; }
