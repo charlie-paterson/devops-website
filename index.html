@@ -190,18 +190,23 @@
   background: rgba(255,0,0,0.7);
 }
 
-    .driver-icon {
-  width: 20px;       /* smaller size */
-  height: 20px;
-  border-radius: 50%; /* keeps it circular */
+.driver-icon {
+  width: 40px;         /* bigger photo for mobile */
+  height: 40px;
+  border-radius: 50%;
   object-fit: cover;
-  margin-right: 4px;  /* space between photo and text */
-  vertical-align: middle;
+  margin-bottom: 6px;  /* space between photo and name */
+  display: block;       /* stack photo and text */
 }
+
+.driver-name {
+  font-size: 1.1em;    /* bigger driver name */
+  font-weight: bold;
+}
+
 .driver-team {
-  font-size: 0.7em;       /* smaller than name */
-  color: #555555;         /* faded black/gray */
-  line-height: 1;         /* tight spacing */
+  font-size: 0.9em;    /* slightly smaller */
+  color: #999999;      /* light grey */
 }
     
     .driver-photo {
