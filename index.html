@@ -189,24 +189,22 @@
 .standings-table th {
   background: rgba(255,0,0,0.7);
 }
+.driver-cell {
+  display: flex;
+  align-items: center;
+}
 
 .driver-icon {
-  width: 40px;         /* bigger photo for mobile */
+  width: 40px;       /* bigger for mobile */
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 6px;  /* space between photo and name */
-  display: block;       /* stack photo and text */
+  margin-right: 10px;
 }
 
 .driver-name {
-  font-size: 1.1em;    /* bigger driver name */
   font-weight: bold;
-}
-
-.driver-team {
-  font-size: 0.9em;    /* slightly smaller */
-  color: #999999;      /* light grey */
+  font-size: 1em;     /* adjust for readability on phones */
 }
     
     .driver-photo {
@@ -435,9 +433,7 @@
   <div id="driver-standings" class="standings-table">
     <table>
       <tr><th>Pos</th><th>Driver</th><th>Points</th></tr>
-      <td>1</td><td><img src="images/max.png" alt="Max Verstappen" class="driver-icon">Max Verstappen <div class="driver-team">Red Bull</div></td><td>200</td>
-      <tr><td>2</td><td>Lewis Hamilton</td><td>180</td></tr>
-      <tr><td>3</td><td>Lando Norris</td><td>150</td></tr>
+      <td>1</td><td class="driver-cell"><img src="images/max.png" alt="Max Verstappen" class="driver-icon">Max Verstappen <div class="driver-team">Red Bull</div></td><td>200</td>
     </table>
   </div>
 
