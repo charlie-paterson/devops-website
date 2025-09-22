@@ -217,6 +217,29 @@
   color: #999999;     /* faded black/grey */
   line-height: 1;     /* tight spacing */
 }
+
+.team-cell {
+  display: flex;
+  align-items: center;
+}
+
+.team-icon {
+  width: 60px;        /* bigger for mobile */
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.team-text {
+  display: flex;
+  flex-direction: column; /* stack name and team vertically */
+}
+
+.team-name {
+  font-weight: bold;
+  font-size: 1em;
+}
     
     .driver-photo {
       width: 80px;
@@ -680,10 +703,17 @@
   <!-- Constructor Standings -->
   <div id="constructor-standings" class="standings-table">
     <table>
-      <tr><th>Pos</th><th>Team</th><th>Points</th></tr>
-      <tr><td>1</td><td>McLaren</td><td>350</td></tr>
-      <tr><td>2</td><td>Ferrari</td><td>300</td></tr>
-      <tr><td>3</td><td>Mercedes</td><td>250</td></tr>
+      <tr><th>Pos</th><th>Constructor</th><th>Points</th></tr>
+      <tr>
+      <td>1</td>
+                <td class="team-cell">
+                <img src="images/mclaren.png" alt="Mclaren" class="team-icon">
+                <div class="team-text">
+                <div class="team-name">Mclaren</div>
+                </div>
+                </td>
+      <td>623</td>
+      </tr>
     </table>
   </div>
 </div>
