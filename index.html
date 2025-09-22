@@ -246,16 +246,20 @@ h1 {
 
 /* Tables full width */
 .standings-table {
-  width: auto;               /* allow table to size naturally */
-  max-width: 90%;            /* optional: don’t get too wide */
-  margin: 20px auto;         /* center horizontally */
+  display: none;          /* toggled by JS */
+  margin: 20px auto;      /* centers the table wrapper */
+  text-align: center;     /* centers inline content */
+}
+
+.standings-table table {
+  margin: 0 auto;         /* centers the table itself */
   border-collapse: collapse;
-  font-family: 'Segoe UI', sans-serif;
   color: #fff;
   background: rgba(0,0,0,0.6);
-  display: none;             /* toggled via JS */
   border-radius: 12px;
   overflow: hidden;
+  width: auto;            /* let table size naturally */
+  max-width: 90%;         /* optional max width */
 }
 
 .standings-table th, .standings-table td {
