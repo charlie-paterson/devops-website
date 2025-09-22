@@ -21,7 +21,7 @@
 
   <style>
 
-  #preloader {
+    #preloader {
   position: fixed;
   top: 0;
   left: 0;
@@ -145,81 +145,6 @@
       text-align: center;
     }
     h1 { font-size: 2em; margin-bottom: 15px; }
-
-    .race-highlights {
-  margin-top: 40px;
-  text-align: center;
-}
-
-.race-highlights h2 {
-  font-size: 2em;
-  margin-bottom: 10px;
-}
-
-.highlight-scroll {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  padding: 10px 0;
-  scroll-behavior: smooth;
-}
-
-.highlight-scroll::-webkit-scrollbar {
-  height: 8px;
-}
-
-.highlight-scroll::-webkit-scrollbar-thumb {
-  background: rgba(255,0,0,0.8);
-  border-radius: 4px;
-}
-
-.highlight-card {
-  flex: 0 0 250px; /* fixed card width */
-  background: rgba(255, 0, 0, 0.8);
-  border-radius: 12px;
-  overflow: hidden;
-  color: #fff;
-  transition: transform 0.2s;
-}
-
-.highlight-card:hover {
-  transform: scale(1.05);
-}
-
-.highlight-card img {
-  width: 100%;
-  display: block;
-}
-
-.highlight-card h3 {
-  padding: 10px;
-  font-size: 1.1em;
-  background: rgba(0, 0, 0, 0.6);
-}
-
-.btn-watch {
-  display: block;
-  text-align: center;
-  padding: 10px;
-  margin: 10px;
-  background: #fff;
-  color: red;
-  font-weight: bold;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: background 0.2s, color 0.2s;
-}
-
-.btn-watch:hover {
-  background: darkred;
-  color: #fff;
-}
-
-.standings-wrapper {
-  display: flex;
-  justify-content: center; /* centers horizontally */
-  margin-top: 20px;
-}
     
     .standings-toggle {
   margin-bottom: 15px;
@@ -246,12 +171,14 @@
 
 .standings-table {
   width: 100%;
-  max-width: 900px;        /* ✅ keeps it centered */
-  margin: 20px auto;       /* ✅ centers on page */
   border-collapse: collapse;
-  border-radius: 12px;
+  margin-top: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
   background: rgba(0,0,0,0.6);
+  border-radius: 12px;
   overflow: hidden;
+  display: none; /* keep your toggle logic */
 }
 
 .standings-table th, 
@@ -268,14 +195,6 @@
   letter-spacing: 1px;
 }
 
-/* Round only the top corners */
-.standings-table th:first-child {
-  border-top-left-radius: 12px;
-}
-.standings-table th:last-child {
-  border-top-right-radius: 12px;
-}
-
 .standings-table tr:nth-child(even) {
   background: rgba(255,255,255,0.05);
 }
@@ -283,7 +202,6 @@
 .standings-table tr:hover {
   background: rgba(255,255,255,0.1);
 }
-
 .driver-cell {
   display: flex;
   align-items: center;
@@ -331,7 +249,7 @@
   flex-direction: column; /* stack name and team vertically */
 }
 
-.team-name {
+.team-name1 {
   font-weight: bold;
   font-size: 1em;
 }
@@ -443,64 +361,43 @@
     .card-front { background: rgba(0,0,0,0.7); }
     .card-back { transform: rotateY(180deg); color: #fff; }
 
-.schedule-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-  font-family: 'Segoe UI', sans-serif;
-  color: #fff;
-  background: rgba(0,0,0,0.6);
-  border-radius: 12px;
-  overflow: hidden;
-}
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      background: rgba(0,0,0,0.6);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .schedule-table th, .schedule-table td {
+      padding: 12px 10px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .schedule-table th {
+      background: rgba(255,0,0,0.8);
+      font-size: 1em;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .schedule-table tr:nth-child(even) {
+      background: rgba(255,255,255,0.05);
+    }
+    .schedule-table tr:hover {
+      background: rgba(255,255,255,0.1);
+    }
 
-.schedule-table th, .schedule-table td {
-  padding: 12px 10px;
-  text-align: center;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
-}
-
-.schedule-table th {
-  background: rgba(255,0,0,0.8);
-  font-size: 1em;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-/* Alternate row background */
-.schedule-table tr:nth-child(even) {
-  background: rgba(255,255,255,0.05);
-}
-
-/* Hover effect for all rows */
-.schedule-table tr:hover {
-  background: rgba(255,255,255,0.1);
-}
-
-/* -----------------------------
-   Accordion-style row support
-   ----------------------------- */
-
-/* Race row (clickable) */
-.race-row {
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.2s;
-}
-
-.race-row:hover {
-  background: rgba(255,0,0,0.2);
-}
-
-/* Details row (hidden by default) */
-.details-row {
-  display: none;
-  background: rgba(255,255,255,0.05);
-}
-
-.details-row td {
-  padding: 10px;
-}
+    table {
+      width: 100%;
+      margin-top: 15px;
+      border-collapse: collapse;
+      background: rgba(255,255,255,0.1);
+      font-size: 0.9em;
+    }
+    th, td { padding: 8px; border: 1px solid rgba(255,255,255,0.3); }
+    th { background: rgba(255,0,0,0.7); }
 
     form {
       display: flex;
@@ -543,14 +440,18 @@
   </style>
 </head>
 <body>
-<nav>
-  <a onclick="showPage('home')">Home</a>
-  <a onclick="showPage('standings')">Standings</a>
-  <a onclick="showPage('drivers')">Drivers</a>
-  <a onclick="showPage('schedule')">Schedule</a>
-  <a onclick="showPage('more')">More</a>
-</nav>
-  
+  <div id="preloader">
+  <div class="loader"></div>
+  <p>🏎️ Starting Engines... Formula 1 Fan Hub</p>
+</div>
+  <nav>
+    <a onclick="showPage('home')">Home</a>
+    <a onclick="showPage('standings')">Standings</a>
+    <a onclick="showPage('drivers')">Drivers</a>
+    <a onclick="showPage('schedule')">Schedule</a>
+    <a onclick="showPage('more')">More</a>
+  </nav>
+
   <!-- Home Section -->
   <div id="home" class="home-section">
     <div class="hero">
@@ -572,26 +473,6 @@
         <li><strong>Ferrari</strong> pushing hard for Monza glory 🇮🇹</li>
       </ul>
     </div>
-
-    <div class="race-highlights">
-  <h2>🎬 Race Highlights</h2>
-  <p>Catch the best moments from recent races!</p>
-  
-  <div class="highlight-scroll">
-    <div class="highlight-card">
-      <img src="https://img.youtube.com/vi/JntKOmbMI08/hqdefault.jpg" alt="Monaco GP 2025">
-      <h3>Azerbaijan GP 2025</h3>
-      <a href="https://www.youtube.com/watch?v=JntKOmbMI08" target="_blank" class="btn-watch">Watch on YouTube</a>
-    </div>
-
-    <div class="highlight-card">
-      <img src="https://img.youtube.com/vi/kGMp1Byuwto/hqdefault.jpg" alt="Italian GP 2025">
-      <h3>Italian GP 2025</h3>
-      <a href="https://www.youtube.com/watch?v=kGMp1Byuwto" target="_blank" class="btn-watch">Watch on YouTube</a>
-    </div>
-  </div>
-</div>
-
   </div>
 
   <!-- Standings -->
@@ -604,7 +485,6 @@
     <button onclick="showStandings('constructors')">Constructor Standings</button>
   </div>
 
-  <div class="standings-container">
   <!-- Driver Standings -->
   <div id="driver-standings" class="standings-table">
     <table>
@@ -1195,44 +1075,40 @@
         </div>
         <p class="team-name">Kick Sauber</p>
       </div>
+      
     </div>
-  </div>
 
   <!-- Schedule -->
-  <div id="schedule" class="home-section">
-  <h1>Upcoming Races</h1>
-  <table class="schedule-table">
-    <thead>
-      <tr>
-        <th>Race</th>
-        <th>Date</th>
-        <th>Location</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Example Race Row -->
-      <tr class="race-row">
-        <td colspan="3">Australian GP 🇦🇺 — March 16, 2025</td>
-      </tr>
-      <tr class="details-row">
-        <td>FP1: 10:00</td>
-        <td>Qualifying: 13:00</td>
-        <td>Race: 15:00</td>
-      </tr>
-
-      <tr class="race-row">
-        <td colspan="3">Chinese GP 🇨🇳 — March 23, 2025</td>
-      </tr>
-      <tr class="details-row">
-        <td>FP1: 09:00</td>
-        <td>Qualifying: 12:00</td>
-        <td>Race: 14:00</td>
-      </tr>
-
-      <!-- Add more races here -->
-    </tbody>
-  </table>
-</div>
+  <div id="schedule" class="hidden home-section">
+    <h1>Upcoming Races</h1>
+          <table class="schedule-table">
+        <tr><th>Race</th><th>Date</th><th>Location</th></tr>
+        <tr><td>Australian GP 🇦🇺</td><td>March 16, 2025</td><td>Melbourne</td></tr>
+        <tr><td>Chinese GP 🇨🇳</td><td>March 23, 2025</td><td>Shanghai</td></tr>
+        <tr><td>Japanese GP 🇯🇵</td><td>April 6, 2025</td><td>Suzuka</td></tr>
+        <tr><td>Bahrain GP 🇧🇭</td><td>April 13, 2025</td><td>Sakhir</td></tr>
+        <tr><td>Saudi Arabian GP 🇸🇦</td><td>April 20, 2025</td><td>Jeddah</td></tr>
+        <tr><td>Miami GP 🇺🇸</td><td>May 4, 2025</td><td>Miami</td></tr>
+        <tr><td>Emilia-Romagna GP 🇮🇹</td><td>May 18, 2025</td><td>Imola</td></tr>
+        <tr><td>Monaco GP 🇲🇨</td><td>May 25, 2025</td><td>Monte Carlo</td></tr>
+        <tr><td>Spanish GP 🇪🇸</td><td>June 1, 2025</td><td>Barcelona</td></tr>
+        <tr><td>Canadian GP 🇨🇦</td><td>June 15, 2025</td><td>Montreal</td></tr>
+        <tr><td>Austria GP 🇦🇹</td><td>June 29, 2025</td><td>Spielberg</td></tr>
+        <tr><td>British GP 🇬🇧</td><td>July 6, 2025</td><td>Silverstone</td></tr>
+        <tr><td>Belgian GP 🇧🇪</td><td>July 27, 2025</td><td>Spa-Francorchamps</td></tr>
+        <tr><td>Hungarian GP 🇭🇺</td><td>August 3, 2025</td><td>Budapest</td></tr>
+        <tr><td>Netherlands GP 🇳🇱</td><td>August 31, 2025</td><td>Zandvoort</td></tr>
+        <tr><td>Italian GP 🇮🇹</td><td>September 7, 2025</td><td>Monza</td></tr>
+        <tr><td>Azerbaijan GP 🇦🇿</td><td>September 21, 2025</td><td>Baku</td></tr>
+        <tr><td>Singapore GP 🇸🇬</td><td>October 5, 2025</td><td>Singapore</td></tr>
+        <tr><td>United States GP 🇺🇸</td><td>October 19, 2025</td><td>Austin</td></tr>
+        <tr><td>Mexico GP 🇲🇽</td><td>October 26, 2025</td><td>Mexico City</td></tr>
+        <tr><td>Brazilian GP 🇧🇷</td><td>November 9, 2025</td><td>São Paulo</td></tr>
+        <tr><td>Las Vegas GP 🇺🇸</td><td>November 23, 2025</td><td>Las Vegas</td></tr>
+        <tr><td>Qatar GP 🇶🇦</td><td>November 30, 2025</td><td>Doha</td></tr>
+        <tr><td>Abu Dhabi GP 🇦🇪</td><td>December 7, 2025</td><td>Abu Dhabi</td></tr>
+      </table>
+  </div>
 
   <!-- Contact -->
   <div id="contact" class="hidden home-section">
@@ -1246,76 +1122,68 @@
     </form>
   </div>
 
-<script>
-
-function showPage(page) {
-    const pages = ['home', 'standings', 'drivers', 'schedule', 'contact'];
-    pages.forEach(p => {
+  <script>
+      window.addEventListener("load", () => {
+    const preloader = document.getElementById("preloader");
+    preloader.style.opacity = "0";
+    setTimeout(() => {
+      preloader.style.display = "none";
+    }, 500); // fade out
+  });
+    // Page navigation
+    function showPage(page) {
+      ['home','standings','drivers','schedule','more'].forEach(p => {
         const el = document.getElementById(p);
         if (el) el.classList.add('hidden');
-    });
-
-    const el = document.getElementById(page);
-    if (el) el.classList.remove('hidden');
-}
-
-function showStandings(type) {
-    const driverStandings = document.getElementById('driver-standings');
-    const constructorStandings = document.getElementById('constructor-standings');
-
-    if (driverStandings) driverStandings.classList.add('hidden');
-    if (constructorStandings) constructorStandings.classList.add('hidden');
-
-    if (type === 'drivers' && driverStandings) {
-        driverStandings.classList.remove('hidden');
-    } else if (type === 'constructors' && constructorStandings) {
-        constructorStandings.classList.remove('hidden');
+      });
+      const el = document.getElementById(page);
+      if (el) el.classList.remove('hidden');
     }
+    function showStandings(type) {
+  // hide both
+  document.getElementById("driver-standings").style.display = "none";
+  document.getElementById("constructor-standings").style.display = "none";
+
+  // show the one clicked
+  if (type === "drivers") {
+    document.getElementById("driver-standings").style.display = "block";
+  } else if (type === "constructors") {
+    document.getElementById("constructor-standings").style.display = "block";
+  }
 }
 
-// Contact form submission
-const form = document.getElementById('contactForm');
-const formMsg = document.getElementById('formMessage');
-
-if (form) {
+    // Contact form submission
+    const form = document.getElementById('contactForm');
+    const formMsg = document.getElementById('formMessage');
     form.addEventListener('submit', e => {
-        e.preventDefault();
-        if (formMsg) {
-            formMsg.textContent = "✅ Message sent to the pit crew!";
-            formMsg.style.color = "lightgreen";
-        }
+      e.preventDefault();
+      formMsg.textContent = "✅ Message sent to the pit crew!";
+      formMsg.style.color = "lightgreen";
     });
-}
 
-// Countdown timer
-function updateCountdown() {
-    const raceDate = new Date('2025-10-05T00:00:00'); // removed space before T
-    const now = new Date();
-    const diff = raceDate - now;
-
-    const countdownEl = document.getElementById('countdown');
-
-    if (diff > 0 && countdownEl) {
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((diff / (1000 * 60)) % 60);
-
-        countdownEl.textContent = `⏳ Countdown: ${days}d ${hours}h ${minutes}m left`;
-    } else if (countdownEl) {
-        countdownEl.textContent = "🏁 The race is happening now!";
+    // Countdown timer
+    function updateCountdown() {
+      const raceDate = new Date('2025-10-05T00:00:00');
+      const now = new Date();
+      const diff = raceDate - now;
+      if(diff > 0) {
+        const days = Math.floor(diff / (1000*60*60*24));
+        const hours = Math.floor((diff/(1000*60*60)) % 24);
+        const minutes = Math.floor((diff/(1000*60)) % 60);
+        document.getElementById('countdown').textContent = `⏳ Countdown: ${days}d ${hours}h ${minutes}m left`;
+      } else {
+        document.getElementById('countdown').textContent = "🏁 The race is happening now!";
+      }
     }
-}
+    setInterval(updateCountdown, 60000);
+    updateCountdown();
 
-setInterval(updateCountdown, 60000);
-updateCountdown();
-
-// Service Worker registration
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
+    // Service Worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js', {scope: '/'})
         .then(() => console.log('Service Worker registered'))
         .catch(err => console.log('SW registration failed', err));
-}
-</script>
-
+    }
+  </script>
 </body>
 </html>
