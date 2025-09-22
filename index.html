@@ -246,13 +246,16 @@ h1 {
 
 /* Tables full width */
 .standings-table {
-  width: 100%;
-  margin-top: 20px;
+  width: auto;               /* allow table to size naturally */
+  max-width: 90%;            /* optional: don’t get too wide */
+  margin: 20px auto;         /* center horizontally */
   border-collapse: collapse;
   font-family: 'Segoe UI', sans-serif;
   color: #fff;
   background: rgba(0,0,0,0.6);
-  display: none; /* toggled via JS */
+  display: none;             /* toggled via JS */
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .standings-table th, .standings-table td {
