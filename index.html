@@ -1261,60 +1261,75 @@ function showPage(page) {
   if (active) active.classList.remove('hidden');
 }
 
-function showStandings(type) {
-  const driverTable = document.getElementById("driver-standings");
-  const constructorTable = document.getElementById("constructor-standings");
+function showPage(page) {
+    const pages = ['home', 'about', 'drivers', 'schedule', 'contact'];
+    pages.forEach(p => {
+        const el = document.getElementById(p);
+        if (el) el.classList.add('hidden');
+    });
 
-  if(driverTable) driverTable.style.display = 'none';
-  if(constructorTable) constructorTable.style.display = 'none';
-
-  if (type === 'drivers' && driverTable) driverTable.style.display = 'block';
-  else if (constructorTable) constructorTable.style.display = 'block';
+    const el = document.getElementById(page);
+    if (el) el.classList.remove('hidden');
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const preloader = document.getElementById("preloader");
-  if (preloader) preloader.style.display = "none";
+// Standings toggle
+function showStandings(type) {
+    const driverStandings = document.getElementById('driver-standings');
+    const constructorStandings = document.getElementById('constructor-standings');
 
-  showPage('home');
-  showStandings('drivers');
+    if (driverStandings) driverStandings.classList.add('hidden');
+    if (constructorStandings) constructorStandings.classList.add('hidden');
 
-  document.querySelectorAll('.race-row').forEach(row => {
-    row.addEventListener('click', () => {
-      const details = row.nextElementSibling;
-      details.style.display =
-        (details.style.display === 'table-row') ? 'none' : 'table-row';
+    if (type === 'drivers' && driverStandings) {
+        driverStandings.classList.remove('hidden');
+    } else if (constructorStandings) {
+        constructorStandings.classList.remove('hidden');
+    }
+}
+
+// Contact form submission
+const form = document.getElementById('contactForm');
+const formMsg = document.getElementById('formMessage');
+
+if (form) {
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        if (formMsg) {
+            formMsg.textContent = "✅ Message sent to the pit crew!";
+            formMsg.style.color = "lightgreen";
+        }
     });
-  });
+}
 
-  // Countdown
-  function updateCountdown() {
-    const raceDate = new Date('2025-10-05T00:00:00');
+// Countdown timer
+function updateCountdown() {
+    const raceDate = new Date('2025-10-05T00:00:00'); // removed space before T
     const now = new Date();
     const diff = raceDate - now;
 
-    if (diff > 0) {
-      const days = Math.floor(diff / (1000*60*60*24));
-      const hours = Math.floor((diff / (1000*60*60)) % 24);
-      const minutes = Math.floor((diff / (1000*60)) % 60);
-      document.getElementById('countdown').textContent =
-        `⏳ Countdown: ${days}d ${hours}h ${minutes}m left`;
-    } else {
-      document.getElementById('countdown').textContent =
-        "🏁 The race is happening now!";
-    }
-  }
-  setInterval(updateCountdown, 60000);
-  updateCountdown();
+    const countdownEl = document.getElementById('countdown');
 
-  // Service Worker
-  if ('serviceWorker' in navigator) {
+    if (diff > 0 && countdownEl) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+
+        countdownEl.textContent = `⏳ Countdown: ${days}d ${hours}h ${minutes}m left`;
+    } else if (countdownEl) {
+        countdownEl.textContent = "🏁 The race is happening now!";
+    }
+}
+
+setInterval(updateCountdown, 60000);
+updateCountdown();
+
+// Service Worker registration
+if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
-      .then(() => console.log('Service Worker registered'))
-      .catch(err => console.log('SW registration failed', err));
-  }
-});
-</script>
+        .then(() => console.log('Service Worker registered'))
+        .catch(err => console.log('SW registration failed', err));
+}
+  </script
 
 </body>
 </html>
