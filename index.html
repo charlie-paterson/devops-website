@@ -231,20 +231,18 @@
 }
 
 .standings-table {
-  width: 100vw;
+  width: 100vw;       /* full width of viewport */
   max-width: 100vw;
+  margin: 0;          /* remove container centering */
   border-collapse: collapse;
-  margin-top: 20px;
   font-family: 'Segoe UI', sans-serif;
   color: #fff;
   background: rgba(0,0,0,0.6);
-  border-radius: 12px;
   overflow: hidden;
-  display: none; /* keep your toggle logic */
+  display: none;      /* toggled via JS */
 }
 
-.standings-table th, 
-.standings-table td {
+.standings-table th, .standings-table td {
   padding: 12px 10px;
   text-align: center;
   border-bottom: 1px solid rgba(255,255,255,0.2);
@@ -252,7 +250,6 @@
 
 .standings-table th {
   background: rgba(255,0,0,0.8);
-  font-size: 1em;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -264,57 +261,39 @@
 .standings-table tr:hover {
   background: rgba(255,255,255,0.1);
 }
-.driver-cell {
+
+/* Driver / Team Cells */
+.driver-cell, .team-cell {
   display: flex;
   align-items: center;
 }
 
-.driver-icon {
-  width: 60px;        /* bigger for mobile */
+.driver-icon, .team-icon {
+  width: 60px;
   height: 60px;
   border-radius: 50%;
   object-fit: cover;
   margin-right: 10px;
 }
 
-.driver-text {
+.driver-text, .team-text {
   display: flex;
-  flex-direction: column; /* stack name and team vertically */
+  flex-direction: column;
 }
 
-.driver-name {
+.driver-name, .team-name1 {
   font-weight: bold;
   font-size: 1em;
 }
 
 .driver-team {
-  font-size: 0.8em;   /* slightly smaller */
-  color: #999999;     /* faded black/grey */
-  line-height: 1;     /* tight spacing */
+  font-size: 0.8em;
+  color: #999;
+  line-height: 1;
 }
 
-.team-cell {
-  display: flex;
-  align-items: center;
-}
-
-.team-icon {
-  width: 60px;        /* bigger for mobile */
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 10px;
-}
-
-.team-text {
-  display: flex;
-  flex-direction: column; /* stack name and team vertically */
-}
-
-.team-name1 {
-  font-weight: bold;
-  font-size: 1em;
-}
+/* Hidden class for toggle */
+.hidden { display: none; }
     
     .driver-photo {
       width: 80px;
