@@ -1251,76 +1251,54 @@
   </div>
 
   <script>
+document.addEventListener('DOMContentLoaded', () => {
   // Preloader
-window.addEventListener("load", () => {
   const preloader = document.getElementById("preloader");
   if (preloader) preloader.style.display = "none";
 
-  // Show initial page and standings
-  showPage('home');
-  showStandings('drivers');
-});
-
-// Page navigation
-function showPage(page) {
-  const pages = ['home','standings','drivers','schedule','contact','more'];
-  pages.forEach(p => {
-    const el = document.getElementById(p);
-    if (el) el.classList.add('hidden');
-  });
-
-  const active = document.getElementById(page);
-  if (active) active.classList.remove('hidden');
-}
-
-// Standings toggle
-function showStandings(type) {
-  const driverTable = document.getElementById("driver-standings");
-  const constructorTable = document.getElementById("constructor-standings");
-
-  driverTable.style.display = 'none';
-  constructorTable.style.display = 'none';
-
-  if (type === 'drivers') driverTable.style.display = 'block';
-  else constructorTable.style.display = 'block';
-}
-
-// Accordion for schedule
-document.querySelectorAll('.race-row').forEach(row => {
-  row.addEventListener('click', () => {
-    const details = row.nextElementSibling;
-    details.style.display =
-      (details.style.display === 'table-row') ? 'none' : 'table-row';
-  });
-});
-
-// Countdown timer
-function updateCountdown() {
-  const raceDate = new Date('2025-10-05T00:00:00');
-  const now = new Date();
-  const diff = raceDate - now;
-
-  if (diff > 0) {
-    const days = Math.floor(diff / (1000*60*60*24));
-    const hours = Math.floor((diff / (1000*60*60)) % 24);
-    const minutes = Math.floor((diff / (1000*60)) % 60);
-    document.getElementById('countdown').textContent =
-      `⏳ Countdown: ${days}d ${hours}h ${minutes}m left`;
-  } else {
-    document.getElementById('countdown').textContent =
-      "🏁 The race is happening now!";
+  // Show initial page and standings safely
+  if (document.getElementById("driver-standings")) {
+    showStandings('drivers');
   }
-}
-setInterval(updateCountdown, 60000);
-updateCountdown();
+  showPage('home');
 
-// Service Worker
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
-    .then(() => console.log('Service Worker registered'))
-    .catch(err => console.log('SW registration failed', err));
-}
+  // Accordion for schedule
+  document.querySelectorAll('.race-row').forEach(row => {
+    row.addEventListener('click', () => {
+      const details = row.nextElementSibling;
+      details.style.display =
+        (details.style.display === 'table-row') ? 'none' : 'table-row';
+    });
+  });
 
+  // Countdown timer
+  function updateCountdown() {
+    const raceDate = new Date('2025-10-05T00:00:00');
+    const now = new Date();
+    const diff = raceDate - now;
+
+    if (diff > 0) {
+      const days = Math.floor(diff / (1000*60*60*24));
+      const hours = Math.floor((diff / (1000*60*60)) % 24);
+      const minutes = Math.floor((diff / (1000*60)) % 60);
+      document.getElementById('countdown').textContent =
+        `⏳ Countdown: ${days}d ${hours}h ${minutes}m left`;
+    } else {
+      document.getElementById('countdown').textContent =
+        "🏁 The race is happening now!";
+    }
+  }
+  setInterval(updateCountdown, 60000);
+  updateCountdown();
+
+  // Service Worker
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
+      .then(() => console.log('Service Worker registered'))
+      .catch(err => console.log('SW registration failed', err));
+  }
+});
 </script>
+
 </body>
 </html>
