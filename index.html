@@ -1257,11 +1257,6 @@ function showPage(page) {
 
     const el = document.getElementById(page);
     if (el) el.classList.remove('hidden');
-
-    // Show driver standings by default when opening standings page
-    if (page === 'standings') {
-        showStandings('drivers');
-    }
 }
 
 function showStandings(type) {
