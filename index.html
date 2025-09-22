@@ -171,14 +171,15 @@
 
 .standings-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate; /* change from collapse */
+  border-spacing: 0;         /* remove spacing */
   margin-top: 20px;
   font-family: 'Segoe UI', sans-serif;
   color: #fff;
   background: rgba(0,0,0,0.6);
-  border-radius: 12px;
+  border-radius: 12px;       /* round corners */
   overflow: hidden;
-  display: none; /* keep your toggle logic */
+  display: none;             /* keep toggle logic */
 }
 
 .standings-table th, 
@@ -195,6 +196,14 @@
   letter-spacing: 1px;
 }
 
+/* Round only the top corners */
+.standings-table th:first-child {
+  border-top-left-radius: 12px;
+}
+.standings-table th:last-child {
+  border-top-right-radius: 12px;
+}
+
 .standings-table tr:nth-child(even) {
   background: rgba(255,255,255,0.05);
 }
@@ -202,6 +211,7 @@
 .standings-table tr:hover {
   background: rgba(255,255,255,0.1);
 }
+
 .driver-cell {
   display: flex;
   align-items: center;
