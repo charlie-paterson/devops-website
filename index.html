@@ -21,7 +21,7 @@
 
   <style>
 
-    #preloader {
+  #preloader {
   position: fixed;
   top: 0;
   left: 0;
@@ -1253,12 +1253,11 @@
   </div>
 
   <script>
-      window.addEventListener("load", () => {
+        window.addEventListener("load", () => {
     const preloader = document.getElementById("preloader");
-    preloader.style.opacity = "0";
-    setTimeout(() => {
+    if (preloader) {
       preloader.style.display = "none";
-    }, 500); // fade out
+    }
   });
     // Page navigation
     function showPage(page) {
