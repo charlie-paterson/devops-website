@@ -1269,33 +1269,27 @@
       if (el) el.classList.remove('hidden');
     }
     function showStandings(type) {
-  // hide both
-  document.getElementById("driver-standings").style.display = "none";
-  document.getElementById("constructor-standings").style.display = "none";
 
-  document.addEventListener('DOMContentLoaded', () => {
-  const raceRows = document.querySelectorAll('.race-row');
+  // Standings toggle
+  function showStandings(type) {
+    document.getElementById("driver-standings").style.display = "none";
+    document.getElementById("constructor-standings").style.display = "none";
 
-  raceRows.forEach(row => {
+    if (type === 'drivers') {
+      document.getElementById("driver-standings").style.display = "block";
+    } else {
+      document.getElementById("constructor-standings").style.display = "block";
+    }
+  }
+
+  // Accordion for schedule (runs immediately)
+  document.querySelectorAll('.race-row').forEach(row => {
     row.addEventListener('click', () => {
-      const details = row.nextElementSibling; // the hidden details row
-      if (details.style.display === 'table-row') {
-        details.style.display = 'none';
-      } else {
-        details.style.display = 'table-row';
-      }
+      const details = row.nextElementSibling;
+      details.style.display =
+        (details.style.display === 'table-row') ? 'none' : 'table-row';
     });
   });
-});
-
-    // Contact form submission
-    const form = document.getElementById('contactForm');
-    const formMsg = document.getElementById('formMessage');
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      formMsg.textContent = "✅ Message sent to the pit crew!";
-      formMsg.style.color = "lightgreen";
-    });
 
     // Countdown timer
     function updateCountdown() {
