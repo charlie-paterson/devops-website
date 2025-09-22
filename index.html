@@ -543,6 +543,21 @@
   </style>
 </head>
 <body>
+<nav>
+  <a onclick="showPage('home')">Home</a>
+  <a onclick="showPage('standings')">Standings</a>
+  <a onclick="showPage('drivers')">Drivers</a>
+  <a onclick="showPage('schedule')">Schedule</a>
+  <a onclick="showPage('more')">More</a>
+</nav>
+
+<!-- Example page sections -->
+<div id="home">Home Content</div>
+<div id="standings" class="hidden">Standings Content</div>
+<div id="drivers" class="hidden">Drivers Content</div>
+<div id="schedule" class="hidden">Schedule Content</div>
+<div id="more" class="hidden">More Content</div>
+  
   <!-- Home Section -->
   <div id="home" class="home-section">
     <div class="hero">
