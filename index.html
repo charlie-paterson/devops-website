@@ -432,42 +432,61 @@
     .card-back { transform: rotateY(180deg); color: #fff; }
 
     .schedule-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-      font-family: 'Segoe UI', sans-serif;
-      color: #fff;
-      background: rgba(0,0,0,0.6);
-      border-radius: 12px;
-      overflow: hidden;
-    }
-    .schedule-table th, .schedule-table td {
-      padding: 12px 10px;
-      text-align: center;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
-    }
-    .schedule-table th {
-      background: rgba(255,0,0,0.8);
-      font-size: 1em;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .schedule-table tr:nth-child(even) {
-      background: rgba(255,255,255,0.05);
-    }
-    .schedule-table tr:hover {
-      background: rgba(255,255,255,0.1);
-    }
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+  background: rgba(0,0,0,0.6);
+  border-radius: 12px;
+  overflow: hidden;
+}
 
-    table {
-      width: 100%;
-      margin-top: 15px;
-      border-collapse: collapse;
-      background: rgba(255,255,255,0.1);
-      font-size: 0.9em;
-    }
-    th, td { padding: 8px; border: 1px solid rgba(255,255,255,0.3); }
-    th { background: rgba(255,0,0,0.7); }
+.schedule-table th, .schedule-table td {
+  padding: 12px 10px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.schedule-table th {
+  background: rgba(255,0,0,0.8);
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.schedule-table tr:nth-child(even) {
+  background: rgba(255,255,255,0.05);
+}
+
+.schedule-table tr:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Expandable row styling */
+.race-row {
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.race-row:hover {
+  background-color: rgba(255,255,255,0.2);
+}
+
+.race-details {
+  background-color: rgba(255,255,255,0.05);
+  color: #fff;
+}
+
+.race-details td {
+  padding: 10px;
+  text-align: left;
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.hidden {
+  display: none;
+}
 
     form {
       display: flex;
@@ -1167,37 +1186,47 @@
       
     </div>
 
-  <!-- Schedule -->
   <div id="schedule" class="hidden home-section">
-    <h1>Upcoming Races</h1>
-          <table class="schedule-table">
-        <tr><th>Race</th><th>Date</th><th>Location</th></tr>
-        <tr><td>Australian GP 🇦🇺</td><td>March 16, 2025</td><td>Melbourne</td></tr>
-        <tr><td>Chinese GP 🇨🇳</td><td>March 23, 2025</td><td>Shanghai</td></tr>
-        <tr><td>Japanese GP 🇯🇵</td><td>April 6, 2025</td><td>Suzuka</td></tr>
-        <tr><td>Bahrain GP 🇧🇭</td><td>April 13, 2025</td><td>Sakhir</td></tr>
-        <tr><td>Saudi Arabian GP 🇸🇦</td><td>April 20, 2025</td><td>Jeddah</td></tr>
-        <tr><td>Miami GP 🇺🇸</td><td>May 4, 2025</td><td>Miami</td></tr>
-        <tr><td>Emilia-Romagna GP 🇮🇹</td><td>May 18, 2025</td><td>Imola</td></tr>
-        <tr><td>Monaco GP 🇲🇨</td><td>May 25, 2025</td><td>Monte Carlo</td></tr>
-        <tr><td>Spanish GP 🇪🇸</td><td>June 1, 2025</td><td>Barcelona</td></tr>
-        <tr><td>Canadian GP 🇨🇦</td><td>June 15, 2025</td><td>Montreal</td></tr>
-        <tr><td>Austria GP 🇦🇹</td><td>June 29, 2025</td><td>Spielberg</td></tr>
-        <tr><td>British GP 🇬🇧</td><td>July 6, 2025</td><td>Silverstone</td></tr>
-        <tr><td>Belgian GP 🇧🇪</td><td>July 27, 2025</td><td>Spa-Francorchamps</td></tr>
-        <tr><td>Hungarian GP 🇭🇺</td><td>August 3, 2025</td><td>Budapest</td></tr>
-        <tr><td>Netherlands GP 🇳🇱</td><td>August 31, 2025</td><td>Zandvoort</td></tr>
-        <tr><td>Italian GP 🇮🇹</td><td>September 7, 2025</td><td>Monza</td></tr>
-        <tr><td>Azerbaijan GP 🇦🇿</td><td>September 21, 2025</td><td>Baku</td></tr>
-        <tr><td>Singapore GP 🇸🇬</td><td>October 5, 2025</td><td>Singapore</td></tr>
-        <tr><td>United States GP 🇺🇸</td><td>October 19, 2025</td><td>Austin</td></tr>
-        <tr><td>Mexico GP 🇲🇽</td><td>October 26, 2025</td><td>Mexico City</td></tr>
-        <tr><td>Brazilian GP 🇧🇷</td><td>November 9, 2025</td><td>São Paulo</td></tr>
-        <tr><td>Las Vegas GP 🇺🇸</td><td>November 23, 2025</td><td>Las Vegas</td></tr>
-        <tr><td>Qatar GP 🇶🇦</td><td>November 30, 2025</td><td>Doha</td></tr>
-        <tr><td>Abu Dhabi GP 🇦🇪</td><td>December 7, 2025</td><td>Abu Dhabi</td></tr>
-      </table>
-  </div>
+  <h1>Upcoming Races</h1>
+  <table class="schedule-table">
+    <tr><th>Race</th><th>Date</th><th>Location</th></tr>
+
+    <!-- Example row for Australian GP -->
+    <tr class="race-row">
+      <td>Australian GP 🇦🇺</td>
+      <td>March 16, 2025</td>
+      <td>Melbourne</td>
+    </tr>
+    <tr class="race-details hidden">
+      <td colspan="3">
+        <strong>Weekend Timings:</strong><br>
+        Practice 1: Friday 10:00 – 11:30<br>
+        Practice 2: Friday 14:00 – 15:30<br>
+        Practice 3: Saturday 11:00 – 12:00<br>
+        Qualifying: Saturday 14:00 – 15:00<br>
+        Race: Sunday 15:00
+      </td>
+    </tr>
+
+    <!-- Repeat for other races -->
+    <tr class="race-row">
+      <td>Chinese GP 🇨🇳</td>
+      <td>March 23, 2025</td>
+      <td>Shanghai</td>
+    </tr>
+    <tr class="race-details hidden">
+      <td colspan="3">
+        <strong>Weekend Timings:</strong><br>
+        Practice 1: Friday 11:00 – 12:30<br>
+        Practice 2: Friday 15:00 – 16:30<br>
+        Practice 3: Saturday 12:00 – 13:00<br>
+        Qualifying: Saturday 15:00 – 16:00<br>
+        Race: Sunday 14:00
+      </td>
+    </tr>
+    <!-- Add other races similarly -->
+  </table>
+</div>
 
   <!-- Contact -->
   <div id="contact" class="hidden home-section">
@@ -1241,6 +1270,16 @@
   }
 }
 
+document.querySelectorAll('.race-row').forEach(row => {
+    row.addEventListener('click', () => {
+      const detailsRow = row.nextElementSibling;
+      if(detailsRow.classList.contains('hidden')) {
+        detailsRow.classList.remove('hidden');
+      } else {
+        detailsRow.classList.add('hidden');
+      }
+    });
+  });
     // Contact form submission
     const form = document.getElementById('contactForm');
     const formMsg = document.getElementById('formMessage');
