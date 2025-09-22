@@ -245,17 +245,13 @@
 }
 
 .standings-table {
-  width: 100%;              /* default = full width on mobile */
-  margin: 20px auto;
-  max-width: 100%;          /* prevent overflow */
-  border-collapse: separate;
-  border-spacing: 0;
-  font-family: 'Segoe UI', sans-serif;
-  color: #fff;
-  background: rgba(0,0,0,0.6);
+  width: 100%;
+  max-width: 900px;        /* ✅ keeps it centered */
+  margin: 20px auto;       /* ✅ centers on page */
+  border-collapse: collapse;
   border-radius: 12px;
+  background: rgba(0,0,0,0.6);
   overflow: hidden;
-  display: none;
 }
 
 .standings-table th, 
@@ -1256,70 +1252,75 @@
 
   <script>
   // Preloader
-  window.addEventListener("load", () => {
-    const preloader = document.getElementById("preloader");
-    if (preloader) {
-      preloader.style.display = "none";
-    }
+window.addEventListener("load", () => {
+  const preloader = document.getElementById("preloader");
+  if (preloader) preloader.style.display = "none";
+
+  // Show initial page and standings
+  showPage('home');
+  showStandings('drivers');
+});
+
+// Page navigation
+function showPage(page) {
+  const pages = ['home','standings','drivers','schedule','contact','more'];
+  pages.forEach(p => {
+    const el = document.getElementById(p);
+    if (el) el.classList.add('hidden');
   });
 
-  // Page navigation
-  function showPage(page) {
-    ['home','standings','drivers','schedule','more'].forEach(p => {
-      const el = document.getElementById(p);
-      if (el) el.classList.add('hidden');
-    });
-    const el = document.getElementById(page);
-    if (el) el.classList.remove('hidden');
-  }
+  const active = document.getElementById(page);
+  if (active) active.classList.remove('hidden');
+}
 
-  // Standings toggle
-  function showStandings(type) {
-    document.getElementById("driver-standings").style.display = "none";
-    document.getElementById("constructor-standings").style.display = "none";
+// Standings toggle
+function showStandings(type) {
+  const driverTable = document.getElementById("driver-standings");
+  const constructorTable = document.getElementById("constructor-standings");
 
-    if (type === 'drivers') {
-      document.getElementById("driver-standings").style.display = "block";
-    } else {
-      document.getElementById("constructor-standings").style.display = "block";
-    }
-  }
+  driverTable.style.display = 'none';
+  constructorTable.style.display = 'none';
 
-  // Accordion for schedule
-  document.querySelectorAll('.race-row').forEach(row => {
-    row.addEventListener('click', () => {
-      const details = row.nextElementSibling;
-      details.style.display =
-        (details.style.display === 'table-row') ? 'none' : 'table-row';
-    });
+  if (type === 'drivers') driverTable.style.display = 'block';
+  else constructorTable.style.display = 'block';
+}
+
+// Accordion for schedule
+document.querySelectorAll('.race-row').forEach(row => {
+  row.addEventListener('click', () => {
+    const details = row.nextElementSibling;
+    details.style.display =
+      (details.style.display === 'table-row') ? 'none' : 'table-row';
   });
+});
 
-  // Countdown timer
-  function updateCountdown() {
-    const raceDate = new Date('2025-10-05T00:00:00');
-    const now = new Date();
-    const diff = raceDate - now;
+// Countdown timer
+function updateCountdown() {
+  const raceDate = new Date('2025-10-05T00:00:00');
+  const now = new Date();
+  const diff = raceDate - now;
 
-    if (diff > 0) {
-      const days = Math.floor(diff / (1000*60*60*24));
-      const hours = Math.floor((diff / (1000*60*60)) % 24);
-      const minutes = Math.floor((diff / (1000*60)) % 60);
-      document.getElementById('countdown').textContent =
-        `⏳ Countdown: ${days}d ${hours}h ${minutes}m left`;
-    } else {
-      document.getElementById('countdown').textContent =
-        "🏁 The race is happening now!";
-    }
+  if (diff > 0) {
+    const days = Math.floor(diff / (1000*60*60*24));
+    const hours = Math.floor((diff / (1000*60*60)) % 24);
+    const minutes = Math.floor((diff / (1000*60)) % 60);
+    document.getElementById('countdown').textContent =
+      `⏳ Countdown: ${days}d ${hours}h ${minutes}m left`;
+  } else {
+    document.getElementById('countdown').textContent =
+      "🏁 The race is happening now!";
   }
-  setInterval(updateCountdown, 60000);
-  updateCountdown();
+}
+setInterval(updateCountdown, 60000);
+updateCountdown();
 
-  // Service Worker
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
-      .then(() => console.log('Service Worker registered'))
-      .catch(err => console.log('SW registration failed', err));
-  }
+// Service Worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
+    .then(() => console.log('Service Worker registered'))
+    .catch(err => console.log('SW registration failed', err));
+}
+
 </script>
 </body>
 </html>
