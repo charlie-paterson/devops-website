@@ -246,20 +246,15 @@ h1 {
 
 /* Tables full width */
 .standings-table {
-  width: 100vw;           /* full viewport width */
-  margin: 0;
+  width: 100%;
+  margin: 20px 0;
   border-collapse: collapse;
   font-family: 'Segoe UI', sans-serif;
   color: #fff;
   background: rgba(0,0,0,0.6);
-  overflow: hidden;
-  display: none;          /* toggled via JS */
-  position: relative;
-  left: 50%;
-  margin-left: -50vw;     /* break out of container */
+  display: none; /* toggled via JS */
 }
 
-/* Table cells */
 .standings-table th, .standings-table td {
   padding: 12px 10px;
   text-align: center;
@@ -284,6 +279,8 @@ h1 {
 .driver-cell, .team-cell {
   display: flex;
   align-items: center;
+  justify-content: start;
+  gap: 10px;
 }
 
 .driver-icon, .team-icon {
@@ -291,24 +288,42 @@ h1 {
   height: 60px;
   border-radius: 50%;
   object-fit: cover;
-  margin-right: 10px;
 }
 
-.driver-text, .team-text {
-  display: flex;
-  flex-direction: column;
+/* ---------------- Responsive ---------------- */
+@media (max-width: 768px) {
+  .standings-table th, .standings-table td {
+    display: block;
+    text-align: right;
+    padding: 10px;
+    position: relative;
+  }
+
+  .standings-table th {
+    display: none; /* hide headers */
+  }
+
+  .standings-table td::before {
+    content: attr(data-label); /* show header as label */
+    position: absolute;
+    left: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #FFD700;
+  }
+
+  .driver-cell, .team-cell {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .driver-icon, .team-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 5px;
+  }
 }
 
-.driver-name, .team-name1 {
-  font-weight: bold;
-  font-size: 1em;
-}
-
-.driver-team {
-  font-size: 0.8em;
-  color: #999;
-  line-height: 1;
-}
 
     
     .driver-photo {
