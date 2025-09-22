@@ -944,7 +944,7 @@
 
 
       <!-- Drivers -->
-    <div id="drivers" class="home-section">
+    <div id="drivers" class="hidden home-section">
       <h1>2025 Formula 1 Drivers</h1>
       <!-- McLaren -->
       <div class="team mclaren">
@@ -1247,15 +1247,6 @@
   </div>
 
 <script>
-function showPage(page) {
-  const pages = ['home','standings','drivers','schedule','contact','more'];
-  pages.forEach(p => {
-    const el = document.getElementById(p);
-    if (el) el.classList.add('hidden');
-  });
-  const active = document.getElementById(page);
-  if (active) active.classList.remove('hidden');
-}
 
 function showPage(page) {
     const pages = ['home', 'about', 'drivers', 'schedule', 'contact'];
@@ -1325,7 +1316,7 @@ if ('serviceWorker' in navigator) {
         .then(() => console.log('Service Worker registered'))
         .catch(err => console.log('SW registration failed', err));
 }
-  </script
+  </script>
 
 </body>
 </html>
