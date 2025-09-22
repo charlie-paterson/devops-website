@@ -1243,17 +1243,18 @@ h1 {
       if (el) el.classList.remove('hidden');
     }
     function showStandings(type) {
-  // hide both
-  document.getElementById("driver-standings").style.display = "none";
-  document.getElementById("constructor-standings").style.display = "none";
+  const drivers = document.getElementById('driver-standings');
+  const constructors = document.getElementById('constructor-standings');
 
-  // show the one clicked
-  if (type === "drivers") {
-    document.getElementById("driver-standings").style.display = "block";
-  } else if (type === "constructors") {
-    document.getElementById("constructor-standings").style.display = "block";
+  if (type === 'drivers') {
+    drivers.style.display = 'table';
+    constructors.style.display = 'none';
+  } else {
+    drivers.style.display = 'none';
+    constructors.style.display = 'table';
   }
 }
+
 
 document.querySelectorAll('.race-row').forEach(row => {
     row.addEventListener('click', () => {
