@@ -238,17 +238,23 @@
   transform: scale(1.05);
 }
 
+/* Make tables full width */
 .standings-table {
-  width: 100vw;       /* full width of viewport */
-  max-width: 100vw;
-  margin: 0;          /* remove container centering */
+  width: 100vw;          /* Full viewport width */
+  margin: 0;             /* Remove container centering */
   border-collapse: collapse;
   font-family: 'Segoe UI', sans-serif;
   color: #fff;
   background: rgba(0,0,0,0.6);
   overflow: hidden;
-  display: none;      /* toggled via JS */
+  display: none;         /* toggled via JS */
+  position: relative;    /* optional for layering */
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;    /* forces table to stretch outside container */
+  margin-right: -50vw;
 }
+
 
 .standings-table th, .standings-table td {
   padding: 12px 10px;
