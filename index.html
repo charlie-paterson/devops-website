@@ -150,11 +150,7 @@
   margin-top: 40px;
   text-align: center;
 }
-.standings-container {
-  max-width: 800px;  /* keeps table from spanning full width */
-  margin: 0 auto;    /* centers horizontally */
-  padding: 20px;
-}
+
 .race-highlights h2 {
   font-size: 2em;
   margin-bottom: 10px;
@@ -219,6 +215,11 @@
   color: #fff;
 }
 
+.standings-wrapper {
+  display: flex;
+  justify-content: center; /* centers horizontally */
+  margin-top: 20px;
+}
     
     .standings-toggle {
   margin-bottom: 15px;
@@ -244,16 +245,17 @@
 }
 
 .standings-table {
-  width: 100%;
-  border-collapse: separate; /* change from collapse */
-  border-spacing: 0;         /* remove spacing */
-  margin-top: 20px;
+  width: 100%;              /* default = full width on mobile */
+  margin: 20px auto;
+  max-width: 100%;          /* prevent overflow */
+  border-collapse: separate;
+  border-spacing: 0;
   font-family: 'Segoe UI', sans-serif;
   color: #fff;
   background: rgba(0,0,0,0.6);
-  border-radius: 12px;       /* round corners */
+  border-radius: 12px;
   overflow: hidden;
-  display: none;             /* keep toggle logic */
+  display: none;
 }
 
 .standings-table th, 
