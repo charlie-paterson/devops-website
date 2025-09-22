@@ -243,17 +243,10 @@ h1 {
   background: darkred;
   transform: scale(1.05);
 }
-.standings-table-wrapper {
-  width: 100%;              /* full width of viewport */
-  overflow-x: auto;         /* horizontal scroll on small screens */
-  background: rgba(0,0,0,0.6);
-  margin: 0;
-}
 
 /* Tables full width */
 .standings-table {
-  width: 100%;  
-  max-width: none;/* full viewport width */
+  width: 100vw;           /* full viewport width */
   margin: 0;
   border-collapse: collapse;
   font-family: 'Segoe UI', sans-serif;
@@ -583,10 +576,11 @@ h1 {
     <button onclick="showStandings('drivers')">Driver Standings</button>
     <button onclick="showStandings('constructors')">Constructor Standings</button>
   </div>
+  </div>
 
   <!-- Driver Standings -->
-  <div id="driver-standings" class="standings-table-wrapper"">
-    <table class="standings-table">
+  <div id="driver-standings" class="standings-table">
+    <table>
       <tr><th>Pos</th><th>Driver</th><th>Points</th></tr>
       <tr>
       <td>1</td>
@@ -813,8 +807,8 @@ h1 {
   </div>
 
   <!-- Constructor Standings -->
-  <div id="constructor-standings" class="standings-table-wrapper">
-    <table class="standings-table>
+  <div id="constructor-standings" class="standings-table">
+    <table>
       <tr><th>Pos</th><th>Constructor</th><th>Points</th></tr>
       <tr>
       <td>1</td>
@@ -1174,7 +1168,6 @@ h1 {
           </div>
         </div>
         <p class="team-name">Kick Sauber</p>
-      </div>
       
     </div>
 
@@ -1250,18 +1243,17 @@ h1 {
       if (el) el.classList.remove('hidden');
     }
     function showStandings(type) {
-  const drivers = document.getElementById('driver-standings');
-  const constructors = document.getElementById('constructor-standings');
+  // hide both
+  document.getElementById("driver-standings").style.display = "none";
+  document.getElementById("constructor-standings").style.display = "none";
 
-  if (type === 'drivers') {
-    drivers.style.display = 'table';
-    constructors.style.display = 'none';
-  } else {
-    drivers.style.display = 'none';
-    constructors.style.display = 'table';
+  // show the one clicked
+  if (type === "drivers") {
+    document.getElementById("driver-standings").style.display = "block";
+  } else if (type === "constructors") {
+    document.getElementById("constructor-standings").style.display = "block";
   }
 }
-
 
 document.querySelectorAll('.race-row').forEach(row => {
     row.addEventListener('click', () => {
