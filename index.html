@@ -1250,19 +1250,35 @@
     </form>
   </div>
 
-  <script>
+<script>
+function showPage(page) {
+  const pages = ['home','standings','drivers','schedule','contact','more'];
+  pages.forEach(p => {
+    const el = document.getElementById(p);
+    if (el) el.classList.add('hidden');
+  });
+  const active = document.getElementById(page);
+  if (active) active.classList.remove('hidden');
+}
+
+function showStandings(type) {
+  const driverTable = document.getElementById("driver-standings");
+  const constructorTable = document.getElementById("constructor-standings");
+
+  if(driverTable) driverTable.style.display = 'none';
+  if(constructorTable) constructorTable.style.display = 'none';
+
+  if (type === 'drivers' && driverTable) driverTable.style.display = 'block';
+  else if (constructorTable) constructorTable.style.display = 'block';
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-  // Preloader
   const preloader = document.getElementById("preloader");
   if (preloader) preloader.style.display = "none";
 
-  // Show initial page and standings safely
-  if (document.getElementById("driver-standings")) {
-    showStandings('drivers');
-  }
   showPage('home');
+  showStandings('drivers');
 
-  // Accordion for schedule
   document.querySelectorAll('.race-row').forEach(row => {
     row.addEventListener('click', () => {
       const details = row.nextElementSibling;
@@ -1271,7 +1287,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Countdown timer
+  // Countdown
   function updateCountdown() {
     const raceDate = new Date('2025-10-05T00:00:00');
     const now = new Date();
