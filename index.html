@@ -207,15 +207,21 @@
   color: #fff;
 }
 
-      .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px;
-      text-align: center;
-    }
-    h1 { font-size: 2em; margin-bottom: 15px; }
-    
-    .standings-toggle {
+/* Container for heading & buttons */
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 15px;
+}
+
+/* Toggle buttons */
+.standings-toggle {
   margin-bottom: 15px;
   display: flex;
   gap: 10px;
@@ -238,24 +244,22 @@
   transform: scale(1.05);
 }
 
-/* Make tables full width */
+/* Tables full width */
 .standings-table {
-  width: 100vw;          /* Full viewport width */
-  margin: 0;             /* Remove container centering */
+  width: 100vw;           /* full viewport width */
+  margin: 0;
   border-collapse: collapse;
   font-family: 'Segoe UI', sans-serif;
   color: #fff;
   background: rgba(0,0,0,0.6);
   overflow: hidden;
-  display: none;         /* toggled via JS */
-  position: relative;    /* optional for layering */
+  display: none;          /* toggled via JS */
+  position: relative;
   left: 50%;
-  right: 50%;
-  margin-left: -50vw;    /* forces table to stretch outside container */
-  margin-right: -50vw;
+  margin-left: -50vw;     /* break out of container */
 }
 
-
+/* Table cells */
 .standings-table th, .standings-table td {
   padding: 12px 10px;
   text-align: center;
@@ -306,8 +310,6 @@
   line-height: 1;
 }
 
-/* Hidden class for toggle */
-.hidden { display: none; }
     
     .driver-photo {
       width: 80px;
