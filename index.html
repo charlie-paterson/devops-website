@@ -1204,7 +1204,11 @@
   <h1>Upcoming Races</h1>
   <table class="schedule-table">
     <thead>
-      <tr><th>Race</th><th>Date</th><th>Location</th></tr>
+      <tr>
+        <th>Race</th>
+        <th>Date</th>
+        <th>Location</th>
+      </tr>
     </thead>
     <tbody>
       <!-- Example Race Row -->
@@ -1226,7 +1230,7 @@
         <td>Race: 14:00</td>
       </tr>
 
-      <!-- Repeat for all races -->
+      <!-- Add more races here -->
     </tbody>
   </table>
 </div>
@@ -1265,26 +1269,20 @@
   document.getElementById("driver-standings").style.display = "none";
   document.getElementById("constructor-standings").style.display = "none";
 
+  document.addEventListener('DOMContentLoaded', () => {
   const raceRows = document.querySelectorAll('.race-row');
 
   raceRows.forEach(row => {
     row.addEventListener('click', () => {
-      const details = row.nextElementSibling; // the .details-row
-      if(details.style.display === 'table-row'){
+      const details = row.nextElementSibling; // the hidden details row
+      if (details.style.display === 'table-row') {
         details.style.display = 'none';
       } else {
         details.style.display = 'table-row';
       }
     });
   });
-      
-  // show the one clicked
-  if (type === "drivers") {
-    document.getElementById("driver-standings").style.display = "block";
-  } else if (type === "constructors") {
-    document.getElementById("constructor-standings").style.display = "block";
-  }
-}
+});
 
     // Contact form submission
     const form = document.getElementById('contactForm');
