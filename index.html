@@ -138,6 +138,76 @@
       .highlights li { font-size: 1em; }
     }
 
+    .race-highlights {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.race-highlights h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.highlight-scroll {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 10px 0;
+  scroll-behavior: smooth;
+}
+
+.highlight-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.highlight-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255,0,0,0.8);
+  border-radius: 4px;
+}
+
+.highlight-card {
+  flex: 0 0 250px; /* fixed card width */
+  background: rgba(255, 0, 0, 0.8);
+  border-radius: 12px;
+  overflow: hidden;
+  color: #fff;
+  transition: transform 0.2s;
+}
+
+.highlight-card:hover {
+  transform: scale(1.05);
+}
+
+.highlight-card img {
+  width: 100%;
+  display: block;
+}
+
+.highlight-card h3 {
+  padding: 10px;
+  font-size: 1.1em;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.btn-watch {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  background: #fff;
+  color: red;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-watch:hover {
+  background: darkred;
+  color: #fff;
+}
+
+
       .container {
       max-width: 1000px;
       margin: auto;
@@ -473,6 +543,25 @@
         <li><strong>Ferrari</strong> pushing hard for Monza glory 🇮🇹</li>
       </ul>
     </div>
+
+      <div class="race-highlights">
+  <h2>🎬 Race Highlights</h2>
+  <p>Catch the best moments from recent races!</p>
+  
+  <div class="highlight-scroll">
+    <div class="highlight-card">
+      <img src="https://img.youtube.com/vi/JntKOmbMI08/hqdefault.jpg" alt="Monaco GP 2025">
+      <h3>Azerbaijan GP 2025</h3>
+      <a href="https://www.youtube.com/watch?v=JntKOmbMI08" target="_blank" class="btn-watch">Watch on YouTube</a>
+    </div>
+
+    <div class="highlight-card">
+      <img src="https://img.youtube.com/vi/kGMp1Byuwto/hqdefault.jpg" alt="Italian GP 2025">
+      <h3>Italian GP 2025</h3>
+      <a href="https://www.youtube.com/watch?v=kGMp1Byuwto" target="_blank" class="btn-watch">Watch on YouTube</a>
+    </div>
+  </div>
+</div>
   </div>
 
   <!-- Standings -->
