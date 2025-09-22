@@ -1249,7 +1249,7 @@
 <script>
 
 function showPage(page) {
-    const pages = ['home', 'about', 'drivers', 'schedule', 'contact'];
+    const pages = ['home', 'standings', 'drivers', 'schedule', 'contact'];
     pages.forEach(p => {
         const el = document.getElementById(p);
         if (el) el.classList.add('hidden');
@@ -1257,9 +1257,13 @@ function showPage(page) {
 
     const el = document.getElementById(page);
     if (el) el.classList.remove('hidden');
+
+    // Show driver standings by default when opening standings page
+    if (page === 'standings') {
+        showStandings('drivers');
+    }
 }
 
-// Standings toggle
 function showStandings(type) {
     const driverStandings = document.getElementById('driver-standings');
     const constructorStandings = document.getElementById('constructor-standings');
@@ -1269,7 +1273,7 @@ function showStandings(type) {
 
     if (type === 'drivers' && driverStandings) {
         driverStandings.classList.remove('hidden');
-    } else if (constructorStandings) {
+    } else if (type === 'constructors' && constructorStandings) {
         constructorStandings.classList.remove('hidden');
     }
 }
