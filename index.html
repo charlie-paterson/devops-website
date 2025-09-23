@@ -498,6 +498,16 @@ h1 {
   padding: 8px 0;
 }
 
+.arrow {
+  display: inline-block;
+  margin-right: 6px;
+  transition: transform 0.3s ease;
+}
+
+.race-row.active .arrow {
+  transform: rotate(90deg);
+}
+
     form {
       display: flex;
       flex-direction: column;
@@ -1276,7 +1286,7 @@ h1 {
 
     <!-- Saudi Arabian GP -->
     <tr class="race-row">
-      <td>Saudi Arabian GP 🇸🇦</td>
+      <td><span class="arrow">▶</span> Australian GP 🇦🇺</td>
       <td>April 18-20, 2025</td>
       <td>Jeddah</td>
     </tr>
@@ -1286,10 +1296,10 @@ h1 {
           <strong>Weekend Timings:</strong>
           <table class="timings-table">
             <th>Date</th><th>Session</th><th>Time</th>
-            <tr><td>Practice 1</td><td>Friday 01:30 - 02:30</td></tr>
-            <tr><td>Practice 2</td><td>Friday 05:00 - 06:00</td></tr>
-            <tr><td>Qualifying</td><td>Saturday 05:00 - 06:00</td></tr>
-            <tr><td>Race</td><td>Sunday 04:00</td></tr>
+            <tr><td>Friday</td><td>Practice 1</td><td>01:30 - 02:30</td></tr>
+            <tr><td>Friday</td><td>Practice 2</td><td>05:00 - 06:00</td></tr>
+            <tr><td>Saturday</td><td>Qualifying</td><td>05:00 - 06:00</td></tr>
+            <tr><td>Sunday</td><td>Race</td><td>04:00</td></tr>
           </table>
         </div>
       </td>
@@ -1344,22 +1354,23 @@ h1 {
   document.querySelectorAll('.race-row').forEach(row => {
   row.addEventListener('click', () => {
     const detailsRow = row.nextElementSibling;
-    if (detailsRow && detailsRow.classList.contains('race-details')) {
+    if(detailsRow && detailsRow.classList.contains('race-details')) {
       const detailsContent = detailsRow.querySelector('.details-content');
-      
       const isHidden = detailsRow.classList.contains('hidden');
 
-      // Close all others
+      // Close all other rows
       document.querySelectorAll('.race-details').forEach(d => {
         d.classList.add('hidden');
         const inner = d.querySelector('.details-content');
-        if (inner) inner.classList.remove('show');
+        if(inner) inner.classList.remove('show');
       });
+      document.querySelectorAll('.race-row').forEach(r => r.classList.remove('active'));
 
-      // Open the clicked one
-      if (isHidden) {
+      // Open clicked row
+      if(isHidden) {
         detailsRow.classList.remove('hidden');
-        if (detailsContent) detailsContent.classList.add('show');
+        if(detailsContent) detailsContent.classList.add('show');
+        row.classList.add('active'); // rotate arrow
       }
     }
   });
