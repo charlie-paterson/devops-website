@@ -492,8 +492,9 @@ h1 {
   transition: max-height 0.4s ease, padding 0.4s ease;
   padding: 0;
 }
+
 .details-content.show {
-  max-height: 500px; /* large enough to fit your content */
+  max-height: 500px;
   padding: 8px 0;
 }
 
@@ -1339,24 +1340,29 @@ h1 {
     }
   }
 
-  // Schedule toggle (accordion-style)
-  document.querySelectorAll(".race-row").forEach(row => {
-    row.addEventListener("click", () => {
-      const detailsRow = row.nextElementSibling;
+  document.querySelectorAll('.race-row').forEach(row => {
+  row.addEventListener('click', () => {
+    const detailsRow = row.nextElementSibling;
+    if (detailsRow && detailsRow.classList.contains('race-details')) {
+      const detailsContent = detailsRow.querySelector('.details-content');
+      
+      const isHidden = detailsRow.classList.contains('hidden');
 
-      if (detailsRow && detailsRow.classList.contains("race-details")) {
-        const isOpen = !detailsRow.classList.contains("hidden");
+      // Close all others
+      document.querySelectorAll('.race-details').forEach(d => {
+        d.classList.add('hidden');
+        const inner = d.querySelector('.details-content');
+        if (inner) inner.classList.remove('show');
+      });
 
-        // close all details first
-        document.querySelectorAll(".race-details").forEach(d => d.classList.add("hidden"));
-
-        // toggle the clicked one
-        if (!isOpen) {
-          detailsRow.classList.remove("hidden");
-        }
+      // Open the clicked one
+      if (isHidden) {
+        detailsRow.classList.remove('hidden');
+        if (detailsContent) detailsContent.classList.add('show');
       }
-    });
+    }
   });
+});
 
   // Contact form submission
   const form = document.getElementById('contactForm');
