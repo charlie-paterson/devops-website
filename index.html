@@ -415,11 +415,23 @@ h1 {
   overflow: hidden;
 }
 .schedule-table td.arrow {
-  width: 20px;           /* or a fixed width to align with rest of row */
-  text-align: center;
-  padding: 12px 10px;        /* match table td padding */
+  width: 20px;            /* fixed width to center the arrow */
+  text-align: center;      /* horizontally center arrow */
+  padding: 12px 0;         /* match table padding */
   border-bottom: 1px solid rgba(255,255,255,0.2);
-  cursor: pointer;       /* show pointer for click */
+  cursor: pointer;
+}
+
+/* Arrow icon itself */
+.arrow-icon {
+  display: inline-block;          /* allow transform to work */
+  transition: transform 0.3s ease;
+  transform-origin: center center; /* rotate around its center */
+}
+
+/* Rotate when row is active */
+.race-row.active .arrow-icon {
+  transform: rotate(90deg);       /* exactly 90° */
 }
 
 .schedule-table th, .schedule-table td {
@@ -503,16 +515,6 @@ h1 {
 .details-content.show {
   max-height: 500px;
   padding: 8px 0;
-}
-
-.arrow {
-  display: inline-block;
-  margin-right: 6px;
-  transition: transform 0.3s ease;
-}
-
-.race-row.active .arrow {
-  transform: rotate(90deg);
 }
 
     form {
@@ -1226,7 +1228,7 @@ h1 {
 
     <!-- Australian GP -->
     <tr class="race-row">
-      <td class="arrow"><span>▶</span></td> 
+      <td class="arrow"><span class="arrow-icon">▶</span></td> 
       <td>Australian GP 🇦🇺</td>
       <td>March 14-16</td>
       <td>Melbourne</td>
