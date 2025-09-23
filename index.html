@@ -414,6 +414,13 @@ h1 {
   border-radius: 12px;
   overflow: hidden;
 }
+.schedule-table td.arrow {
+  width: 20px;           /* or a fixed width to align with rest of row */
+  text-align: center;
+  padding: 0 8px;        /* match table td padding */
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  cursor: pointer;       /* show pointer for click */
+}
 
 .schedule-table th, .schedule-table td {
   padding: 12px 10px;
@@ -1225,7 +1232,7 @@ h1 {
       <td>Melbourne</td>
     </tr>
     <tr class="race-details hidden">
-      <td colspan="3">
+      <td colspan="4">
         <div class="details-content">
           <strong>Weekend Timings:</strong>
           <table class="timings-table">
