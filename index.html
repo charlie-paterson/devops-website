@@ -456,6 +456,30 @@ h1 {
   text-align: left;
   border-top: 1px solid rgba(255,255,255,0.2);
 }
+.race-details .details-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.race-details.show .details-content {
+  max-height: 500px; /* large enough to fit content */
+  padding-top: 8px;
+}
+.timings-table {
+  margin-top: 8px;
+  width: 100%;
+  border-spacing: 0;
+}
+
+.timings-table td {
+  padding: 4px 8px;
+}
+.timings-table td:first-child {
+  font-weight: 600;
+  width: 30%;
+}
+
 
     form {
       display: flex;
@@ -1234,18 +1258,15 @@ h1 {
     </tr>
     <tr class="race-details hidden">
       <td colspan="5">
-        <strong>Weekend Timings:</strong><br>
-        <u>Friday</u><br>
-        Practice 1: 14:30 - 15:30<br>
-        Practice 2: 18:00 - 19:00<br>
-        <u>Saturday</u><br>
-        Practice 3: 14:30 - 15:30<br>
-        Qualifying: 18:00 - 19:00<br>
-        <u>Sunday</u><br>
-        Race: 18:00
-      </td>
-    </tr>
-    <!-- Add other races similarly -->
+        <div class="details-content">
+          <strong>Weekend Timings:</strong>
+            <table class="timings-table">
+              <tr><td>Practice 1</td><td>Friday 01:30 - 02:30</td></tr>
+              <tr><td>Practice 2</td><td>Friday 05:00 - 06:00</td></tr>
+              <tr><td>Qualifying</td><td>Saturday 05:00 - 06:00</td></tr>
+              <tr><td>Race</td><td>Sunday 04:00</td></tr>
+            </table>
+      </div>
   </table>
 </div>
 
