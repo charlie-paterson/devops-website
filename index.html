@@ -1842,17 +1842,23 @@ h1 {
     if (el) el.classList.remove('hidden');
   }
 
-  // Standings switcher
-  function showStandings(type) {
-    document.getElementById("driver-standings").style.display = "none";
-    document.getElementById("constructor-standings").style.display = "none";
+  // Standings / Results switcher
+function showSection(type) {
+  // Hide all sections first
+  document.getElementById("driver-standings").style.display = "none";
+  document.getElementById("constructor-standings").style.display = "none";
+  document.getElementById("race-results").style.display = "none";
 
-    if (type === "drivers") {
-      document.getElementById("driver-standings").style.display = "block";
-    } else if (type === "constructors") {
-      document.getElementById("constructor-standings").style.display = "block";
-    }
+  // Show the selected section
+  if (type === "drivers") {
+    document.getElementById("driver-standings").style.display = "block";
+  } else if (type === "constructors") {
+    document.getElementById("constructor-standings").style.display = "block";
+  } else if (type === "results") {
+    document.getElementById("race-results").style.display = "block";
   }
+}
+
 
   document.querySelectorAll('.race-row').forEach(row => {
   row.addEventListener('click', () => {
