@@ -1842,18 +1842,18 @@ h1 {
   }
 
   function showSection(type) {
-  // Hide all sections
-  document.getElementById("driver-standings").style.display = "none";
-  document.getElementById("constructor-standings").style.display = "none";
-  document.getElementById("race-results").style.display = "none";
+  const sections = ['driver-standings', 'constructor-standings', 'race-results'];
 
-  // Show the selected section
-  if (type === "drivers") {
-    document.getElementById("driver-standings").style.display = "block";
-  } else if (type === "constructors") {
-    document.getElementById("constructor-standings").style.display = "block";
-  } else if (type === "results") {
-    document.getElementById("race-results").style.display = "block";
+  // Hide all sections
+  sections.forEach(id => document.getElementById(id).style.display = 'none');
+
+  // Show the one selected
+  if (type === 'drivers') {
+    document.getElementById('driver-standings').style.display = 'block';
+  } else if (type === 'constructors') {
+    document.getElementById('constructor-standings').style.display = 'block';
+  } else if (type === 'results') {
+    document.getElementById('race-results').style.display = 'block';
   }
 }
 
