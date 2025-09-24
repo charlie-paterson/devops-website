@@ -4,7 +4,7 @@ navigator.serviceWorker.register("/sw.js").then(async reg => {
 
   const subscription = await reg.pushManager.subscribe({
     userVisibleOnly: true,
-    applicationServerKey: "YOUR_PUBLIC_VAPID_KEY" // base64 encoded
+    applicationServerKey: "BD6ILoSkWkLMLws6l5xPENH1i4HvgZO_pk-NWjt8Nwkmlt28-42WdCE66c5yIeN5n21xxhTJklZQTUBWn_asJqk" // base64 encoded
   });
 
   // Send subscription to backend
@@ -16,3 +16,10 @@ navigator.serviceWorker.register("/sw.js").then(async reg => {
 
   console.log("Subscribed to push!");
 });
+
+function urlBase64ToUint8Array(base64String) {
+  const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
+  const base64 = (base64String + padding).replace(/\-/g, "+").replace(/_/g, "/");
+  const rawData = window.atob(base64);
+  return Uint8Array.from([...rawData].map(char => char.charCodeAt(0)));
+}
