@@ -577,8 +577,6 @@ h1 {
       <p class="tagline">Your one-stop pit lane for drivers, races, and live F1 excitement.</p>
     </div>
     
-    <button id="subscribeBtn">🔔 Subscribe to Notifications</button>
-    
     <div class="next-race">
       <h2>Next Race: 🇸🇬 Singapore GP</h2>
       <p>October 5th, 2025 — Singapore GP Circuit</p>
@@ -1630,77 +1628,6 @@ h1 {
     const el = document.getElementById(page);
     if (el) el.classList.remove('hidden');
   }
-
-  // Convert VAPID key
-function urlBase64ToUint8Array(base64String) {
-  const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
-  const base64 = (base64String + padding).replace(/\-/g, "+").replace(/_/g, "/");
-  const rawData = window.atob(base64String);
-  return Uint8Array.from([...rawData].map(char => char.charCodeAt(0)));
-}
-
-// Main subscription function
-async function subscribeUser(btn) {
-  try {
-    btn.disabled = true;
-    btn.textContent = "Subscribing...";
-
-    const registration = await navigator.serviceWorker.register("/sw.js");
-
-    const permission = await Notification.requestPermission();
-    if (permission !== "granted") {
-      alert("You need to allow notifications to receive updates!");
-      btn.disabled = false;
-      btn.textContent = "🔔 Subscribe to Notifications";
-      return;
-    }
-
-    const subscription = await registration.pushManager.subscribe({
-      userVisibleOnly: true,
-      applicationServerKey: urlBase64ToUint8Array(
-        "BD6ILoSkWkLMLws6l5xPENH1i4HvgZO_pk-NWjt8Nwkmlt28-42WdCE66c5yIeN5n21xxhTJklZQTUBWn_asJqk"
-      )
-    });
-
-    // Send subscription to backend
-    await fetch("/subscribe", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(subscription)
-    });
-
-    // Optional: send a test notification immediately
-    await fetch("/sendNotification", { method: "POST" });
-
-    // Mark as subscribed in localStorage
-    localStorage.setItem("subscribedToPush", "true");
-
-    // Hide the button
-    btn.style.display = "none";
-
-    console.log("User subscribed to push notifications!");
-  } catch (err) {
-    console.error("Subscription failed:", err);
-    btn.disabled = false;
-    btn.textContent = "🔔 Subscribe to Notifications";
-  }
-}
-
-// Initialize on page load
-document.addEventListener("DOMContentLoaded", () => {
-  const btn = document.getElementById("subscribeBtn");
-  if (!btn) return;
-
-  // If already subscribed, hide the button
-  if (localStorage.getItem("subscribedToPush") === "true") {
-    btn.style.display = "none";
-    return;
-  }
-
-  // Attach click handler
-  btn.addEventListener("click", () => subscribeUser(btn));
-});
-
 
   // Standings switcher
   function showStandings(type) {
