@@ -49,3 +49,12 @@ async function initPush() {
 // Run on page load
 document.addEventListener("DOMContentLoaded", initPush);
 
+fetch("/sendNotification", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    title: "⏰ Qualifying starts soon!",
+    body: "The Japanese GP qualifying begins in 15 minutes."
+  })
+});
+
