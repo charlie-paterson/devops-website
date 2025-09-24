@@ -16,8 +16,8 @@ const __dirname = path.resolve();
 app.use(express.static(__dirname));
 
 // Web Push setup
-const publicVapidKey = "YOUR_PUBLIC_KEY";
-const privateVapidKey = "YOUR_PRIVATE_KEY";
+const publicVapidKey = "BD6ILoSkWkLMLws6l5xPENH1i4HvgZO_pk-NWjt8Nwkmlt28-42WdCE66c5yIeN5n21xxhTJklZQTUBWn_asJqk";
+const privateVapidKey = "ScpKXw7owpU4_YBfknn2bdTM0o3v6H-3i-DlBV88cak";
 webpush.setVapidDetails("mailto:you@example.com", publicVapidKey, privateVapidKey);
 
 // Store subscriptions (in memory for now)
