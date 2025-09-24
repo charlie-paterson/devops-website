@@ -244,6 +244,71 @@ h1 {
   transform: scale(1.05);
 }
 
+.race-result-card {
+  background: rgba(0,0,0,0.6);
+  border-radius: 15px;
+  margin: 15px auto;
+  padding: 15px;
+  max-width: 450px;
+  color: #fff;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.race-header .round {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 3px;
+}
+
+.race-header .location {
+  font-size: 1em;
+  color: #ccc;
+}
+
+.race-header .gp-name {
+  font-size: 1em;
+  margin-bottom: 12px;
+}
+
+.top-three-drivers {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.driver-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+}
+
+.driver-cards .positions {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+
+.driver-imgs {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 5px;
+  border: 2px solid #fff;
+}
+
+.driver-names {
+  font-size: 0.9em;
+  margin-bottom: 3px;
+}
+
+.driver-times {
+  font-size: 0.8em;
+  color: #ccc;
+}
+
+
 /* Tables full width */
 .standings-table {
   display: none;          /* toggled by JS */
@@ -626,31 +691,40 @@ h1 {
   </div>
 
   <div id="race-results" class="standings-table">
-      <!-- Example race result layout -->
-      <div class="race-result">
-        <div class="round">Round 1</div>
-        <div class="location">Melbourne</div>
-        <div class="gp-name">Australian GP 🇦🇺</div>
-        <div class="top-three" style="display:flex; justify-content:center; gap:30px; margin-top:10px;">
-          <div class="position">
-            <div class="icon">🥇</div>
-            <div class="driver">HAM</div>
-            <div class="time">1:32:45</div>
-          </div>
-          <div class="position">
-            <div class="icon">🥈</div>
-            <div class="driver">VER</div>
-            <div class="time">1:33:12</div>
-          </div>
-          <div class="position">
-            <div class="icon">🥉</div>
-            <div class="driver">LEC</div>
-            <div class="time">1:33:45</div>
-          </div>
-        </div>
-      </div>
-      <!-- Add more rounds here -->
+  <!-- Example race result card -->
+  <div class="race-result-card">
+    <div class="race-header">
+      <div class="round">Round 1</div>
+      <div class="location">Melbourne</div>
+      <div class="gp-name">Australian GP 🇦🇺</div>
     </div>
+
+    <div class="top-three-drivers">
+      <div class="driver-pos">
+        <div class="positions">1</div>
+        <img src="images/ham.png" alt="Lewis Hamilton" class="driver-imgs">
+        <div class="driver-names">Lewis Hamilton</div>
+        <div class="driver-times">1:32:45</div>
+      </div>
+
+      <div class="driver-pos">
+        <div class="positions">2</div>
+        <img src="images/ver.png" alt="Max Verstappen" class="driver-imgs">
+        <div class="driver-names">Max Verstappen</div>
+        <div class="driver-times">1:33:12</div>
+      </div>
+
+      <div class="driver-pos">
+        <div class="positions">3</div>
+        <img src="images/lec.png" alt="Charles Leclerc" class="driver-imgs">
+        <div class="driver-names">Charles Leclerc</div>
+        <div class="driver-times">1:33:45</div>
+      </div>
+    </div>
+  </div>
+  <!-- Add more rounds below -->
+</div>
+
   
   <!-- Driver Standings -->
   <div id="driver-standings" class="standings-table">
