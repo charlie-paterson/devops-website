@@ -619,11 +619,39 @@ h1 {
 
   <!-- Toggle buttons -->
   <div class="standings-toggle">
+    <button onclick="showSection('results')">Race Results</button>
     <button onclick="showStandings('drivers')">Driver Standings</button>
     <button onclick="showStandings('constructors')">Constructor Standings</button>
   </div>
   </div>
 
+  <div id="race-results" class="standings-table">
+      <!-- Example race result layout -->
+      <div class="race-result">
+        <div class="round">Round 1</div>
+        <div class="location">Melbourne</div>
+        <div class="gp-name">Australian GP 🇦🇺</div>
+        <div class="top-three" style="display:flex; justify-content:center; gap:30px; margin-top:10px;">
+          <div class="position">
+            <div class="icon">🥇</div>
+            <div class="driver">HAM</div>
+            <div class="time">1:32:45</div>
+          </div>
+          <div class="position">
+            <div class="icon">🥈</div>
+            <div class="driver">VER</div>
+            <div class="time">1:33:12</div>
+          </div>
+          <div class="position">
+            <div class="icon">🥉</div>
+            <div class="driver">LEC</div>
+            <div class="time">1:33:45</div>
+          </div>
+        </div>
+      </div>
+      <!-- Add more rounds here -->
+    </div>
+  
   <!-- Driver Standings -->
   <div id="driver-standings" class="standings-table">
     <table>
@@ -1813,17 +1841,21 @@ h1 {
     if (el) el.classList.remove('hidden');
   }
 
-  // Standings switcher
-  function showStandings(type) {
-    document.getElementById("driver-standings").style.display = "none";
-    document.getElementById("constructor-standings").style.display = "none";
+  function showSection(type) {
+  // Hide all sections
+  document.getElementById("driver-standings").style.display = "none";
+  document.getElementById("constructor-standings").style.display = "none";
+  document.getElementById("race-results").style.display = "none";
 
-    if (type === "drivers") {
-      document.getElementById("driver-standings").style.display = "block";
-    } else if (type === "constructors") {
-      document.getElementById("constructor-standings").style.display = "block";
-    }
+  // Show the selected section
+  if (type === "drivers") {
+    document.getElementById("driver-standings").style.display = "block";
+  } else if (type === "constructors") {
+    document.getElementById("constructor-standings").style.display = "block";
+  } else if (type === "results") {
+    document.getElementById("race-results").style.display = "block";
   }
+}
 
   document.querySelectorAll('.race-row').forEach(row => {
   row.addEventListener('click', () => {
