@@ -10,14 +10,12 @@ const urlsToCache = [
   '/images/icon-128.png',
   '/images/icon-192.png',
   '/images/icon-512.png'
-  // Add any other images you want cached
 ];
 
 // Install event
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(urlsToCache))
+    caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
   );
 });
 
@@ -25,10 +23,7 @@ self.addEventListener('install', event => {
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keys =>
-      Promise.all(
-        keys.filter(key => key !== CACHE_NAME)
-            .map(key => caches.delete(key))
-      )
+      Promise.all(keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key)))
     )
   );
 });
@@ -41,3 +36,35 @@ self.addEventListener('fetch', event => {
       .catch(() => caches.match('/index.html')) // fallback
   );
 });
+
+// ✅ Push event: when backend sends a notification
+self.addEventListener('push', event => {
+  if (!event.data) return;
+
+  const data = event.data.json();
+
+  const options = {
+    body: data.body,
+    icon: '/images/icon-192.png',
+    badge: '/images/icon-72.png',
+  };
+
+  event.waitUntil(
+    self.registration.showNotification(data.title, options)
+  );
+});
+
+// ✅ Handle notification click
+self.addEventListener('notificationclick', event => {
+  event.notification.close();
+
+  event.waitUntil(
+    clients.matchAll({ type: 'window', includeUncontrolled: true }).then(clientList => {
+      if (clientList.length > 0) {
+        return clientList[0].focus();
+      }
+      return clients.openWindow('/'); // open homepage if no tab is active
+    })
+  );
+});
+
