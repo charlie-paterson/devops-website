@@ -289,14 +289,33 @@ h1 {
   margin-bottom: 5px;
 }
 
-.driver-imgs {
-  width: 50px;
-  height: 50px;
+.driver-img-wrapper {
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 5px;
-  border: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
+
+.driver-imgs {
+  width: 90%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Team colors */
+.ferrari { background-color: #DC0000; }   /* Ferrari red */
+.mercedes { background-color: #00D2BE; }  /* Mercedes teal */
+.redbull { background-color: #0600EF; }   /* Red Bull blue */
+.mclaren { background-color: #FF8700; }
+.astonmartin { background-color: #006F62;}
+.alpine { background-color: #0090FF;}
+.haas { background-color: #FFFFFF;}
+.vcarb { background-color: #1E2A5A;}
+.williams {background-color: #005AFF;}
+.kicksauber { background-color: #00FF87;}
 
 .driver-names {
   font-size: 0.9em;
@@ -702,7 +721,9 @@ h1 {
     <div class="top-three-drivers">
       <div class="driver-pos">
         <div class="positions">1</div>
-        <img src="images/lewis.png" alt="Lewis Hamilton" class="driver-imgs">
+        <div class="driver-img-wrapper ferrari">
+          <img src="images/lewis.png" alt="Lewis Hamilton" class="driver-imgs">
+        </div>
         <div class="driver-names">HAM</div>
         <div class="driver-times">1:32:455</div>
       </div>
@@ -1067,6 +1088,7 @@ h1 {
       <!-- Drivers -->
     <div id="drivers" class="hidden home-section">
       <h1>2025 Formula 1 Drivers</h1>
+      <h2>See all drivers and their teams for the 2025 F1 season. Tap a card to learn more about each driver.</h2>
       <!-- McLaren -->
       <div class="team mclaren">
         <div class="cards">
