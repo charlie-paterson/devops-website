@@ -1,0 +1,10 @@
+{
+  "name": "f1-pwa-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.18.2",
+    "web-push": "^3.5.0"
+  }
+}
