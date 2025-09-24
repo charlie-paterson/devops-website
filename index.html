@@ -619,11 +619,40 @@ h1 {
 
   <!-- Toggle buttons -->
   <div class="standings-toggle">
+    <button onclick="showStandings('results')">Race Results</button>
     <button onclick="showStandings('drivers')">Driver Standings</button>
     <button onclick="showStandings('constructors')">Constructor Standings</button>
   </div>
   </div>
 
+  <div id="racing-results" class="standings-table">
+  <h1>2025 Race Results</h1>
+
+  <!-- Round 1 -->
+  <div class="race-result">
+    <div class="round">Round 1</div>
+    <div class="location">Melbourne</div>
+    <div class="gp-name">Australian Grand Prix 🇦🇺</div>
+    <div class="top-three">
+      <div class="position">
+        <div class="icon">🥇</div>
+        <div class="driver">HAM</div>
+        <div class="time">1:32:45</div>
+      </div>
+      <div class="position">
+        <div class="icon">🥈</div>
+        <div class="driver">VER</div>
+        <div class="time">1:33:12</div>
+      </div>
+      <div class="position">
+        <div class="icon">🥉</div>
+        <div class="driver">LEC</div>
+        <div class="time">1:33:45</div>
+      </div>
+    </div>
+  </div>
+  </div>
+  
   <!-- Driver Standings -->
   <div id="driver-standings" class="standings-table">
     <table>
@@ -1415,7 +1444,7 @@ h1 {
       <td class="arrow"><span class="arrow-icon">▶</span></td>
       <td>Spanish GP 🇪🇸</td>
       <td>May 30-June 01</td>
-      <td>Barcalona</td>
+      <td>Barcelona</td>
     </tr>
     <tr class="race-details hidden">
       <td colspan="4">
