@@ -1,7 +1,7 @@
 {
   "name": "Formula 1 Fan Hub",
   "short_name": "F1Hub",
-  "start_url": "/",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#111111",
   "theme_color": "#E10600",
