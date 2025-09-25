@@ -2222,41 +2222,28 @@ h1 {
       appId: "1:386786917585:web:6a4da76552d4bcacaf59f0"
     };
 
-    // Initialize Firebase
     const app = initializeApp(firebaseConfig);
-    const messaging = getMessaging(app);
+const messaging = getMessaging(app);
 
-    // Register service worker
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/f1-hub-32f3f/firebase-messaging-sw.js')
-        .then((registration) => {
-          console.log('Service Worker registered:', registration);
-
-          // Request notification permission after SW is ready
-          navigator.serviceWorker.ready.then(async () => {
-            const permission = await Notification.requestPermission();
-            if (permission === 'granted') {
-              console.log('Notifications allowed');
-
-              // Get FCM token
-              const token = await getToken(messaging, {
-                vapidKey: "AIzaSyBhc7dAgsepoTZMhHK03VDC2rYK4VOGvtY"
-              });
-              console.log('FCM Token:', token);
-              alert("Token copied to console! You can use it to send test notifications.");
-            } else {
-              console.warn('Notification permission denied');
-            }
-          });
-        })
-        .catch((err) => console.error('SW registration failed:', err));
-    }
-
-    // Handle foreground messages
-    onMessage(messaging, (payload) => {
-      console.log('Foreground message:', payload);
-      alert(payload.notification?.title + "\n" + payload.notification?.body);
+async function getFCMToken() {
+  const permission = await Notification.requestPermission();
+  if (permission !== 'granted') {
+    console.warn('Notifications denied');
+    return;
+  }
+  
+  try {
+    const token = await getToken(messaging, {
+      vapidKey: "YOUR_PUBLIC_VAPID_KEY"
     });
+    console.log("✅ FCM Token:", token);
+    alert("Token copied to console!"); // optional
+  } catch (err) {
+    console.error("FCM token error:", err);
+  }
+}
+
+    getFCMToken();
   </script>
   
   <script>
