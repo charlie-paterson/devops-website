@@ -2458,10 +2458,10 @@ async function getFCMToken() {
 
   // Service Worker
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js', {scope: '/'})
-      .then(() => console.log('Service Worker registered'))
-      .catch(err => console.log('SW registration failed', err));
-  }
+  navigator.serviceWorker.register('/sw.js')
+    .then(reg => console.log('Service Worker registered.', reg))
+    .catch(err => console.error('Service Worker failed to register.', err));
+}
 </script>
 
 </body>
