@@ -674,6 +674,28 @@ h1 {
       <span class="countdown" id="countdown">⏳ Countdown: calculating...</span>
     </div>
 
+    <div id="home-poll" class="home-section" style="text-align:center; margin:40px auto; max-width:500px;">
+  <h2>🏁 Poll: Who will win the next GP?</h2>
+  <form id="poll-form">
+    <div class="poll-option">
+      <input type="radio" id="hamilton" name="driver" value="Hamilton">
+      <label for="hamilton">Lewis Hamilton</label>
+    </div>
+    <div class="poll-option">
+      <input type="radio" id="verstappen" name="driver" value="Verstappen">
+      <label for="verstappen">Max Verstappen</label>
+    </div>
+    <div class="poll-option">
+      <input type="radio" id="piastri" name="driver" value="Piastri">
+      <label for="piastri">Oscar Piastri</label>
+    </div>
+    <button type="button" onclick="submitPoll()" style="margin-top:15px; padding:10px 20px; border:none; background:red; color:white; border-radius:6px; cursor:pointer;">
+      Vote
+    </button>
+  </form>
+  <div id="poll-results" style="margin-top:20px; display:none;"></div>
+</div>
+
     <div class="highlights">
       <h2>✨ Season Highlights ✨</h2>
       <ul>
@@ -2301,6 +2323,31 @@ async function getFCMToken() {
     });
     const el = document.getElementById(page);
     if (el) el.classList.remove('hidden');
+  }
+
+   const votes = { Hamilton: 0, Verstappen: 0, Piastri: 0 };
+
+  function submitPoll() {
+    const selected = document.querySelector('input[name="driver"]:checked');
+    if (!selected) {
+      alert("Please select an option before voting!");
+      return;
+    }
+
+    votes[selected.value]++;
+    displayResults();
+  }
+
+  function displayResults() {
+    const totalVotes = Object.values(votes).reduce((a,b) => a+b, 0);
+    let resultsHTML = "<h3>Results:</h3><ul style='list-style:none; padding:0;'>";
+    for (const driver in votes) {
+      const percent = totalVotes ? ((votes[driver]/totalVotes)*100).toFixed(1) : 0;
+      resultsHTML += `<li>${driver}: ${votes[driver]} votes (${percent}%)</li>`;
+    }
+    resultsHTML += "</ul>";
+    document.getElementById("poll-results").innerHTML = resultsHTML;
+    document.getElementById("poll-results").style.display = "block";
   }
 
   function showSection(type) {
