@@ -2231,6 +2231,28 @@ h1 {
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
+
+    async function requestPermission() {
+    const permission = await Notification.requestPermission();
+    if (permission === "granted") {
+      const token = await getToken(messaging, {
+        vapidKey: "AIzaSyBhc7dAgsepoTZMhHK03VDC2rYK4VOGvtY"
+      });
+      console.log("✅ FCM Registration Token:", token);
+      alert("Token copied to console — check DevTools!");
+    } else {
+      console.warn("Notification permission denied");
+    }
+  }
+
+  // Call when page loads
+  requestPermission();
+
+  // Handle foreground messages
+  onMessage(messaging, (payload) => {
+    console.log("📩 Message received in foreground:", payload);
+    alert(payload.notification.title + " - " + payload.notification.body);
+  });
 </script>
   
   <script>
