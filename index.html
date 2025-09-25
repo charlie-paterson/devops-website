@@ -2210,50 +2210,54 @@ h1 {
   </div>
 
   <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+    import { getMessaging, getToken, onMessage } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-messaging.js";
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyBhc7dAgsepoTZMhHK03VDC2rYK4VOGvtY",
-    authDomain: "f1-hub-32f3f.firebaseapp.com",
-    projectId: "f1-hub-32f3f",
-    storageBucket: "f1-hub-32f3f.firebasestorage.app",
-    messagingSenderId: "386786917585",
-    appId: "1:386786917585:web:6a4da76552d4bcacaf59f0",
-    measurementId: "G-N20CZ0XQZ9"
-  };
+    const firebaseConfig = {
+      apiKey: "AIzaSyBhc7dAgsepoTZMhHK03VDC2rYK4VOGvtY",
+      authDomain: "f1-hub-32f3f.firebaseapp.com",
+      projectId: "f1-hub-32f3f",
+      storageBucket: "f1-hub-32f3f.firebasestorage.app",
+      messagingSenderId: "386786917585",
+      appId: "1:386786917585:web:6a4da76552d4bcacaf59f0"
+    };
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const messaging = getMessaging(app);
 
-    async function requestPermission() {
-    const permission = await Notification.requestPermission();
-    if (permission === "granted") {
-      const token = await getToken(messaging, {
-        vapidKey: "AIzaSyBhc7dAgsepoTZMhHK03VDC2rYK4VOGvtY"
-      });
-      console.log("✅ FCM Registration Token:", token);
-      alert("Token copied to console — check DevTools!");
-    } else {
-      console.warn("Notification permission denied");
+    // Register service worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/f1-hub-32f3f/firebase-messaging-sw.js')
+        .then((registration) => {
+          console.log('Service Worker registered:', registration);
+
+          // Request notification permission after SW is ready
+          navigator.serviceWorker.ready.then(async () => {
+            const permission = await Notification.requestPermission();
+            if (permission === 'granted') {
+              console.log('Notifications allowed');
+
+              // Get FCM token
+              const token = await getToken(messaging, {
+                vapidKey: "AIzaSyBhc7dAgsepoTZMhHK03VDC2rYK4VOGvtY"
+              });
+              console.log('FCM Token:', token);
+              alert("Token copied to console! You can use it to send test notifications.");
+            } else {
+              console.warn('Notification permission denied');
+            }
+          });
+        })
+        .catch((err) => console.error('SW registration failed:', err));
     }
-  }
 
-  // Call when page loads
-  requestPermission();
-
-  // Handle foreground messages
-  onMessage(messaging, (payload) => {
-    console.log("📩 Message received in foreground:", payload);
-    alert(payload.notification.title + " - " + payload.notification.body);
-  });
-</script>
+    // Handle foreground messages
+    onMessage(messaging, (payload) => {
+      console.log('Foreground message:', payload);
+      alert(payload.notification?.title + "\n" + payload.notification?.body);
+    });
+  </script>
   
   <script>
   window.addEventListener("load", () => {
