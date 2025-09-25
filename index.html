@@ -674,36 +674,6 @@ h1 {
       <span class="countdown" id="countdown">⏳ Countdown: calculating...</span>
     </div>
 
-    <div id="home-poll" class="home-section" style="text-align:center; margin:40px auto; max-width:500px;">
-  <h2>🏁 Poll: Who will win the next GP?</h2>
-  <div id="poll-options" style="margin-top:20px;">
-    <div class="poll-option" data-driver="Hamilton" style="margin-bottom:15px; text-align:left;">
-      <label style="font-weight:bold;">Lewis Hamilton</label>
-      <div class="poll-bar" style="background:#ccc; border-radius:12px; overflow:hidden; height:24px; margin-top:5px;">
-        <div class="poll-bar-fill" style="width:0%; height:100%; background:#00D2BE;"></div>
-      </div>
-    </div>
-
-    <div class="poll-option" data-driver="Verstappen" style="margin-bottom:15px; text-align:left;">
-      <label style="font-weight:bold;">Max Verstappen</label>
-      <div class="poll-bar" style="background:#ccc; border-radius:12px; overflow:hidden; height:24px; margin-top:5px;">
-        <div class="poll-bar-fill" style="width:0%; height:100%; background:#1E41FF;"></div>
-      </div>
-    </div>
-
-    <div class="poll-option" data-driver="Piastri" style="margin-bottom:15px; text-align:left;">
-      <label style="font-weight:bold;">Oscar Piastri</label>
-      <div class="poll-bar" style="background:#ccc; border-radius:12px; overflow:hidden; height:24px; margin-top:5px;">
-        <div class="poll-bar-fill" style="width:0%; height:100%; background:#FF8700;"></div>
-      </div>
-    </div>
-  </div>
-
-  <button id="vote-btn" style="margin-top:20px; padding:10px 20px; border:none; background:red; color:white; border-radius:6px; cursor:pointer;">
-    Vote
-  </button>
-</div>
-
     <div class="highlights">
       <h2>✨ Season Highlights ✨</h2>
       <ul>
@@ -1068,7 +1038,7 @@ h1 {
     <!-- Round 9 -->
   <div class="race-result-card">
             <div class="race-header">
-              <div class="round">🇪🇸 Round 8 🇪🇸</div>
+              <div class="round">🇪🇸 Round 9 🇪🇸</div>
               <div class="location">Barcelona</div>
               <div class="gp-name">Spanish GP</div>
             </div>
@@ -1099,6 +1069,44 @@ h1 {
         </div>
         <div class="driver-names">LEC</div>
         <div class="driver-times">+10.455</div>
+      </div>
+    </div>
+  </div> 
+
+    <!-- Round 10 -->
+  <div class="race-result-card">
+            <div class="race-header">
+              <div class="round">🇨🇦 Round 10 🇨🇦</div>
+              <div class="location">Montreal</div>
+              <div class="gp-name">Canadian GP</div>
+            </div>
+        
+            <div class="top-three-drivers">
+              <div class="driver-pos">
+                <div class="positions">1</div>
+                <div class="driver-img-wrapper mercedes">
+                  <img src="images/george.png" alt="George Russell" class="driver-imgs">
+                </div>
+                <div class="driver-names">RUS</div>
+                <div class="driver-times">1:31:52</div>
+              </div>
+
+      <div class="driver-pos">
+        <div class="positions">2</div>
+        <div class="driver-img-wrapper redbull">
+          <img src="images/max.png" alt="Max Verstappen" class="driver-imgs">
+        </div>
+        <div class="driver-names">VER</div>
+        <div class="driver-times">+0.228</div>
+      </div>
+
+      <div class="driver-pos">
+        <div class="positions">3</div>
+        <div class="driver-img-wrapper mercedes">
+          <img src="images/kimi.png" alt="Kimi Antonelli" class="driver-imgs">
+        </div>
+        <div class="driver-names">ANT</div>
+        <div class="driver-times">+1.014</div>
       </div>
     </div>
   </div> 
@@ -2333,40 +2341,6 @@ async function getFCMToken() {
     if (el) el.classList.remove('hidden');
   }
 
-    const votes = { Hamilton: 0, Verstappen: 0, Piastri: 0 };
-  let hasVoted = false;
-
-  document.querySelectorAll('.poll-option').forEach(option => {
-    option.addEventListener('click', () => {
-      if (hasVoted) return;
-      document.querySelectorAll('.poll-option').forEach(o => o.style.border = 'none');
-      option.style.border = '2px solid #fff';
-      option.style.borderRadius = '12px';
-      document.querySelector('#vote-btn').dataset.selected = option.dataset.driver;
-    });
-  });
-
-  document.querySelector('#vote-btn').addEventListener('click', () => {
-    if (hasVoted) return;
-    const selected = document.querySelector('#vote-btn').dataset.selected;
-    if (!selected) {
-      alert('Please select a driver before voting!');
-      return;
-    }
-
-    votes[selected]++;
-    hasVoted = true;
-    updatePollBars();
-  });
-
-  function updatePollBars() {
-    const total = Object.values(votes).reduce((a,b) => a+b, 0);
-    document.querySelectorAll('.poll-option').forEach(option => {
-      const driver = option.dataset.driver;
-      const percent = total ? (votes[driver]/total)*100 : 0;
-      option.querySelector('.poll-bar-fill').style.width = percent + '%';
-    });
-  }
 
   function showSection(type) {
   const sections = ['driver-standings', 'constructor-standings', 'race-results'];
