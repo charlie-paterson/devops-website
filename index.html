@@ -151,13 +151,13 @@
       </div>
     </div>
               <div class="race-button-wrapper">
-                  <a href="javascript:void(0);" onclick="showPage('full-standings')" class="view-full-btn">
+                  <a href="javascript:void(0);" onclick="showRaceStandings('full-standings-r1')" class="view-full-btn">
                   View Full Result
               </a>
               </div>
   </div>
 
-  <section id="full-standings" style="display: none;">
+  <section id="full-standings-r1" class="hidden">
   <h2>Australian GP – Full Standings</h2>
   <table class="race-standings-table">
     <thead>
@@ -2090,19 +2090,16 @@ if ('serviceWorker' in navigator) {
     .catch(err => console.error('❌ Service Worker registration failed:', err));
 }
 
-function openFullStandings() {
-  // Hide other main sections if needed
-  ['home','standings','drivers','schedule','more'].forEach(p => {
-    const el = document.getElementById(p);
-    if(el) el.classList.add('hidden');
-  });
+function showRaceStandings(sectionId) {
+  // Hide only other full standings sections
+  document.querySelectorAll('[id^="full-standings-"]').forEach(sec => sec.classList.add('hidden'));
 
-  // Show the full standings section
-  const fullStandings = document.getElementById('full-standings');
-  if(fullStandings) fullStandings.classList.remove('hidden');
-
-  // Optional: scroll to the section
-  fullStandings.scrollIntoView({ behavior: 'smooth' });
+  // Show the requested section
+  const sec = document.getElementById(sectionId);
+  if(sec) {
+    sec.classList.remove('hidden');
+    sec.scrollIntoView({ behavior: 'smooth' });
+  }
 }
 </script>
 
