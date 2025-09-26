@@ -250,20 +250,18 @@ h1 {
 }
 
 .view-full-btn {
-    align-self: flex-end;   /* move button to right */
-    margin-top: auto;       /* push it to bottom */
-    padding: 8px 15px;
-    background-color: #DC0000;  /* Ferrari red */
-    color: #FFFFFF;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background 0.3s, transform 0.2s;
+  padding: 8px 15px;
+  background-color: #DC0000; /* Ferrari red */
+  color: #FFFFFF;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.2s;
 }
 
 .view-full-btn:hover {
-    background-color: #B30000;  /* darker Ferrari red */
-    transform: translateY(-2px);
+  background-color: #B30000; /* darker Ferrari red */
+  transform: translateY(-2px);
 }
 
 .race-header .round {
