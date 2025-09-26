@@ -2090,11 +2090,17 @@ if ('serviceWorker' in navigator) {
     .catch(err => console.error('❌ Service Worker registration failed:', err));
 }
 
-function showRaceStandings(sectionId) {
-  // Hide only other full standings sections
+function openFullStandings(sectionId) {
+  // Hide all main SPA sections
+  ['home','standings','drivers','schedule','more'].forEach(p => {
+    const el = document.getElementById(p);
+    if(el) el.classList.add('hidden');
+  });
+
+  // Hide all other full standings sections
   document.querySelectorAll('[id^="full-standings-"]').forEach(sec => sec.classList.add('hidden'));
 
-  // Show the requested section
+  // Show the selected full standings section
   const sec = document.getElementById(sectionId);
   if(sec) {
     sec.classList.remove('hidden');
