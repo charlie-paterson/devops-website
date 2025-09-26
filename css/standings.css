@@ -1,0 +1,164 @@
+/* Toggle buttons */
+.standings-toggle {
+  margin-bottom: 15px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.standings-toggle button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 6px;
+  background: red;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.standings-toggle button:hover {
+  background: darkred;
+  transform: scale(1.05);
+}
+
+.race-result-card {
+  background: rgba(0,0,0,0.6);
+  border-radius: 15px;
+  margin: 15px auto;
+  padding: 15px;
+  max-width: 450px;
+  color: #fff;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.race-header .round {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 3px;
+}
+
+.race-header .location {
+  font-size: 1em;
+  color: #ccc;
+}
+
+.race-header .gp-name {
+  font-size: 1em;
+  margin-bottom: 12px;
+}
+
+.top-three-drivers {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.driver-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+}
+
+.driver-cards .positions {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+
+.driver-img-wrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  border: 2px solid #fff;       /* White border */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Optional subtle shadow */
+}
+
+.driver-imgs {
+  width: 90%;
+  height: auto;
+  object-fit: contain;
+  transform: translateY(2px);   
+}
+
+/* Team colors */
+.ferrari { background-color: #DC0000; }   /* Ferrari red */
+.mercedes { background-color: #00D2BE; }  /* Mercedes teal */
+.redbull { background-color: #0600EF; }   /* Red Bull blue */
+.mclaren { background-color: #FF8700; }
+.astonmartin { background-color: #006F62;}
+.alpine { background-color: #0090FF;}
+.haas { background-color: #FFFFFF;}
+.vcarb { background-color: #1E2A5A;}
+.williams {background-color: #005AFF;}
+.kicksauber { background-color: #00FF87;}
+
+.driver-names {
+  font-size: 0.9em;
+  margin-bottom: 3px;
+}
+
+.driver-times {
+  font-size: 0.8em;
+  color: #ccc;
+}
+
+
+/* Tables full width */
+.standings-table {
+  display: none;          /* toggled by JS */
+  margin: 20px auto;      /* centers the table wrapper */
+  text-align: center;     /* centers inline content */
+}
+
+.standings-table table {
+  margin: auto;         /* centers the table itself */
+  border-collapse: collapse;
+  color: #fff;
+  background: rgba(0,0,0,0.6);
+  border-radius: 12px;
+  overflow: hidden;
+  width: auto;            /* let table size naturally */
+  max-width: 100%;         /* optional max width */
+}
+
+.standings-table th, .standings-table td {
+  padding: 12px 10px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.standings-table th {
+  background: rgba(255,0,0,0.8);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.standings-table tr:nth-child(even) {
+  background: rgba(255,255,255,0.05);
+}
+
+.standings-table tr:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Driver / Team Cells */
+.driver-cell, .team-cell {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+}
+
+.driver-icon, .team-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
