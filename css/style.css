@@ -335,6 +335,49 @@ h1 {
   color: #ccc;
 }
 
+.race-standings-table {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  font-size: 0.95em;
+  color: #fff;
+  background: rgba(0,0,0,0.6);
+  border-radius: 12px;
+  overflow: hidden; /* keep rounded corners */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Header row */
+.race-standings-table thead th {
+  background-color: #DC0000; /* Ferrari red */
+  color: #fff;
+  padding: 12px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1em;
+  letter-spacing: 0.5px;
+}
+
+/* Table rows */
+.race-standings-table tbody td {
+  padding: 10px 14px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+/* Alternate row background */
+.race-standings-table tbody tr:nth-child(even) {
+  background: rgba(255,255,255,0.05);
+}
+
+/* Highlight on hover */
+.race-standings-table tbody tr:hover {
+  background: rgba(220,0,0,0.3);
+  transition: background 0.3s ease;
+}
+
+
 
 /* Tables full width */
 .standings-table {
