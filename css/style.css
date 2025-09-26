@@ -41,6 +41,15 @@
       100% { background-position: 0% 50%; }
     }
 
+    html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;          /* stop sideways scroll */
+  overscroll-behavior-x: none; /* prevent left/right bounce */
+}
+
     nav {
       background: rgba(0,0,0,0.85);
       display: flex;
