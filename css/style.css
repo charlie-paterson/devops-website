@@ -269,6 +269,7 @@ h1 {
 
 .view-full-btn {
     position: absolute;      /* bottom-right corner of card */
+    margin-top: auto; 
     bottom: 15px;
     right: 15px;
     padding: 8px 15px;
