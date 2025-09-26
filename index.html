@@ -1126,7 +1126,7 @@
     </tbody>
   </table>
 
-  <button onclick="returnToHome()" class="view-full-btn">← Back</button>
+  <button onclick="returnToStandings()" class="view-full-btn">← Back</button>
 </section>
 
 
@@ -2113,13 +2113,13 @@ function openFullStandings(sectionId) {
 }
 
 // Back button
-function returnToHome() {
+function returnToStandings() {
   // Hide all full standings sections
   document.querySelectorAll('.race-full-table').forEach(sec => sec.classList.add('hidden'));
 
-  // Show home section
-  const home = document.getElementById('home');
-  if(home) home.classList.remove('hidden');
+  // Show the standings section
+  const standings = document.getElementById('standings');
+  if (standings) standings.classList.remove('hidden');
 }
 
 // SPA navigation function
