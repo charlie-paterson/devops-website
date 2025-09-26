@@ -269,19 +269,20 @@ h1 {
 }
 
 .view-full-btn {
-  align-self: flex-end; /* pushes button to the right */
-    margin-top: auto
-  padding: 8px 15px;
-  background-color: #ff5500;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background 0.3s;
+    position: absolute;  /* absolutely position it inside the card */
+    bottom: 15px;        /* distance from bottom of card */
+    right: 15px;         /* distance from right of card */
+    padding: 8px 15px;
+    background-color: #ff5500;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
 }
 
 .view-full-btn:hover {
-  background-color: #e64e00;
+    background-color: #e64e00;
 }
 
 .driver-cards {
