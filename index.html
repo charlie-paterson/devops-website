@@ -1830,11 +1830,10 @@ async function getFCMToken() {
   setInterval(updateCountdown, 60000);
   updateCountdown();
 
-  // Service Worker
-  if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js')
-    .then(reg => console.log('Service Worker registered.', reg))
-    .catch(err => console.error('Service Worker failed to register.', err));
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/devops-website/sw.js')
+    .then(reg => console.log('✅ Service Worker registered:', reg))
+    .catch(err => console.error('❌ Service Worker registration failed:', err));
 }
 </script>
 
