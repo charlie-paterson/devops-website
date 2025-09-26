@@ -787,3 +787,135 @@
     </table>
   </div>
 </div>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+    import { getMessaging, getToken, onMessage } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-messaging.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBhc7dAgsepoTZMhHK03VDC2rYK4VOGvtY",
+      authDomain: "f1-hub-32f3f.firebaseapp.com",
+      projectId: "f1-hub-32f3f",
+      storageBucket: "f1-hub-32f3f.firebasestorage.app",
+      messagingSenderId: "386786917585",
+      appId: "1:386786917585:web:6a4da76552d4bcacaf59f0"
+    };
+
+    const app = initializeApp(firebaseConfig);
+const messaging = getMessaging(app);
+
+async function getFCMToken() {
+  const permission = await Notification.requestPermission();
+  if (permission !== 'granted') {
+    console.warn('Notifications denied');
+    return;
+  }
+  
+  try {
+    const token = await getToken(messaging, {
+      vapidKey: "YOUR_PUBLIC_VAPID_KEY"
+    });
+    console.log("✅ FCM Token:", token);
+    alert("Token copied to console!"); // optional
+  } catch (err) {
+    console.error("FCM token error:", err);
+  }
+}
+
+    getFCMToken();
+  </script>
+  
+  <script>
+  window.addEventListener("load", () => {
+    const preloader = document.getElementById("preloader");
+    preloader.style.opacity = "0";
+    setTimeout(() => {
+      preloader.style.display = "none";
+    }, 500); // fade out
+  });
+
+  // Page navigation
+  function showPage(page) {
+    ['home','standings','drivers','schedule','more'].forEach(p => {
+      const el = document.getElementById(p);
+      if (el) el.classList.add('hidden');
+    });
+    const el = document.getElementById(page);
+    if (el) el.classList.remove('hidden');
+  }
+
+
+  function showSection(type) {
+  const sections = ['driver-standings', 'constructor-standings', 'race-results'];
+
+  // Hide all sections
+  sections.forEach(id => document.getElementById(id).style.display = 'none');
+
+  // Show the one selected
+  if (type === 'drivers') {
+    document.getElementById('driver-standings').style.display = 'block';
+  } else if (type === 'constructors') {
+    document.getElementById('constructor-standings').style.display = 'block';
+  } else if (type === 'results') {
+    document.getElementById('race-results').style.display = 'block';
+  }
+}
+
+  document.querySelectorAll('.race-row').forEach(row => {
+  row.addEventListener('click', () => {
+    const detailsRow = row.nextElementSibling;
+    if(detailsRow && detailsRow.classList.contains('race-details')) {
+      const detailsContent = detailsRow.querySelector('.details-content');
+      const isHidden = detailsRow.classList.contains('hidden');
+
+      // Close all other rows
+      document.querySelectorAll('.race-details').forEach(d => {
+        d.classList.add('hidden');
+        const inner = d.querySelector('.details-content');
+        if(inner) inner.classList.remove('show');
+      });
+      document.querySelectorAll('.race-row').forEach(r => r.classList.remove('active'));
+
+      // Open clicked row
+      if(isHidden) {
+        detailsRow.classList.remove('hidden');
+        if(detailsContent) detailsContent.classList.add('show');
+        row.classList.add('active'); // rotate arrow
+      }
+    }
+  });
+});
+
+  // Contact form submission
+  const form = document.getElementById('contactForm');
+  const formMsg = document.getElementById('formMessage');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    formMsg.textContent = "✅ Message sent to the pit crew!";
+    formMsg.style.color = "lightgreen";
+  });
+
+  // Countdown timer
+  function updateCountdown() {
+    const raceDate = new Date('2025-10-05T00:00:00');
+    const now = new Date();
+    const diff = raceDate - now;
+    if (diff > 0) {
+      const days = Math.floor(diff / (1000*60*60*24));
+      const hours = Math.floor((diff/(1000*60*60)) % 24);
+      const minutes = Math.floor((diff/(1000*60)) % 60);
+      document.getElementById('countdown').textContent = `⏳ Countdown: ${days}d ${hours}h ${minutes}m left`;
+    } else {
+      document.getElementById('countdown').textContent = "🏁 The race is happening now!";
+    }
+  }
+  setInterval(updateCountdown, 60000);
+  updateCountdown();
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/devops-website/sw.js')
+    .then(reg => console.log('✅ Service Worker registered:', reg))
+    .catch(err => console.error('❌ Service Worker registration failed:', err));
+}
+</script>
+</body>
+</html>
