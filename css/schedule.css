@@ -1,0 +1,112 @@
+    .schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+  background: rgba(0,0,0,0.6);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.schedule-table td.arrow {
+  width: 20px;            /* fixed width to center the arrow */
+  text-align: center;      /* horizontally center arrow */
+  padding: 12px 0;         /* match table padding */
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  cursor: pointer;
+}
+
+/* Arrow icon itself */
+.arrow-icon {
+  display: inline-block;          /* allow transform to work */
+  transition: transform 0.3s ease;
+  transform-origin: center center; /* rotate around its center */
+}
+
+/* Rotate when row is active */
+.race-row.active .arrow-icon {
+  transform: rotate(90deg);       /* exactly 90° */
+}
+
+.schedule-table th, .schedule-table td {
+  padding: 12px 10px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.schedule-table th {
+  background: rgba(255,0,0,0.8);
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.schedule-table tr:nth-child(even) {
+  background: rgba(255,255,255,0.05);
+}
+
+.schedule-table tr:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Expandable row styling */
+.race-row {
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.race-row:hover {
+  background-color: rgba(255,255,255,0.2);
+}
+
+.race-details {
+  background-color: rgba(255,255,255,0.05);
+  color: #fff;
+}
+
+.race-details td {
+  padding: 10px;
+  text-align: left;
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+.race-details .details-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.race-details.show .details-content {
+  max-height: 500px; /* large enough to fit content */
+  padding-top: 8px;
+}
+.timings-table {
+  margin-top: 8px;
+  width: 100%;
+  border-spacing: 0;
+}
+
+.timings-table td {
+  padding: 4px 8px;
+}
+.timings-table td:first-child {
+  font-weight: 600;
+  width: 30%;
+}
+.race-details.hidden {
+  display: none;
+}
+
+.race-details.show {
+  display: table-row;
+}
+.details-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  padding: 0;
+}
+
+.details-content.show {
+  max-height: 500px;
+  padding: 8px 0;
+}
