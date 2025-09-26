@@ -378,14 +378,14 @@ h1 {
 }
 
 /* === Race Full Standings Section === */
-#race-full-standings-r1 {
+.race-full-standings {
   padding: 20px;
   text-align: center;
   color: #fff;
 }
 
 /* Title */
-#race-full-standings-r1 h2 {
+.race-full-standings h2 {
   font-size: 1.5em;
   margin-bottom: 15px;
   color: #fff;
@@ -435,7 +435,7 @@ h1 {
 }
 
 /* Back button inside standings */
-#race-full-standings-r1 .view-full-btn {
+.race-full-standings .view-full-btn {
   margin-top: 15px;
   padding: 8px 15px;
   background-color: #DC0000; /* Ferrari red */
@@ -448,11 +448,9 @@ h1 {
   transition: background 0.3s;
 }
 
-#race-full-standings-r1 .view-full-btn:hover {
+.race-full-standings .view-full-btn:hover {
   background-color: #b80000;
 }
-
-
 
 /* Tables full width */
 .standings-table {
