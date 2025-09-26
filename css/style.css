@@ -230,6 +230,82 @@ h1 {
   transform: scale(1.05);
 }
 
+/* Full Race Standings Section */
+.race-full-table {
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+}
+
+/* Section Title */
+.race-full-table h2 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Table Base */
+.race-table {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+  border-collapse: collapse;
+  font-size: 0.95em;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Table Header */
+.race-table thead th {
+  background-color: #DC0000; /* Ferrari red */
+  color: #fff;
+  padding: 12px;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+/* Table Cells */
+.race-table tbody td {
+  padding: 10px 14px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+/* Alternating Row Background */
+.race-table tbody tr:nth-child(even) {
+  background: rgba(255,255,255,0.05);
+}
+
+/* Row Hover Effect */
+.race-table tbody tr:hover {
+  background: rgba(220,0,0,0.3);
+  transition: background 0.3s ease;
+}
+
+/* Back Button */
+.race-full-table .view-full-btn {
+  margin-top: 15px;
+  padding: 8px 15px;
+  background-color: #DC0000; /* Ferrari red */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.race-full-table .view-full-btn:hover {
+  background-color: #b80000;
+}
+
+
 .race-result-card {
     display: flex;
     flex-direction: column;
