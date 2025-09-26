@@ -1,0 +1,108 @@
+    .driver-photo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 8px;
+      object-fit: cover;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .card {
+      width: 150px;
+      height: 200px;
+      perspective: 1000px;
+      border-radius: 12px;
+      background: transparent;
+    }
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
+    .card:hover .card-inner { transform: rotateY(180deg); }
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9em;
+      padding: 10px;
+      flex-direction: column;
+    }
+    .team {
+  border: 3px solid var(--team-color);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 30px auto;
+  position: relative;
+  text-align: center;
+  max-width: 400px;
+  background: transparent;
+}
+
+/* Team name “cut out” style */
+.team-name {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;  /* page background */
+  padding: 0 10px;
+  font-weight: bold;
+  color: var(--team-color);
+}
+
+/* Card back uses team color */
+.team .card-back {
+  background: var(--team-color);
+}
+
+/* --- TEAM COLORS --- */
+.mclaren {
+  --team-color: #FF8700;
+}
+.ferrari {
+  --team-color: #DC0000;
+}
+.redbull {
+  --team-color: #1E41FF;
+}
+.mercedes {
+  --team-color: #00D2BE;
+}
+.astonmartin {
+  --team-color: #006F62;
+}
+.alpine {
+  --team-color: #0090FF;
+}
+.haas {
+  --team-color: #FFFFFF;
+}
+.haas .team-name {
+  color: #000000; /* black */
+}
+.vcarb {
+  --team-color: #1E2A5A;
+}
+.williams {
+  --team-color: #005AFF;
+}
+.kicksauber {
+  --team-color: #00FF87; /* neon green */
+}
+    .card-front { background: rgba(0,0,0,0.7); }
+    .card-back { transform: rotateY(180deg); color: #fff; }
