@@ -157,26 +157,6 @@
               </div>
   </div>
 
-  <section id="full-standings-r1" class="hidden">
-  <h2>Australian GP – Full Standings</h2>
-  <table class="race-standings-table">
-    <thead>
-      <tr>
-        <th>Pos</th>
-        <th>Driver</th>
-        <th>Team</th>
-        <th>Time/Gap</th>
-        <th>Points</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>1</td><td>Lando Norris</td><td>McLaren</td><td>1:42:06</td><td>25</td></tr>
-      <tr><td>2</td><td>Max Verstappen</td><td>Red Bull</td><td>+0.895</td><td>18</td></tr>
-      <tr><td>3</td><td>George Russell</td><td>Mercedes</td><td>+8.481</td><td>15</td></tr>
-      <!-- Add remaining drivers here -->
-    </tbody>
-  </table>
-</section>
 
   <!-- Round 2 -->
   <div class="race-result-card">
@@ -1125,6 +1105,29 @@
     </table>
   </div>
 </div>
+
+  <section id="full-standings-r1" class="hidden">
+  <h2>Australian GP – Full Standings</h2>
+  <table class="race-standings-table">
+    <thead>
+      <tr>
+        <th>Pos</th>
+        <th>Driver</th>
+        <th>Team</th>
+        <th>Time/Gap</th>
+        <th>Points</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Lando Norris</td><td>McLaren</td><td>1:42:06</td><td>25</td></tr>
+      <tr><td>2</td><td>Max Verstappen</td><td>Red Bull</td><td>+0.895</td><td>18</td></tr>
+      <tr><td>3</td><td>George Russell</td><td>Mercedes</td><td>+8.481</td><td>15</td></tr>
+      <!-- Add remaining drivers -->
+    </tbody>
+  </table>
+
+  <button onclick="returnToHome()" class="view-full-btn">← Back</button>
+</section>
 
 
       <!-- Drivers -->
@@ -2091,22 +2094,30 @@ if ('serviceWorker' in navigator) {
 }
 
 function openFullStandings(sectionId) {
-  // Hide all main SPA sections
+  // Hide main SPA sections
   ['home','standings','drivers','schedule','more'].forEach(p => {
     const el = document.getElementById(p);
     if(el) el.classList.add('hidden');
   });
 
-  // Hide all other full standings sections
+  // Hide other full standings
   document.querySelectorAll('[id^="full-standings-"]').forEach(sec => sec.classList.add('hidden'));
 
-  // Show the selected full standings section
+  // Show the requested full standings
   const sec = document.getElementById(sectionId);
   if(sec) {
     sec.classList.remove('hidden');
     sec.scrollIntoView({ behavior: 'smooth' });
   }
 }
+
+// Back button
+function returnToHome() {
+  document.querySelectorAll('[id^="full-standings-"]').forEach(sec => sec.classList.add('hidden'));
+  const home = document.getElementById('home');
+  if(home) home.classList.remove('hidden');
+}
+
 </script>
 
 </body>
