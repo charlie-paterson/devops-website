@@ -194,6 +194,11 @@
         <div class="driver-times">+11.097</div>
       </div>
     </div>
+                  <div class="race-button-wrapper">
+                  <a href="javascript:void(0);" onclick="openFullStandings('full-standings-r2')" class="view-full-btn">
+                  View Full Result
+                  </a>
+                  </div>
   </div> 
 
   <!-- Round 3 -->
@@ -1108,6 +1113,29 @@
 
   <section id="full-standings-r1" class="race-full-table hidden">
   <h2>Australian GP – Full Standings</h2>
+  <table class="race-table">
+    <thead>
+      <tr>
+        <th>Pos</th>
+        <th>Driver</th>
+        <th>Team</th>
+        <th>Time/Gap</th>
+        <th>Points</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Lando Norris</td><td>McLaren</td><td>1:42:06</td><td>25</td></tr>
+      <tr><td>2</td><td>Max Verstappen</td><td>Red Bull</td><td>+0.895</td><td>18</td></tr>
+      <tr><td>3</td><td>George Russell</td><td>Mercedes</td><td>+8.481</td><td>15</td></tr>
+      <!-- Add remaining drivers -->
+    </tbody>
+  </table>
+
+  <button onclick="returnToStandings()" class="view-full-btn">← Back</button>
+</section>
+
+    <section id="full-standings-r2" class="race-full-table hidden">
+  <h2>Chinese GP – Full Standings</h2>
   <table class="race-table">
     <thead>
       <tr>
