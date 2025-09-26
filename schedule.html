@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule</title>
+  <link rel="stylesheet" href="css/style.css"> 
+  <link rel="stylesheet" href="css/schedule.css"><!-- shared global styles -->
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="standings.html">Results</a>
+    <a href="drivers.html">Drivers</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="more.html">More</a>
+  </nav>
+
+  <div id="schedule" class="hidden home-section">
+  <h1>2025 Race Calendar</h1>
+  <table class="schedule-table">
+    <tr>
+      <th>  </th>
+      <th>Race</th>
+      <th>Date</th>
+      <th>Location</th>
+    </tr>
+
+    <!-- Australian GP -->
+    <tr class="race-row">
+      <td class="arrow"><span class="arrow-icon">▶</span></td> 
+      <td>Australian GP 🇦🇺</td>
+      <td>March 14-16</td>
+      <td>Melbourne</td>
+    </tr>
+    <tr class="race-details hidden">
+      <td colspan="4">
+        <div class="details-content">
+          <strong>Weekend Timings:</strong>
+          <table class="timings-table">
+            <th>Date</th><th>Session</th><th>Time</th>
+            <tr><td>Friday</td><td>Practice 1</td><td>01:30 - 02:30</td></tr>
+            <tr><td>Friday</td><td>Practice 2</td><td>05:00 - 06:00</td></tr>
+            <tr><td>Saturday</td><td>Practice 3</td><td>01:30 - 02:30</td></tr>
+            <tr><td>Saturday</td><td>Qualifying</td><td>05:00 - 06:00</td></tr>
+            <tr><td>Sunday</td><td>Race</td><td>04:00</td></tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+
+    <!-- Chinese GP -->
+    <tr class="race-row">
+      <td class="arrow"><span class="arrow-icon">▶</span></td>
+      <td>Chinese GP 🇨🇳</td>
+      <td>March 21-23</td>
+      <td>Shanghai</td>
+    </tr>
+    <tr class="race-details hidden">
+      <td colspan="4">
+        <div class="details-content">
+          <strong>Weekend Timings:</strong>
+          <table class="timings-table">
+            <th>Date</th><th>Session</th><th>Time</th>
+            <tr><td>Friday</td><td>Practice 1</td><td>03:30 - 04:30</td></tr>
+            <tr><td>Friday</td><td>Sprint Qualifying</td><td>07:30 - 08:14</td></tr>
+            <tr><td>Saturday</td><td>Sprint</td><td>03:00 - 04:00</td></tr>
+            <tr><td>Saturday</td><td>Qualifying</td><td>07:00 - 08:00</td></tr>
+            <tr><td>Sunday</td><td>Race</td><td>07:00</td></tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+
+    <!-- Japanese GP -->
+    <tr class="race-row">
+      <td class="arrow"><span class="arrow-icon">▶</span></td>
+      <td>Japanese GP 🇯🇵</td>
+      <td>April 04-06</td>
+      <td>Suzuka</td>
+    </tr>
+    <tr class="race-details hidden">
+      <td colspan="4">
+        <div class="details-content">
+          <strong>Weekend Timings:</strong>
+          <table class="timings-table">
+            <th>Date</th><th>Session</th><th>Time</th>
+            <tr><td>Friday</td><td>Practice 1</td><td>03:30 - 04:30</td></tr>
+            <tr><td>Friday</td><td>Practice 2</td><td>07:00 - 08:00</td></tr>
+            <tr><td>Saturday</td><td>Practice 3</td><td>03:30 - 04:30</td></tr>
+            <tr><td>Saturday</td><td>Qualifying</td><td>07:00 - 08:00</td></tr>
+            <tr><td>Sunday</td><td>Race</td><td>06:00</td></tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+
+    <!-- Bahrain GP -->
+    <tr class="race-row">
+      <td class="arrow"><span class="arrow-icon">▶</span></td>
+      <td>Bahrain GP 🇧🇭</td>
+      <td>April 11-13</td>
+      <td>Sakhir</td>
+    </tr>
+    <tr class="race-details hidden">
+      <td colspan="4">
+        <div class="details-content">
+          <strong>Weekend Timings:</strong>
+          <table class="timings-table">
+            <th>Date</th><th>Session</th><th>Time</th>
+            <tr><td>Friday</td><td>Practice 1</td><td>12:30 - 13:30</td></tr>
+            <tr><td>Friday</td><td>Practice 2</td><td>16:00 - 17:00</td></tr>
+            <tr><td>Saturday</td><td>Practice 3</td><td>13:30 - 14:30</td></tr>
+            <tr><td>Saturday</td><td>Qualifying</td><td>17:00 - 18:00</td></tr>
+            <tr><td>Sunday</td><td>Race</td><td>16:00</td></tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+
+    <!-- Saudi Arabian GP -->
+    <tr class="race-row">
+      <td class="arrow"><span class="arrow-icon">▶</span></td>
+      <td>Saudi Arabian GP 🇸🇦</td>
+      <td>April 18-20</td>
+      <td>Jeddah</td>
+    </tr>
+    <tr class="race-details hidden">
+      <td colspan="4">
+        <div class="details-content">
+          <strong>Weekend Timings:</strong>
+          <table class="timings-table">
+            <th>Date</th><th>Session</th><th>Time</th>
+            <tr><td>Friday</td><td>Practice 1</td><td>14:30 - 15:30</td></tr>
+            <tr><td>Friday</td><td>Practice 2</td><td>18:00 - 19:00</td></tr>
+            <tr><td>Saturday</td><td>Practice 3</td><td>14:30 - 15:30</td></tr>
+            <tr><td>Saturday</td><td>Qualifying</td><td>18:00 - 19:00</td></tr>
+            <tr><td>Sunday</td><td>Race</td><td>18:00</td></tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+
+    <!-- Miami GP -->
+    <tr class="race-row">
+      <td class="arrow"><span class="arrow-icon">▶</span></td>
+      <td>Miami GP 🇺🇸</td>
+      <td>May 02-04</td>
+      <td>Miami</td>
+    </tr>
+    <tr class="race-details hidden">
+      <td colspan="4">
+        <div class="details-content">
+          <strong>Weekend Timings:</strong>
+          <table class="timings-table">
+            <th>Date</th><th>Session</th><th>Time</th>
+            <tr><td>Friday</td><td>Practice 1</td><td>17:30 - 18:30</td></tr>
+            <tr><td>Friday</td><td>Sprint Qualifying</td><td>21:30 - 22:14</td></tr>
+            <tr><td>Saturday</td><td>Sprint</td><td>17:00 - 17:30</td></tr>
+            <tr><td>Saturday</td><td>Qualifying</td><td>21:00 - 22:00</td></tr>
+            <tr><td>Sunday</td><td>Race</td><td>21:00</td></tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+
+    <!-- Emilia-Romagna GP -->
+    <tr class="race-row">
+      <td class="arrow"><span class="arrow-icon">▶</span></td>
+      <td>Emilia-Romagna GP 🇮🇹</td>
+      <td>May 16-18</td>
+      <td>Imola</td>
+    </tr>
+    <tr class="race-details hidden">
+      <td colspan="4">
+        <div class="details-content">
+          <strong>Weekend Timings:</strong>
+          <table class="timings-table">
+            <th>Date</th><th>Session</th><th>Time</th>
+            <tr><td>Friday</td><td>Practice 1</td><td>12:30 - 13:30</td></tr>
+            <tr><td>Friday</td><td>Practice 2</td><td>16:00 - 17:00</td></tr>
+            <tr><td>Saturday</td><td>Practice 3</td><td>11:30 - 12:30</td></tr>
+            <tr><td>Saturday</td><td>Qualifying</td><td>15:00 - 16:00</td></tr>
+            <tr><td>Sunday</td><td>Race</td><td>14:00</td></tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+
+    <!-- Monaco GP -->
+    <tr class="race-row">
+      <td class="arrow"><span class="arrow-icon">▶</span></td>
+      <td>Monaco GP 🇲🇨</td>
+      <td>May 23-25</td>
+      <td>Imola</td>
+    </tr>
+    <tr class="race-details hidden">
+      <td colspan="4">
+        <div class="details-content">
+          <strong>Weekend Timings:</strong>
+          <table class="timings-table">
+            <th>Date</th><th>Session</th><th>Time</th>
+            <tr><td>Friday</td><td>Practice 1</td><td>12:30 - 13:30</td></tr>
+            <tr><td>Friday</td><td>Practice 2</td><td>16:00 - 17:00</td></tr>
+            <tr><td>Saturday</td><td>Practice 3</td><td>11:30 - 12:30</td></tr>
+            <tr><td>Saturday</td><td>Qualifying</td><td>15:00 - 16:00</td></tr>
+            <tr><td>Sunday</td><td>Race</td><td>14:00</td></tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+
+    <!-- Spanish GP -->
+    <tr class="race-row">
+      <td class="arrow"><span class="arrow-icon">▶</span></td>
+      <td>Spanish GP 🇪🇸</td>
+      <td>May 30-June 01</td>
+      <td>Barcelona</td>
+    </tr>
+    <tr class="race-details hidden">
+      <td colspan="4">
+        <div class="details-content">
+          <strong>Weekend Timings:</strong>
+          <table class="timings-table">
+            <th>Date</th><th>Session</th><th>Time</th>
+            <tr><td>Friday</td><td>Practice 1</td><td>12:30 - 13:30</td></tr>
+            <tr><td>Friday</td><td>Practice 2</td><td>16:00 - 17:00</td></tr>
+            <tr><td>Saturday</td><td>Practice 3</td><td>11:30 - 12:30</td></tr>
+            <tr><td>Saturday</td><td>Qualifying</td><td>15:00 - 16:00</td></tr>
+            <tr><td>Sunday</td><td>Race</td><td>14:00</td></tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+
+    <!-- Canadian GP -->
+    <tr class="race-row">
+      <td class="arrow"><span class="arrow-icon">▶</span></td>
+      <td>Canadian GP 🇨🇦</td>
+      <td>June 13-15</td>
+      <td>Montreal</td>
+    </tr>
+    <tr class="race-details hidden">
+      <td colspan="4">
+        <div class="details-content">
+          <strong>Weekend Timings:</strong>
+          <table class="timings-table">
+            <th>Date</th><th>Session</th><th>Time</th>
+            <tr><td>Friday</td><td>Practice 1</td><td>18:30 - 19:30</td></tr>
+            <tr><td>Friday</td><td>Practice 2</td><td>22:00 - 23:00</td></tr>
+            <tr><td>Saturday</td><td>Practice 3</td><td>17:30 - 18:30</td></tr>
+            <tr><td>Saturday</td><td>Qualifying</td><td>21:00 - 22:00</td></tr>
+            <tr><td>Sunday</td><td>Race</td><td>19:00</td></tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+
+    <!-- Austrian GP -->
+    <tr class="race-row">
+      <td class="arrow"><span class="arrow-icon">▶</span></td>
+      <td>Austrian GP 🇦🇹</td>
+      <td>June 27-29</td>
+      <td>Styria</td>
+    </tr>
+    <tr class="race-details hidden">
+      <td colspan="4">
+        <div class="details-content">
+          <strong>Weekend Timings:</strong>
+          <table class="timings-table">
+            <th>Date</th><th>Session</th><th>Time</th>
+            <tr><td>Friday</td><td>Practice 1</td><td>12:30 - 13:30</td></tr>
+            <tr><td>Friday</td><td>Practice 2</td><td>16:00 - 17:00</td></tr>
+            <tr><td>Saturday</td><td>Practice 3</td><td>11:30 - 12:30</td></tr>
+            <tr><td>Saturday</td><td>Qualifying</td><td>15:00 - 16:00</td></tr>
+            <tr><td>Sunday</td><td>Race</td><td>14:00</td></tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+
+    <!-- British GP -->
+    <tr class="race-row">
+      <td class="arrow"><span class="arrow-icon">▶</span></td>
+      <td>British GP 🇬🇧</td>
+      <td>July 04-06</td>
+      <td>Silverstone</td>
+    </tr>
+    <tr class="race-details hidden">
+      <td colspan="4">
+        <div class="details-content">
+          <strong>Weekend Timings:</strong>
+          <table class="timings-table">
+            <th>Date</th><th>Session</th><th>Time</th>
+            <tr><td>Friday</td><td>Practice 1</td><td>12:30 - 13:30</td></tr>
+            <tr><td>Friday</td><td>Practice 2</td><td>16:00 - 17:00</td></tr>
+            <tr><td>Saturday</td><td>Practice 3</td><td>11:30 - 12:30</td></tr>
+            <tr><td>Saturday</td><td>Qualifying</td><td>15:00 - 16:00</td></tr>
+            <tr><td>Sunday</td><td>Race</td><td>15:00</td></tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+
+    <!-- Belgian GP -->
+    <tr class="race-row">
+      <td class="arrow"><span class="arrow-icon">▶</span></td>
+      <td>Belgian GP 🇧🇪</td>
+      <td>July 25-27</td>
+      <td>Spa</td>
+    </tr>
+    <tr class="race-details hidden">
+      <td colspan="4">
+        <div class="details-content">
+          <strong>Weekend Timings:</strong>
+          <table class="timings-table">
+            <th>Date</th><th>Session</th><th>Time</th>
+            <tr><td>Friday</td><td>Practice 1</td><td>12:30 - 13:30</td></tr>
+            <tr><td>Friday</td><td>Sprint Qualifying</td><td>15:30 - 16:14</td></tr>
+            <tr><td>Saturday</td><td>Sprint</td><td>11:00 - 11:30</td></tr>
+            <tr><td>Saturday</td><td>Qualifying</td><td>15:00 - 16:00</td></tr>
+            <tr><td>Sunday</td><td>Race</td><td>14:00</td></tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+
+    <!-- Hungarian GP -->
+    <tr class="race-row">
+      <td class="arrow"><span class="arrow-icon">▶</span></td>
+      <td>Hungarian GP 🇭🇺</td>
+      <td>August 01-03</td>
+      <td>Budapest</td>
+    </tr>
+    <tr class="race-details hidden">
+      <td colspan="4">
+        <div class="details-content">
+          <strong>Weekend Timings:</strong>
+          <table class="timings-table">
+            <th>Date</th><th>Session</th><th>Time</th>
+            <tr><td>Friday</td><td>Practice 1</td><td>12:30 - 13:30</td></tr>
+            <tr><td>Friday</td><td>Practice 2</td><td>16:00 - 17:00</td></tr>
+            <tr><td>Saturday</td><td>Practice 3</td><td>11:30 - 12:30</td></tr>
+            <tr><td>Saturday</td><td>Qualifying</td><td>15:00 - 16:00</td></tr>
+            <tr><td>Sunday</td><td>Race</td><td>14:00</td></tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+
+    <!-- Dutch GP -->
+    <tr class="race-row">
+      <td class="arrow"><span class="arrow-icon">▶</span></td>
+      <td>Dutch GP 🇳🇱</td>
+      <td>August 29-31</td>
+      <td>Zandvoort</td>
+    </tr>
+    <tr class="race-details hidden">
+      <td colspan="4">
+        <div class="details-content">
+          <strong>Weekend Timings:</strong>
+          <table class="timings-table">
+            <th>Date</th><th>Session</th><th>Time</th>
+            <tr><td>Friday</td><td>Practice 1</td><td>11:30 - 12:30</td></tr>
+            <tr><td>Friday</td><td>Practice 2</td><td>15:00 - 16:00</td></tr>
+            <tr><td>Saturday</td><td>Practice 3</td><td>10:30 - 11:30</td></tr>
+            <tr><td>Saturday</td><td>Qualifying</td><td>14:00 - 15:00</td></tr>
+            <tr><td>Sunday</td><td>Race</td><td>14:00</td></tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+
+    <!-- Italian GP -->
+    <tr class="race-row">
+      <td class="arrow"><span class="arrow-icon">▶</span></td>
+      <td>Italian GP 🇮🇹</td>
+      <td>September 05-07</td>
+      <td>Monza</td>
+    </tr>
+    <tr class="race-details hidden">
+      <td colspan="4">
+        <div class="details-content">
+          <strong>Weekend Timings:</strong>
+          <table class="timings-table">
+            <th>Date</th><th>Session</th><th>Time</th>
+            <tr><td>Friday</td><td>Practice 1</td><td>12:30 - 13:30</td></tr>
+            <tr><td>Friday</td><td>Practice 2</td><td>16:00 - 17:00</td></tr>
+            <tr><td>Saturday</td><td>Practice 3</td><td>11:30 - 12:30</td></tr>
+            <tr><td>Saturday</td><td>Qualifying</td><td>15:00 - 16:00</td></tr>
+            <tr><td>Sunday</td><td>Race</td><td>14:00</td></tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+
+    <!-- Azerbaijan GP -->
+    <tr class="race-row">
+      <td class="arrow"><span class="arrow-icon">▶</span></td>
+      <td>Azerbaijan GP 🇦🇿</td>
+      <td>September 19-21</td>
+      <td>Baku</td>
+    </tr>
+    <tr class="race-details hidden">
+      <td colspan="4">
+        <div class="details-content">
+          <strong>Weekend Timings:</strong>
+          <table class="timings-table">
+            <th>Date</th><th>Session</th><th>Time</th>
+            <tr><td>Friday</td><td>Practice 1</td><td>09:30 - 10:30</td></tr>
+            <tr><td>Friday</td><td>Practice 2</td><td>13:00 - 14:00</td></tr>
+            <tr><td>Saturday</td><td>Practice 3</td><td>09:30 - 10:30</td></tr>
+            <tr><td>Saturday</td><td>Qualifying</td><td>13:00 - 14:00</td></tr>
+            <tr><td>Sunday</td><td>Race</td><td>12:00</td></tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+
+    <!-- Singapore GP -->
+    <tr class="race-row">
+      <td class="arrow"><span class="arrow-icon">▶</span></td>
+      <td>Singapore GP 🇸🇬</td>
+      <td>October 03-05</td>
+      <td>Marina Bay</td>
+    </tr>
+    <tr class="race-details hidden">
+      <td colspan="4">
+        <div class="details-content">
+          <strong>Weekend Timings:</strong>
+          <table class="timings-table">
+            <th>Date</th><th>Session</th><th>Time</th>
+            <tr><td>Friday</td><td>Practice 1</td><td>10:30 - 11:30</td></tr>
+            <tr><td>Friday</td><td>Practice 2</td><td>14:00 - 15:00</td></tr>
+            <tr><td>Saturday</td><td>Practice 3</td><td>10:30 - 11:30</td></tr>
+            <tr><td>Saturday</td><td>Qualifying</td><td>14:00 - 15:00</td></tr>
+            <tr><td>Sunday</td><td>Race</td><td>13:00</td></tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+
+    <!-- USA GP -->
+    <tr class="race-row">
+      <td class="arrow"><span class="arrow-icon">▶</span></td>
+      <td>USA GP 🇺🇸</td>
+      <td>October 17-19</td>
+      <td>Austin</td>
+    </tr>
+    <tr class="race-details hidden">
+      <td colspan="4">
+        <div class="details-content">
+          <strong>Weekend Timings:</strong>
+          <table class="timings-table">
+            <th>Date</th><th>Session</th><th>Time</th>
+            <tr><td>Friday</td><td>Practice 1</td><td>18:30 - 19:30</td></tr>
+            <tr><td>Friday</td><td>Sprint Qualifying</td><td>22:30 - 23:14</td></tr>
+            <tr><td>Saturday</td><td>Sprint</td><td>18:00 - 18:30</td></tr>
+            <tr><td>Saturday</td><td>Qualifying</td><td>22:00 - 23:00</td></tr>
+            <tr><td>Sunday</td><td>Race</td><td>20:00</td></tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+
+    <!-- Mexican GP -->
+    <tr class="race-row">
+      <td class="arrow"><span class="arrow-icon">▶</span></td>
+      <td>Mexican GP 🇲🇽</td>
+      <td>October 24-26</td>
+      <td>Mexico City</td>
+    </tr>
+    <tr class="race-details hidden">
+      <td colspan="4">
+        <div class="details-content">
+          <strong>Weekend Timings:</strong>
+          <table class="timings-table">
+            <th>Date</th><th>Session</th><th>Time</th>
+            <tr><td>Friday</td><td>Practice 1</td><td>19:30 - 20:30</td></tr>
+            <tr><td>Friday</td><td>Practice 2</td><td>23:00 - 00:00</td></tr>
+            <tr><td>Saturday</td><td>Practice 3</td><td>18:30 - 19:30</td></tr>
+            <tr><td>Saturday</td><td>Qualifying</td><td>22:00 - 23:00</td></tr>
+            <tr><td>Sunday</td><td>Race</td><td>20:00</td></tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+
+    <!-- Brazilian GP -->
+    <tr class="race-row">
+      <td class="arrow"><span class="arrow-icon">▶</span></td>
+      <td>Brazilian GP 🇧🇷</td>
+      <td>November 07-09</td>
+      <td>Sao Paulo</td>
+    </tr>
+    <tr class="race-details hidden">
+      <td colspan="4">
+        <div class="details-content">
+          <strong>Weekend Timings:</strong>
+          <table class="timings-table">
+            <th>Date</th><th>Session</th><th>Time</th>
+            <tr><td>Friday</td><td>Practice 1</td><td>14:30 - 15:30</td></tr>
+            <tr><td>Friday</td><td>Sprint Qualifying</td><td>18:30 - 19:14</td></tr>
+            <tr><td>Saturday</td><td>Sprint</td><td>14:00 - 15:00</td></tr>
+            <tr><td>Saturday</td><td>Qualifying</td><td>18:00 - 19:00</td></tr>
+            <tr><td>Sunday</td><td>Race</td><td>17:00</td></tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+
+    <!-- Las Vegas GP -->
+    <tr class="race-row">
+      <td class="arrow"><span class="arrow-icon">▶</span></td>
+      <td>Las Vegas GP 🇺🇸</td>
+      <td>November 20-22</td>
+      <td>Las Vegas</td>
+    </tr>
+    <tr class="race-details hidden">
+      <td colspan="4">
+        <div class="details-content">
+          <strong>Weekend Timings:</strong>
+          <table class="timings-table">
+            <th>Date</th><th>Session</th><th>Time</th>
+            <tr><td>Friday</td><td>Practice 1</td><td>00:30 - 01:30</td></tr>
+            <tr><td>Friday</td><td>Practice 2</td><td>04:00 - 05:00</td></tr>
+            <tr><td>Saturday</td><td>Practice 3</td><td>00:30 - 01:30</td></tr>
+            <tr><td>Saturday</td><td>Qualifying</td><td>04:00 - 05:00</td></tr>
+            <tr><td>Sunday</td><td>Race</td><td>04:00</td></tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+
+    <!-- Qatar GP -->
+    <tr class="race-row">
+      <td class="arrow"><span class="arrow-icon">▶</span></td>
+      <td>Qatar GP 🇶🇦</td>
+      <td>November 28-30</td>
+      <td>Lusail</td>
+    </tr>
+    <tr class="race-details hidden">
+      <td colspan="4">
+        <div class="details-content">
+          <strong>Weekend Timings:</strong>
+          <table class="timings-table">
+            <th>Date</th><th>Session</th><th>Time</th>
+            <tr><td>Friday</td><td>Practice 1</td><td>13:30 - 14:30</td></tr>
+            <tr><td>Friday</td><td>Sprint Qualifying</td><td>17:30 - 18:14</td></tr>
+            <tr><td>Saturday</td><td>Sprint</td><td>14:00 - 15:00</td></tr>
+            <tr><td>Saturday</td><td>Qualifying</td><td>18:00 - 19:00</td></tr>
+            <tr><td>Sunday</td><td>Race</td><td>16:00</td></tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+
+    <!-- Abu Dhabi GP -->
+    <tr class="race-row">
+      <td class="arrow"><span class="arrow-icon">▶</span></td>
+      <td>Abu Dhabi GP 🇦🇪</td>
+      <td>December 05-07</td>
+      <td>Yas Marina</td>
+    </tr>
+    <tr class="race-details hidden">
+      <td colspan="4">
+        <div class="details-content">
+          <strong>Weekend Timings:</strong>
+          <table class="timings-table">
+            <th>Date</th><th>Session</th><th>Time</th>
+            <tr><td>Friday</td><td>Practice 1</td><td>09:30 - 10:30</td></tr>
+            <tr><td>Friday</td><td>Practice 2</td><td>13:00 - 14:00</td></tr>
+            <tr><td>Saturday</td><td>Practice 3</td><td>10:30 - 11:30</td></tr>
+            <tr><td>Saturday</td><td>Qualifying</td><td>14:00 - 15:00</td></tr>
+            <tr><td>Sunday</td><td>Race</td><td>13:00</td></tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+    
+  </table>
+</div>
