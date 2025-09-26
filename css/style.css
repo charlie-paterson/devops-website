@@ -269,12 +269,12 @@ h1 {
 }
 
 .view-full-btn {
-    position: absolute;  /* absolutely position it inside the card */
-    bottom: 15px;        /* distance from bottom of card */
-    right: 15px;         /* distance from right of card */
+    position: absolute;      /* bottom-right corner of card */
+    bottom: 15px;
+    right: 15px;
     padding: 8px 15px;
-    background-color: #ff5500;
-    color: #fff;
+    background-color: red;  /* bright red background */
+    color: #FFFFFF;              /* white text */
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
@@ -282,7 +282,7 @@ h1 {
 }
 
 .view-full-btn:hover {
-    background-color: #e64e00;
+    background-color: #CC0000;  /* darker red on hover */
 }
 
 .driver-cards {
