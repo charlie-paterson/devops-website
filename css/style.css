@@ -231,6 +231,9 @@ h1 {
 }
 
 .race-result-card {
+    display: flex;
+    flex-direction: column;
+  justify-content: space-between;
   background: rgba(0,0,0,0.6);
   border-radius: 15px;
   margin: 15px auto;
@@ -261,6 +264,21 @@ h1 {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.view-full-btn {
+  align-self: flex-end; /* pushes button to the right */
+  padding: 8px 15px;
+  background-color: #ff5500;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.view-full-btn:hover {
+  background-color: #e64e00;
 }
 
 .driver-cards {
