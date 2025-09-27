@@ -2237,15 +2237,17 @@ function openTeamSection(sectionId) {
     if (el) el.classList.add('hidden');
   });
 
-  // Hide all team sections as well
-  document.querySelectorAll('[id^="team-"]').forEach(sec => {
-    sec.classList.add('hidden');
-  });
+  // Hide other team sections
+  document.querySelectorAll('[id^="team-"]').forEach(sec => sec.classList.add('hidden'));
 
-  // Show the requested main section
-  const el = document.getElementById(page);
-  if (el) el.classList.remove('hidden');
+  // Show the requested team section
+  const sec = document.getElementById(sectionId);
+  if (sec) {
+    sec.classList.remove('hidden');  // important!
+    sec.scrollIntoView({ behavior: 'smooth' });
+  }
 }
+
 
     function returnToDrivers() {
   // Hide all team sections
