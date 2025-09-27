@@ -2229,18 +2229,16 @@ async function getFCMToken() {
 
     // Open a team section
 function openTeamSection(sectionId) {
-  // Hide main sections
+  // Hide main SPA sections
   ['home','standings','drivers','schedule','more'].forEach(p => {
     const el = document.getElementById(p);
     if (el) el.classList.add('hidden');
   });
 
-  // Hide other team sections if you add more later
-  document.querySelectorAll('[id^="team-"]').forEach(sec => {
-    sec.classList.add('hidden');
-  });
+  // Hide all other team sections
+  document.querySelectorAll('[id^="team-"]').forEach(sec => sec.classList.add('hidden'));
 
-  // Show requested team section
+  // Show requested team
   const sec = document.getElementById(sectionId);
   if (sec) {
     sec.classList.remove('hidden');
@@ -2248,7 +2246,6 @@ function openTeamSection(sectionId) {
   }
 }
 
-// Back button (to drivers)
 function returnToDrivers() {
   document.querySelectorAll('[id^="team-"]').forEach(sec => sec.classList.add('hidden'));
   const drivers = document.getElementById('drivers');
