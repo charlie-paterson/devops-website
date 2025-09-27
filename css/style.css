@@ -574,6 +574,35 @@ h1 {
     .card-front { background: rgba(0,0,0,0.7); }
     .card-back { transform: rotateY(180deg); color: #fff; }
 
+.driver {
+  text-align: center;
+  max-width: 220px;
+}
+
+.driver img {
+  max-width: 150px;
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+.driver p {
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+.driver-facts {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.driver-facts li {
+  margin: 4px 0;
+}
+
+
     .schedule-table {
   width: 100%;
   border-collapse: collapse;
