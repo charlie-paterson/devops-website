@@ -2229,27 +2229,21 @@ async function getFCMToken() {
 
     // Open a team section
 function openTeamSection(sectionId) {
-  // Hide main SPA sections
+  // Hide all main SPA sections
   ['home','standings','drivers','schedule','more'].forEach(p => {
     const el = document.getElementById(p);
-    if (el) el.classList.add('hidden');
+    if(el) el.classList.add('hidden');
   });
 
-  // Hide all other team sections
+  // Hide all full standings sections
   document.querySelectorAll('[id^="team-"]').forEach(sec => sec.classList.add('hidden'));
 
-  // Show requested team
+  // Show the requested section
   const sec = document.getElementById(sectionId);
-  if (sec) {
+  if(sec) {
     sec.classList.remove('hidden');
     sec.scrollIntoView({ behavior: 'smooth' });
   }
-}
-
-function returnToDrivers() {
-  document.querySelectorAll('[id^="team-"]').forEach(sec => sec.classList.add('hidden'));
-  const drivers = document.getElementById('drivers');
-  if (drivers) drivers.classList.remove('hidden');
 }
 
 
