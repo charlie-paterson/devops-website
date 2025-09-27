@@ -772,7 +772,7 @@
   </div>
 
     <!-- Upcoming Race -->
-    <h1>Next Race</h1>
+    <h1>Next Race...</h1>
 <div class="race-result-card">
   <div class="race-header">
     <div class="round">🇲🇽 Round 18 🇲🇽</div>
@@ -1258,6 +1258,13 @@
           </div>
         </div>
         <p class="team-name">Mclaren</p>
+
+        <div class="race-button-wrapper">
+                  <a href="javascript:void(0);" onclick="openTeamSection('full-standings-r1')" class="view-full-btn">
+                  Click Here
+              </a>
+              </div>
+        
       </div>
 
       <!-- Ferrari -->
@@ -1485,6 +1492,64 @@
         <p class="team-name">Kick Sauber</p>
       </div>
     </div>
+
+<section id="team-mclaren" class="team-card">
+  <h2>McLaren F1 Team</h2>
+  
+  <div class="team-info">
+    <!-- Team Logo -->
+    <div class="team-logo">
+      <img src="images/mclaren-logo.png" alt="McLaren Logo">
+    </div>
+
+    <!-- Team Car -->
+    <div class="team-car">
+      <img src="images/mclaren-car.png" alt="McLaren F1 Car">
+    </div>
+
+    <!-- Facts -->
+    <div class="team-facts">
+      <h3>Team Facts</h3>
+      <ul>
+        <li><strong>Full Name:</strong> McLaren Formula 1 Team</li>
+        <li><strong>Base:</strong> Woking, United Kingdom</li>
+        <li><strong>Team Principal:</strong> Andrea Stella</li>
+        <li><strong>World Championships:</strong> 8 (Constructors)</li>
+        <li><strong>First Entry:</strong> 1966 Monaco Grand Prix</li>
+        <li><strong>Chassis:</strong> MCL38</li>
+        <li><strong>Power Unit:</strong> Mercedes</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Drivers -->
+  <div class="drivers">
+    <div class="driver">
+      <img src="images/lando.png" alt="Lando Norris">
+      <p><strong>Lando Norris</strong><br>Car No. 4</p>
+      <ul class="driver-facts">
+        <li><strong>Nationality:</strong> Great Britain</li>
+        <li><strong>DOB:</strong> 13 November 1999</li>
+        <li><strong>F1 Debut:</strong> 2019 Australian GP</li>
+        <li><strong>Best Finish:</strong> 1st (multiple)</li>
+        <li><strong>Fun Fact:</strong> Known for his sense of humor and Twitch streaming</li>
+      </ul>
+    </div>
+
+    <div class="driver">
+      <img src="images/piastri.png" alt="Oscar Piastri">
+      <p><strong>Oscar Piastri</strong><br>Car No. 81</p>
+      <ul class="driver-facts">
+        <li><strong>Nationality:</strong> Australia</li>
+        <li><strong>DOB:</strong> 6 April 2001</li>
+        <li><strong>F1 Debut:</strong> 2023 Bahrain GP</li>
+        <li><strong>Best Finish:</strong> 1st (Qatar Sprint 2023)</li>
+        <li><strong>Fun Fact:</strong> Junior champion in Formula 3 and Formula 2 back-to-back</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 
 <div id="schedule" class="hidden home-section">
   <h1>2025 Race Calendar</h1>
@@ -2161,6 +2226,35 @@ async function getFCMToken() {
     }
   });
 });
+
+    // Open a team section
+function openTeamSection(sectionId) {
+  // Hide main sections
+  ['home','standings','drivers','schedule','more'].forEach(p => {
+    const el = document.getElementById(p);
+    if (el) el.classList.add('hidden');
+  });
+
+  // Hide other team sections if you add more later
+  document.querySelectorAll('[id^="team-"]').forEach(sec => {
+    sec.classList.add('hidden');
+  });
+
+  // Show requested team section
+  const sec = document.getElementById(sectionId);
+  if (sec) {
+    sec.classList.remove('hidden');
+    sec.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+// Back button (to drivers)
+function returnToDrivers() {
+  document.querySelectorAll('[id^="team-"]').forEach(sec => sec.classList.add('hidden'));
+  const drivers = document.getElementById('drivers');
+  if (drivers) drivers.classList.remove('hidden');
+}
+
 
   // Contact form submission
   const form = document.getElementById('contactForm');
