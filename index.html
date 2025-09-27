@@ -1548,6 +1548,8 @@
       </ul>
     </div>
   </div>
+
+  <button onclick="returnToDrivers()" class="view-full-btn">← Back</button>
 </section>
 
 
@@ -2243,6 +2245,15 @@ function showPage(page) {
   // Show the requested main section
   const el = document.getElementById(page);
   if (el) el.classList.remove('hidden');
+}
+
+    function returnToDrivers() {
+  // Hide all team sections
+  document.querySelectorAll('[id^="team-"]').forEach(sec => sec.classList.add('hidden'));
+
+  // Show the drivers section
+  const drivers = document.getElementById('drivers');
+  if (drivers) drivers.classList.remove('hidden');
 }
 
 
