@@ -22,14 +22,16 @@
   <!-- Theme color -->
   <meta name="theme-color" content="#E10600">
 
-  <script type="text/javascript">
-        (function(d, t) {
-                var g = d.createElement(t),
-                s = d.getElementsByTagName(t)[0];
-                g.src = "https://cdn.pushalert.co/integrate_86061d4f091ce233943fc78fa0ea6104.js";
-                s.parentNode.insertBefore(g, s);
-        }(document, "script"));
-</script>
+	<script type="text/javascript">
+		var pushalert_sw_file = '/devops-website/sw.js';
+		var pushalert_sw_scope = '/devops-website/';
+		(function(d, t) {
+				var g = d.createElement(t),
+				s = d.getElementsByTagName(t)[0];
+				g.src = "https://cdn.pushalert.co/integrate_86061d4f091ce233943fc78fa0ea6104.js";
+				s.parentNode.insertBefore(g, s);
+		}(document, "script"));
+	</script>
 </head>
 <body>
   <div id="preloader">
@@ -2130,43 +2132,6 @@
       <p id="formMessage"></p>
     </form>
   </div>
-
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
-    import { getMessaging, getToken, onMessage } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-messaging.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyBhc7dAgsepoTZMhHK03VDC2rYK4VOGvtY",
-      authDomain: "f1-hub-32f3f.firebaseapp.com",
-      projectId: "f1-hub-32f3f",
-      storageBucket: "f1-hub-32f3f.firebasestorage.app",
-      messagingSenderId: "386786917585",
-      appId: "1:386786917585:web:6a4da76552d4bcacaf59f0"
-    };
-
-    const app = initializeApp(firebaseConfig);
-const messaging = getMessaging(app);
-
-async function getFCMToken() {
-  const permission = await Notification.requestPermission();
-  if (permission !== 'granted') {
-    console.warn('Notifications denied');
-    return;
-  }
-  
-  try {
-    const token = await getToken(messaging, {
-      vapidKey: "YOUR_PUBLIC_VAPID_KEY"
-    });
-    console.log("✅ FCM Token:", token);
-    alert("Token copied to console!"); // optional
-  } catch (err) {
-    console.error("FCM token error:", err);
-  }
-}
-
-    getFCMToken();
-  </script>
   
   <script>
   window.addEventListener("load", () => {
