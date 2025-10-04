@@ -703,6 +703,24 @@ h1 {
   }
 }
 
+.team-card .view-full-btn {
+  display: inline-block;
+  margin-top: 2rem;   /* pushes button lower */
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background: #ff8700;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.team-card .view-full-btn:hover {
+  background: #e76e00; /* slightly darker on hover */
+}
+
 
 
     .schedule-table {
