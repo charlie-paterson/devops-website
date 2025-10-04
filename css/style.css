@@ -703,7 +703,7 @@ h1 {
   }
 }
 
-.team-card .view-full-btn {
+.card .view-full-btn {
   display: inline-block;
   margin-top: 2rem;   /* pushes button lower */
   padding: 0.7rem 1.5rem;
@@ -717,7 +717,7 @@ h1 {
   transition: background 0.3s ease;
 }
 
-.team-card .view-full-btn:hover {
+.card .view-full-btn:hover {
   background: #e76e00; /* slightly darker on hover */
 }
 
