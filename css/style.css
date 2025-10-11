@@ -836,6 +836,15 @@ h1 {
   padding: 0;
 }
 
+.team .cards {
+  margin-bottom: 25px; /* adds space below the cards for all teams */
+}
+
+.team .race-button-wrapper {
+  margin-top: 0; /* reset any earlier spacing */
+  text-align: center;
+}
+
 .details-content.show {
   max-height: 500px;
   padding: 8px 0;
