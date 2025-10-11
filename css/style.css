@@ -259,6 +259,11 @@ h1 {
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
+.race-button-wrapper {
+  margin-top: 15px; /* small gap between cards and button */
+  text-align: center; /* keeps the button centered */
+}
+
 /* Table Header */
 .race-table thead th {
   background-color: #DC0000; /* Ferrari red */
