@@ -1451,6 +1451,12 @@
           </div>
         </div>
         <p class="team-name">Red Bull Racing</p>
+      <div class="race-button-wrapper">
+                  <a href="javascript:void(0);" onclick="openTeamSection('team-redbull')" class="view-full-btn">
+                  View Ferrari Team
+              </a>
+              </div>
+        
       </div>
 
       <!-- Mercedes -->
@@ -1747,7 +1753,66 @@
   <button onclick="returnToDrivers()" class="view-full-btn">← Back</button>
 </section>
 
+<section id="team-redbull" class="team-card hidden" style="--team-color:#1e41ff">
+  <h2>Red Bull Racing F1 Team</h2>
+  
+  <div class="team-info">
+    <!-- Team Logo -->
+    <div class="team-logo">
+      <img src="images/redbull.png" alt="Red Bull Logo">
+    </div>
 
+    <!-- Team Car -->
+    <div class="team-car">
+      <img src="images/redbull-car.png" alt="Red Bull F1 Car">
+    </div>
+
+    <!-- Facts -->
+    <div class="team-facts">
+      <h3>Team Facts</h3>
+      <ul>
+        <li><strong>Full Name:</strong> Oracle Red Bull Racing</li>
+        <li><strong>Base:</strong> Milton Keynes, United Kingdom</li>
+        <li><strong>Team Principal:</strong> Christian Horner</li>
+        <li><strong>World Championships:</strong> 6 (Constructors)</li>
+        <li><strong>First Entry:</strong> 2005 Australian Grand Prix</li>
+        <li><strong>Chassis:</strong> RB21</li>
+        <li><strong>Power Unit:</strong> Honda (Red Bull Powertrains)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Drivers -->
+  <div class="drivers">
+    <div class="driver">
+      <img src="images/max.png" alt="Max Verstappen">
+      <p><strong>Max Verstappen</strong><br>Car No. 1</p>
+      <ul class="driver-facts">
+        <li><strong>Nationality:</strong> Netherlands</li>
+        <li><strong>DOB:</strong> 30 September 1997</li>
+        <li><strong>F1 Debut:</strong> 2015 Australian GP</li>
+        <li><strong>Best Finish:</strong> 1st (multiple races, World Champion 2021 & 2022)</li>
+        <li><strong>Fun Fact:</strong> Youngest ever Grand Prix winner at 18</li>
+      </ul>
+    </div>
+
+    <div class="driver">
+      <img src="images/yuki.png" alt="Yuki Tsunoda">
+      <p><strong>Yuki Tsunoda</strong><br>Car No. 22</p>
+      <ul class="driver-facts">
+        <li><strong>Nationality:</strong> Japan</li>
+        <li><strong>DOB:</strong> 11 May 2000</li>
+        <li><strong>F1 Debut:</strong> 2021 Bahrain GP</li>
+        <li><strong>Best Finish:</strong> 4th (2022 Abu Dhabi GP)</li>
+        <li><strong>Fun Fact:</strong> First Japanese driver in F1 since 2014</li>
+      </ul>
+    </div>
+  </div>
+
+  <button onclick="returnToDrivers()" class="view-full-btn">← Back</button>
+</section>
+
+	
 
 <div id="schedule" class="hidden home-section">
   <h1>2025 Race Calendar</h1>
