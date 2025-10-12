@@ -580,6 +580,7 @@ h1 {
     .card-back { transform: rotateY(180deg); color: #fff; }
 
 /* Team Card Base */
+/* Team Card Base */
 .team-card {
   background: #111; /* dark theme */
   color: #fff;
@@ -589,13 +590,16 @@ h1 {
   max-width: 1200px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.4);
   text-align: center;
+
+  /* Default team color (fallback) */
+  --team-color: #ff8700;
 }
 
 /* Section Header */
 .team-card h2 {
   font-size: 2.2rem;
   margin-bottom: 1.5rem;
-  color: #ff8700; /* McLaren orange */
+  color: var(--team-color);
   text-transform: uppercase;
   letter-spacing: 2px;
 }
@@ -632,7 +636,7 @@ h1 {
 .team-facts h3 {
   margin-bottom: 1rem;
   font-size: 1.4rem;
-  color: #ff8700;
+  color: var(--team-color);
 }
 
 .team-facts ul {
@@ -680,7 +684,7 @@ h1 {
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 1rem;
-  color: #ff8700;
+  color: var(--team-color);
 }
 
 /* Driver Facts */
@@ -708,13 +712,14 @@ h1 {
   }
 }
 
-.card .view-full-btn {
+/* View Full Button */
+.team-card .view-full-btn {
   display: inline-block;
-  margin-top: 2rem;   /* pushes button lower */
+  margin-top: 2rem;
   padding: 0.7rem 1.5rem;
   font-size: 1rem;
   font-weight: bold;
-  background: #ff8700;
+  background: var(--team-color);
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -722,8 +727,8 @@ h1 {
   transition: background 0.3s ease;
 }
 
-.card .view-full-btn:hover {
-  background: #e76e00; /* slightly darker on hover */
+.team-card .view-full-btn:hover {
+  filter: brightness(85%);
 }
 
 
